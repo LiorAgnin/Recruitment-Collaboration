@@ -14,4 +14,8 @@ export class EditJobComponent implements OnInit {
   ngOnInit() {
   }
 
+  updeteJob(jobEdit:Job){
+    this.jobService.updeteJob(jobEdit);
+  }
+
 }

@@ -4,22 +4,17 @@ import { Job } from "../../model/job";
 import { SkillsetServiceService } from "../../services/skillset-service.service";
 import { Skillset } from '../../model/skillset';
 
-
 @Component({
   selector: 'app-add-new-job',
   templateUrl: './add-new-job.component.html',
   styleUrls: ['./add-new-job.component.css']
 })
 export class AddNewJobComponent implements OnInit {
-newJob:Job=<Job>{};
-
-
+  newJob: Job = <Job>{};
   arSkillset: Skillset[] = new Array();
 
   constructor(public jobService: JobsServiceService,
-    public SkillsetService: SkillsetServiceService) {
-     }
-
+    public SkillsetService: SkillsetServiceService) {}
   ngOnInit() {
 
     console.log("AddNewJobComponent");
