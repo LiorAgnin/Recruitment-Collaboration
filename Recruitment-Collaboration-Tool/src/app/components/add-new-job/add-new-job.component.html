@@ -4,20 +4,20 @@
   <form #trvForm="ngForm" (ngSubmit)="addNewJobSubmitHandler()">
     <div class="form-group">
       <label for="IdPostion">Postion</label>
-      <input id="IdPostion" type="text" class="form-control" required [(ngModel)]="Postion" name="postion" #trvName=ngModel > 
+      <input id="IdPostion" type="text" class="form-control" required [(ngModel)]="newJob.Postion" name="postion" #trvName=ngModel > 
     </div>
     <div class="form-group">
       <label for="IdMinimumReqYears">Minimum Requst Years</label>
-      <input id="IdMinimumReqYears" type="number" class="form-control" required [(ngModel)]="MinimumReqYears" name="minimumReqYears">
+      <input id="IdMinimumReqYears" type="number" class="form-control" required [(ngModel)]="newJob.MinimumReqYears" name="minimumReqYears">
     </div>
     <div class="form-group">
       <label for="IdDescription">Description</label>
-      <input id="IdDescription" type="text" class="form-control" required [(ngModel)]="Description" name="description">
+      <input id="IdDescription" type="text" class="form-control" required [(ngModel)]="newJob.Description" name="description">
     </div>
   
     <div class="form-group">
       <label for="IdSkills">Skills</label>
-      <input id="IdSkills" type="text" class="form-control" required [(ngModel)]="Skills" name="skills">
+      <input id="IdSkills" type="text" class="form-control" required [(ngModel)]="newJob.Skills" name="skills">
     </div>
     <button [disabled]="!trvForm.valid"  class="btn btn-primary">Add Job</button>
   </form>

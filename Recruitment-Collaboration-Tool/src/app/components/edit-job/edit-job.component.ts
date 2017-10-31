@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { JobsServiceService } from "../../services/jobs-service.service";
+import { Job } from "../../model/job";
 
 @Component({
   selector: 'app-edit-job',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditJobComponent implements OnInit {
 
-  constructor() { }
+  constructor(public jobService: JobsServiceService) { }
 
   ngOnInit() {
   }

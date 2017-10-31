@@ -1,6 +1,7 @@
 export interface Job {
-    Id?: number;
-    Postion?: string;
+
+    Id?: any;
+    Postion?: number;
     MinimumReqYears?:number;
     Description?:string;
     IsArcheive?:boolean;
