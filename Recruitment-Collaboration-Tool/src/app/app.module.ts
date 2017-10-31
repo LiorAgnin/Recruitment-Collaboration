@@ -12,6 +12,7 @@ import { AddNewApplicantComponent } from './components/add-new-applicant/add-new
 import { LoginComponent } from './components/login/login.component';
 import { AddNewJobComponent } from './components/add-new-job/add-new-job.component';
 import { EditJobComponent } from './components/edit-job/edit-job.component';
+
 @NgModule({
   declarations: [
     AppComponent,
