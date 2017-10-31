@@ -8,10 +8,11 @@ import {ApplicantHistory} from '../model/Applicant-History';
 @Injectable()
 export class ApplicantServiceService {
 
+  applicantDocm:AngularFirestoreDocument<Applicant>;
   applicanCollection:AngularFirestoreCollection<Applicant>;
   applicants:Observable<Applicant[]>;
-  applicantsStatus:Observable<Applicant[]>;
-  applicantsHistory:Observable<Applicant[]>;
+  // applicantsStatus:Observable<Applicant[]>;
+  // applicantsHistory:Observable<Applicant[]>;
 
 
   constructor(public applicant:AngularFirestore ) {
@@ -38,6 +39,11 @@ export class ApplicantServiceService {
    addNewApplicant(newApplicant:Applicant){
      this.applicanCollection.add(newApplicant);
    }
+
+   updeteJob(updeteJob: Applicant) {
+    this.applicantDocm = this.applicant.doc(`Jobs/${updeteJob.Id}`);
+    this.applicantDocm.update(updeteJob);
+  }
 
   //  getApplicantsStatus(){
   //   return this.applicantsStatus;
