@@ -15,21 +15,36 @@ export class ApplicantServiceService {
 
 
   constructor(public applicant:AngularFirestore ) {
-    this.applicants= this.applicant.collection('Applicants').valueChanges();
-    this.applicantsStatus= this.applicant.collection('ApplicantStatus').valueChanges();
-    this.applicantsHistory=this.applicant.collection('ApplicantHistory').valueChanges();
+
+    this.applicanCollection=this.applicant.collection('Applicants');
+
+    this.applicants= this.applicanCollection.snapshotChanges().map(chages=>{
+      return chages.map(applicant=>{
+        const applicantData=applicant.payload.doc.data() as Applicant;
+        applicantData.Id = applicant.payload.doc.id as any;
+        return applicantData;
+      })
+    });
+
+
+    // this.applicantsStatus= this.applicant.collection('ApplicantStatus').valueChanges();
+    // this.applicantsHistory=this.applicant.collection('ApplicantHistory').valueChanges();
    }
 
    getApplicants(){
      return this.applicants;
    }
 
-   getApplicantsStatus(){
-    return this.applicantsStatus;
+   addNewApplicant(newApplicant:Applicant){
+     this.applicanCollection.add(newApplicant);
    }
 
-   getApplicantsHistory(){
-    return this.applicantsHistory;
-   }
+  //  getApplicantsStatus(){
+  //   return this.applicantsStatus;
+  //  }
+
+  //  getApplicantsHistory(){
+  //   return this.applicantsHistory;
+  //  }
 
 }

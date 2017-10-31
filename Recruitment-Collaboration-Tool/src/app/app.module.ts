@@ -20,6 +20,7 @@ import { LoginServiceService } from "./services/login-service.service";
 import { JobsServiceService } from "./services/jobs-service.service";
 import { ApplicantServiceService } from "./services/applicant-service.service";
 import { DataServiceService } from "./services/data-service.service";
+import { SkillsetServiceService } from "./services/skillset-service.service";
 
 
 
@@ -44,6 +45,7 @@ import { DataServiceService } from "./services/data-service.service";
     LoginServiceService,
     JobsServiceService,
     ApplicantServiceService,
+    SkillsetServiceService,
     DataServiceService
   ],
   bootstrap: [AppComponent]

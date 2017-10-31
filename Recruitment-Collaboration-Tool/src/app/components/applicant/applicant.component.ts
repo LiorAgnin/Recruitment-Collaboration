@@ -22,15 +22,15 @@ export class ApplicantComponent implements OnInit {
       // console.log(this.arAllApplicants);
     });
 
-    this.ApplicantServiceService.getApplicantsStatus().subscribe(applicantStatus=>{
-      // console.log("applicantStatus");
-      // console.log(applicantStatus);
-    });
+    // this.ApplicantServiceService.getApplicantsStatus().subscribe(applicantStatus=>{
+    //   // console.log("applicantStatus");
+    //   // console.log(applicantStatus);
+    // });
 
-    this.ApplicantServiceService.getApplicantsHistory().subscribe(applicantHistory=>{
-      // console.log("applicantHistory");
-      // console.log(applicantHistory);
-    });
+    // this.ApplicantServiceService.getApplicantsHistory().subscribe(applicantHistory=>{
+    //   // console.log("applicantHistory");
+    //   // console.log(applicantHistory);
+    // });
   }
 
 }

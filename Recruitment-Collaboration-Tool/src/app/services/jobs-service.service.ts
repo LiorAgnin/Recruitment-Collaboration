@@ -10,7 +10,9 @@ export class JobsServiceService {
   jobs: Observable<Job[]>;
 
   constructor(public job: AngularFirestore) {
-    this.jobs = this.job.collection('Jobs').snapshotChanges().map(chages => {
+    this.jobCollection = this.job.collection('Jobs');
+
+    this.jobs = this.jobCollection.snapshotChanges().map(chages => {
       return chages.map(job => {
         const jobData = job.payload.doc.data() as Job;
         jobData.Id = job.payload.doc.id as any;
@@ -25,8 +27,8 @@ export class JobsServiceService {
     return this.jobs;
   }
 
-  addNewJob(){
-    
+  addNewJob(newJob: Job) {
+    this.jobCollection.add(newJob);
   }
 
 }

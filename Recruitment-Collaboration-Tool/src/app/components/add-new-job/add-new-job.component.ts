@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { JobsServiceService } from "../../services/jobs-service.service";
 import { Job } from "../../model/job";
+import { SkillsetServiceService } from "../../services/skillset-service.service";
+import { Skillset } from '../../model/skillset';
 
 @Component({
   selector: 'app-add-new-job',
@@ -8,11 +10,22 @@ import { Job } from "../../model/job";
   styleUrls: ['./add-new-job.component.css']
 })
 export class AddNewJobComponent implements OnInit {
-  
 
-  constructor(public jobService: JobsServiceService) { }
+  arSkillset: Skillset[] = new Array();
+
+  constructor(public jobService: JobsServiceService,
+    public SkillsetService: SkillsetServiceService) {
+     }
 
   ngOnInit() {
+
+    console.log("AddNewJobComponent");
+
+    this.SkillsetService.getSkillsets().subscribe(skills => {
+      this.arSkillset = skills;
+      console.log(this.arSkillset);
+    });
+
   }
 
 }
