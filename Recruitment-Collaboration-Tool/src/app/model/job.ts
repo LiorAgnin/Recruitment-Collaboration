@@ -1,5 +1,5 @@
 export interface Job {
-    Id?: number;
+    Id?: any;
     Postion?: string;
     MinimumReqYears?:number;
     Description?:string;
