@@ -9,14 +9,9 @@ import { Skillset } from '../../model/skillset';
   styleUrls: ['./add-new-job.component.css']
 })
 export class AddNewJobComponent implements OnInit {
-<<<<<<< HEAD
 newJob:Job=<Job>{};
-  constructor() { }
-=======
-  newJob: Job = <Job>{};
 
   arSkillset: Skillset[] = new Array();
->>>>>>> eedb53e156720ab616135b33ee83028ffb8790fb
 
   constructor(public jobService: JobsServiceService,
     public SkillsetService: SkillsetServiceService) {
