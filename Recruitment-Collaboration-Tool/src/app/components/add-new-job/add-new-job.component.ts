@@ -31,7 +31,7 @@ newJob:Job=<Job>{};
       Postion: this.newJob.Postion,
       MinimumReqYears: this.newJob.MinimumReqYears,
       Description: this.newJob.Description,
-      IsArcheive: true,
+      IsArcheive: false,
       Skills: this.newJob.Skills,
 
     }
