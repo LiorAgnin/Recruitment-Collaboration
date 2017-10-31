@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-job.component.css']
 })
 export class EditJobComponent implements OnInit {
-
+  show = false;
   constructor() { }
 
   ngOnInit() {

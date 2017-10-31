@@ -7,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddNewJobComponent implements OnInit {
 
+  
   constructor() { }
 
+  
   ngOnInit() {
   }
 
