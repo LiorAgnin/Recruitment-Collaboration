@@ -1,3 +1,27 @@
-<p>
-  add-new-job works!
-</p>
+
+<h1>Add new job</h1> 
+<button class="btn">Add new job</button>
+<div class="container">
+  <form #trvForm="ngForm" (ngSubmit)="addNewJobSubmitHandler()">
+    <div class="form-group">
+      <label for="IdPostion">Postion</label>
+      <input id="IdPostion" type="text" class="form-control" required [(ngModel)]="newJob.Postion" name="postion" #trvName=ngModel > 
+    </div>
+    <div class="form-group">
+      <label for="IdMinimumReqYears">Minimum Requst Years</label>
+      <input id="IdMinimumReqYears" type="number" class="form-control" required [(ngModel)]="newJob.MinimumReqYears" name="minimumReqYears">
+    </div>
+    <div class="form-group">
+      <label for="IdDescription">Description</label>
+      <input id="IdDescription" type="text" class="form-control" required [(ngModel)]="newJob.Description" name="description">
+    </div>
+  
+    <div class="form-group">
+      <label for="IdSkills">Skills</label>
+      <select id="IdSkills" type="text" class="form-control" required [(ngModel)]="newjob.Skills" name="skills">
+          <option *ngFor="let skill of arSkillset" [value]="skill.Skills" >{{skill.Skills}}</option>
+      </select>
+    </div>
+    <button [disabled]="!trvForm.valid"  class="btn btn-primary">Add Job</button>
+  </form>
+</div>

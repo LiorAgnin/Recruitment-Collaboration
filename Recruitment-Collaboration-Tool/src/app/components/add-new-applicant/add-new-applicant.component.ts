@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Applicant } from '../../model/Applicant';
+import { ApplicantServiceService } from "../../services/applicant-service.service";
+import { Applicant } from "../../model/Applicant";
+
 @Component({
   selector: 'add-new-applicant',
   templateUrl: './add-new-applicant.component.html',
@@ -14,10 +16,11 @@ export class AddNewApplicantComponent implements OnInit {
       { name: 'CSS', selected: false },
     ]
   }
-  constructor() {
-  }
+
+  constructor(public ApplicantServiceService:ApplicantServiceService) { }
 
   ngOnInit() {
+
   }
   skillSetArray(skill) {
     if (skill.selected) {
