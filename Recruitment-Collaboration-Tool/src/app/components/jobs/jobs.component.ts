@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { JobsServiceService } from "../../services/jobs-service.service";
+import { Job } from "../../model/job";
 
 @Component({
   selector: 'app-jobs',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JobsComponent implements OnInit {
 
-  constructor() { }
+  arAllJobs:Job[]=new Array();
+
+  constructor(public jobService: JobsServiceService) { }
 
   ngOnInit() {
+    console.log("JobsComponent");
+    this.jobService.getJobs().subscribe(jobs=>{
+      this.arAllJobs=jobs;
+
+      // console.log(this.arAllJobs);
+      
+    });
+   
   }
 
 }
