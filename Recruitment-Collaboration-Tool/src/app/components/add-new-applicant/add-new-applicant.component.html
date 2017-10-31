@@ -13,13 +13,7 @@
       <label for="job">Job</label>
       <div class="checkbox" *ngFor="let skill of skillSet.skills">
         <label>
-          <input 
-          type="checkbox" 
-          name="skill" 
-          [(ngModel)]="skill.selected" 
-          [checked]="saveUsername" 
-          (change)="skillSetArray(skill)"> 
-          {{skill.name}}
+          <input type="checkbox" name="skill" [(ngModel)]="skill.selected" [checked]="saveUsername" (change)="skillSetArray(skill)"> {{skill.name}}
         </label>
       </div>
     </div>
