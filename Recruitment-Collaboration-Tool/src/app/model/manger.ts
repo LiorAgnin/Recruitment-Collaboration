@@ -3,4 +3,5 @@ export interface Manger {
     FirstName?: string;
     LastName?: string;
     Email?: string;
+    Password: String;
 }

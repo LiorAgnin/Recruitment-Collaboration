@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgForm, FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AdminComponent } from './components/admin/admin.component';
@@ -24,7 +26,7 @@ import { EditJobComponent } from './components/edit-job/edit-job.component';
     EditJobComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, FormsModule, NgbModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
