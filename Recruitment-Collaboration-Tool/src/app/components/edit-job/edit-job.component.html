@@ -1,3 +1,33 @@
  <h1>Job Edit</h1>
  <button><i class="fa fa-pencil" aria-hidden="true"></i></button>
 <div *ngIf="show" >
+    
+<<<<<<< HEAD
+<p>
+ edit-job works!
+</p>
+=======
+<!-- Add new job -->
+<div class="container">
+ <form #trvForm="ngForm" (ngSubmit)="EditJobs()">
+   <div class="form-group">
+     <label for="IdPostion">Postion</label>
+     <input id="IdPostion" type="text" class="form-control" required [(ngModel)]="Postion" name="postion" #trvName=ngModel > 
+   </div>
+   <div class="form-group">
+     <label for="IdMinimumReqYears">Minimum Requst Years</label>
+     <input id="IdMinimumReqYears" type="number" class="form-control" required [(ngModel)]="MinimumReqYears" name="minimumReqYears">
+   </div>
+   <div class="form-group">
+     <label for="IdDescription">Description</label>
+     <input id="IdDescription" type="text" class="form-control" required [(ngModel)]="Description" name="description">
+   </div>
+ 
+   <div class="form-group">
+     <label for="IdSkills">Skills</label>
+     <input id="IdSkills" type="text" class="form-control" required [(ngModel)]="Skills" name="skills">
+   </div>
+   <button [disabled]="!trvForm.valid"  class="btn btn-primary">Edit Job</button>
+ </form>
+</div>
+>>>>>>> c3de82fa3520f7ef5c7c70b95baf45c5ad4c665
