@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgForm, FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AdminComponent } from './components/admin/admin.component';
@@ -10,7 +12,6 @@ import { AddNewApplicantComponent } from './components/add-new-applicant/add-new
 import { LoginComponent } from './components/login/login.component';
 import { AddNewJobComponent } from './components/add-new-job/add-new-job.component';
 import { EditJobComponent } from './components/edit-job/edit-job.component';
-import {FormsModule} from '@angular/forms'
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,8 +25,7 @@ import {FormsModule} from '@angular/forms'
     EditJobComponent
   ],
   imports: [
-    BrowserModule,
-    FormsModule
+    BrowserModule, FormsModule, NgbModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
