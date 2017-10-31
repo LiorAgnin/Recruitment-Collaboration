@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Job } from '../../model/job';
 
 @Component({
   selector: 'app-add-new-job',
@@ -6,10 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-new-job.component.css']
 })
 export class AddNewJobComponent implements OnInit {
+newJob:Job=<Job>{};
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
   }
+  addNewJobSubmitHandler() {
+    const body = {
+      Postion:this.newJob.Postion,
+      MinimumReqYears:this.newJob.MinimumReqYears,
+      Description:this.newJob.Description,
+      IsArcheive:this.newJob.IsArcheive,
+      Skills:this.newJob.Skills,
+      
+    }
+   console.log("addNewJobSubmitHandler")
+  }
+
 
 }

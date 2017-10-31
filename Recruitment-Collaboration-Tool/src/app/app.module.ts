@@ -10,7 +10,7 @@ import { AddNewApplicantComponent } from './components/add-new-applicant/add-new
 import { LoginComponent } from './components/login/login.component';
 import { AddNewJobComponent } from './components/add-new-job/add-new-job.component';
 import { EditJobComponent } from './components/edit-job/edit-job.component';
-
+import {FormsModule} from '@angular/forms'
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +24,8 @@ import { EditJobComponent } from './components/edit-job/edit-job.component';
     EditJobComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
