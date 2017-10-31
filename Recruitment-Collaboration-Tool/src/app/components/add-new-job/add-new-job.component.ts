@@ -11,12 +11,11 @@ import { Skillset } from '../../model/skillset';
 })
 export class AddNewJobComponent implements OnInit {
   newJob: Job = <Job>{};
-  arSkillset: Skillset[] = new Array();
+  arSkillset: Skillset[]=[];
 
   constructor(public jobService: JobsServiceService,
     public SkillsetService: SkillsetServiceService) {}
   ngOnInit() {
-
     console.log("AddNewJobComponent");
 
     this.SkillsetService.getSkillsets().subscribe(skills => {
@@ -36,6 +35,4 @@ export class AddNewJobComponent implements OnInit {
     }
     this.jobService.addNewJob(body);
   }
-
-
 }
