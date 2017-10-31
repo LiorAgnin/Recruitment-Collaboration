@@ -1,15 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-// <<<<<<< HEAD
+import { routes } from './app.routes';
+import { RouterModule, Routes } from '@angular/router';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
-// =======
-// import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { NgForm, FormsModule } from '@angular/forms';
 
+<<<<<<< HEAD
 
 //Components
+=======
+import { NgForm } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+>>>>>>> 4a57dee8544f343e9406a3fff2cfe2b5ea0a80d7
 import { AppComponent } from './app.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { JobsComponent } from './components/jobs/jobs.component';
@@ -19,6 +23,7 @@ import { AddNewApplicantComponent } from './components/add-new-applicant/add-new
 import { LoginComponent } from './components/login/login.component';
 import { AddNewJobComponent } from './components/add-new-job/add-new-job.component';
 import { EditJobComponent } from './components/edit-job/edit-job.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //Services
 import { LoginServiceService } from "./services/login-service.service";
@@ -28,7 +33,10 @@ import { DataServiceService } from "./services/data-service.service";
 import { SkillsetServiceService } from "./services/skillset-service.service";
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4a57dee8544f343e9406a3fff2cfe2b5ea0a80d7
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,10 +51,14 @@ import { SkillsetServiceService } from "./services/skillset-service.service";
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    RouterModule.forRoot(routes),
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase, 'Recruitment-Collaboration'),
     AngularFirestoreModule,
-    FormsModule
-    
+    FormsModule,
+    NgbModule.forRoot()
+
   ],
   providers: [
     LoginServiceService,

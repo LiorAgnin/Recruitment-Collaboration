@@ -1,9 +1,15 @@
  <h1>Job Edit</h1>
+<<<<<<< HEAD
 <!-- Edit job -->
+=======
+ <button><i class="fa fa-pencil" aria-hidden="true"></i></button>
+<div>
+>>>>>>> 4a57dee8544f343e9406a3fff2cfe2b5ea0a80d7
 <div class="container">
  <form #trvForm="ngForm" (ngSubmit)="EditJobs()">
    <div class="form-group">
      <label for="IdPostion">Postion</label>
+<<<<<<< HEAD
      <input id="IdPostion" type="text" class="form-control" required [(ngModel)]="EJob.Postion" name="Postion" #trvName=ngModel > 
    </div>
    <div class="form-group">
@@ -13,6 +19,17 @@
    <div class="form-group">
      <label for="IdDescription">Description</label>
      <input id="IdDescription" type="text" class="form-control" required [(ngModel)]="EJob.Description" name="description">
+=======
+     <input id="IdPostion" type="text" class="form-control" required [(ngModel)]="editJob.Postion" name="postion" #trvName=ngModel > 
+   </div>
+   <div class="form-group">
+     <label for="IdMinimumReqYears">Minimum Requst Years</label>
+     <input id="IdMinimumReqYears" type="number" class="form-control" required [(ngModel)]="editJob.MinimumReqYears" name="minimumReqYears">
+   </div>
+   <div class="form-group">
+     <label for="IdDescription">Description</label>
+     <input id="IdDescription" type="text" class="form-control" required [(ngModel)]="editJob.Description" name="description">
+>>>>>>> 4a57dee8544f343e9406a3fff2cfe2b5ea0a80d7
    </div>
  
    <div class="form-group">
@@ -21,10 +38,17 @@
   </div>
    <div class="form-group">
      <label for="IdSkills">Skills</label>
+<<<<<<< HEAD
      <input id="IdSkills" type="text" class="form-control" required [(ngModel)]="EJob.Skills" name="skills">
+=======
+     <input id="IdSkills" type="text" class="form-control" required [(ngModel)]="editJob.Skills" name="skills">
+>>>>>>> 4a57dee8544f343e9406a3fff2cfe2b5ea0a80d7
    </div>
    <button [disabled]="!trvForm.valid"  class="btn btn-primary">Edit Job</button>
  </form>
 </div>
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 4a57dee8544f343e9406a3fff2cfe2b5ea0a80d7

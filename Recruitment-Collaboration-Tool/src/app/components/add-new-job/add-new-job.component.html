@@ -1,8 +1,13 @@
 
+<<<<<<< HEAD
  <p>
   edit-job works!
 </p>
 <!-- Add new job -->
+=======
+<h1>Add new job</h1> 
+<button class="btn">Add new job</button>
+>>>>>>> 4a57dee8544f343e9406a3fff2cfe2b5ea0a80d7
 <div class="container">
   <form #trvForm="ngForm" (ngSubmit)="addNewJobSubmitHandler()">
     <div class="form-group">
@@ -20,7 +25,9 @@
   
     <div class="form-group">
       <label for="IdSkills">Skills</label>
-      <input id="IdSkills" type="text" class="form-control" required [(ngModel)]="newJob.Skills" name="skills">
+      <select id="IdSkills" type="text" class="form-control" required [(ngModel)]="newjob.Skills" name="skills">
+          <option *ngFor="let skill of arSkillset" [value]="skill.Skills" >{{skill.Skills}}</option>
+      </select>
     </div>
     <button [disabled]="!trvForm.valid"  class="btn btn-primary">Add Job</button>
   </form>
