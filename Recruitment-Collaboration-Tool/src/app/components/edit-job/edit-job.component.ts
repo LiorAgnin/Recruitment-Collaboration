@@ -1,17 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { JobsServiceService } from "../../services/jobs-service.service";
 import { Job } from "../../model/job";
-
 @Component({
   selector: 'app-edit-job',
   templateUrl: './edit-job.component.html',
   styleUrls: ['./edit-job.component.css']
 })
 export class EditJobComponent implements OnInit {
-  show = false;
   editJob: Job = <Job>{};
-
-  constructor(public jobService: JobsServiceService) { }
+  EJob:Job ={
+    Description:"ava",
+    Id:"LmX7Zm2bwS0esUOoop0K",
+    IsArcheive:false,
+    MinimumReqYears:3,
+    Postion:"Java",
+    Skills:["css"],
+  };
+  
+  constructor(public service: JobsServiceService) { }
 
   ngOnInit() {
   }
@@ -25,13 +31,11 @@ export class EditJobComponent implements OnInit {
       Skills: this.editJob.Skills,
 
     }
-    console.log("addNewJobSubmitHandler")
+
   }
   updeteJob(jobEdit: Job) {
-    this.jobService.updeteJob(jobEdit);
+    this.service.updeteJob(jobEdit);
   }
-
-
 
 }
 

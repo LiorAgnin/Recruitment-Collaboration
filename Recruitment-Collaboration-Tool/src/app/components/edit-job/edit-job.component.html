@@ -1,28 +1,30 @@
  <h1>Job Edit</h1>
- <button><i class="fa fa-pencil" aria-hidden="true"></i></button>
-<div *ngIf="show" >
 <!-- Edit job -->
 <div class="container">
  <form #trvForm="ngForm" (ngSubmit)="EditJobs()">
    <div class="form-group">
      <label for="IdPostion">Postion</label>
-     <input id="IdPostion" type="text" class="form-control" required [(ngModel)]="Postion" name="editJob.postion" #trvName=ngModel > 
+     <input id="IdPostion" type="text" class="form-control" required [(ngModel)]="EJob.Postion" name="Postion" #trvName=ngModel > 
    </div>
    <div class="form-group">
      <label for="IdMinimumReqYears">Minimum Requst Years</label>
-     <input id="IdMinimumReqYears" type="number" class="form-control" required [(ngModel)]="editJob.MinimumReqYears" name="minimumReqYears">
+     <input id="IdMinimumReqYears" type="number" class="form-control" required [(ngModel)]="EJob.MinimumReqYears" name="minimumReqYears">
    </div>
    <div class="form-group">
      <label for="IdDescription">Description</label>
-     <input id="IdDescription" type="text" class="form-control" required [(ngModel)]="editJob.Description" name="description">
+     <input id="IdDescription" type="text" class="form-control" required [(ngModel)]="EJob.Description" name="description">
    </div>
  
    <div class="form-group">
+    <label for="IsArcheive">Is Archeive</label>
+    <input id="IsArcheive" type="text" class="form-control" required [(ngModel)]="EJob.IsArcheive" name="IsArcheive">
+  </div>
+   <div class="form-group">
      <label for="IdSkills">Skills</label>
-     <input id="IdSkills" type="text" class="form-control" required [(ngModel)]="editJob.Skills" name="skills">
+     <input id="IdSkills" type="text" class="form-control" required [(ngModel)]="EJob.Skills" name="skills">
    </div>
    <button [disabled]="!trvForm.valid"  class="btn btn-primary">Edit Job</button>
  </form>
 </div>
-</div>
+
 
