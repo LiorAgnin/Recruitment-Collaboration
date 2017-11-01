@@ -11,9 +11,10 @@ import { Skillset } from '../../model/skillset';
 })
 export class AddNewJobComponent implements OnInit {
   newJob: Job = <Job>{};
-  arSkillset: Skillset[]=[];
+  arSkillset: Skillset[] = [];
+
   constructor(public jobService: JobsServiceService,
-    public SkillsetService: SkillsetServiceService) {}
+    public SkillsetService: SkillsetServiceService) { }
   ngOnInit() {
     console.log("AddNewJobComponent");
 
@@ -25,12 +26,12 @@ export class AddNewJobComponent implements OnInit {
   }
   addNewJobSubmitHandler() {
     const body = {
-      Postion:this.newJob.Postion,
-      MinimumReqYears:this.newJob.MinimumReqYears,
-      Description:this.newJob.Description,
-      IsArcheive:false,
-      Skills:this.newJob.Skills,
-      
+      Postion: this.newJob.Postion,
+      MinimumReqYears: this.newJob.MinimumReqYears,
+      Description: this.newJob.Description,
+      IsArcheive: false,
+      Skills: this.newJob.Skills,
+
     }
     this.jobService.addNewJob(body);
   }

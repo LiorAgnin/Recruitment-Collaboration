@@ -19,16 +19,16 @@ export class EditJobComponent implements OnInit {
 
   EditJobs() {
     const body = {
-      Postion:this.editJob.Postion,
-      MinimumReqYears:this.editJob.MinimumReqYears,
-      Description:this.editJob.Description,
-      IsArcheive:false,
-      Skills:this.editJob.Skills,
-      
+      Postion: this.editJob.Postion,
+      MinimumReqYears: this.editJob.MinimumReqYears,
+      Description: this.editJob.Description,
+      IsArcheive: false,
+      Skills: this.editJob.Skills,
+
     }
     this.jobService.updeteJob(body);
   }
 }
- 
+
 
 
