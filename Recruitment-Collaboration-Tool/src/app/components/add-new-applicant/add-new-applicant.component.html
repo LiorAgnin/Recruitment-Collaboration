@@ -2,11 +2,11 @@
   <h3>Add new applicant</h3>
   <form #formAddApplicant="ngForm" (ngSubmit)="addApplicant(formAddApplicant.value)">
     <div class="form-group">
-      <label for="customerPrice">First name</label>
+      <label for="FirstName">First name</label>
       <input type="text" class="form-control" name="FirstName" [(ngModel)]="newApplicant.FirstName" required #trvFirstName="ngModel">
     </div>
     <div class="form-group">
-      <label for="customerPrice">Last name</label>
+      <label for="LastName">Last name</label>
       <input type="text" class="form-control" name="LastName" [(ngModel)]="newApplicant.LastName" required #trvLastName="ngModel">
     </div>
     <div class="form-group">
@@ -17,7 +17,21 @@
         </label>
       </div>
     </div>
-    <button [disabled]="!formAddApplicant.valid"  class="btn btn-primary">Add Appicant</button>
-    
+    <button [disabled]="!formAddApplicant.valid" class="btn btn-primary">Add Appicant</button>
   </form>
 </div>
+<!-- <div *ngIf="currentUpload">
+  <progress class="progress is-success" min=1 max=100 value="{{ currentUpload?.progress }}"></progress>
+
+  Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete
+</div>
+<div class="box">
+  <label>
+    <input type="file" class="button" (change)="detectFiles($event)">
+  </label>
+
+  <button class="button is-primary" [disabled]="!selectedFiles" (click)="uploadSingle()">
+
+    Upload Single
+  </button>
+</div> -->

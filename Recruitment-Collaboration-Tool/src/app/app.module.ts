@@ -26,6 +26,8 @@ import { JobsServiceService } from "./services/jobs-service.service";
 import { ApplicantServiceService } from "./services/applicant-service.service";
 import { DataServiceService } from "./services/data-service.service";
 import { SkillsetServiceService } from "./services/skillset-service.service";
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { UploadFileService } from './services/upload-file.service';
 
 
 @NgModule({
@@ -56,7 +58,9 @@ import { SkillsetServiceService } from "./services/skillset-service.service";
     JobsServiceService,
     ApplicantServiceService,
     SkillsetServiceService,
-    DataServiceService
+    DataServiceService,
+    AngularFireDatabase,
+    UploadFileService
   ],
   bootstrap: [AppComponent]
 })
