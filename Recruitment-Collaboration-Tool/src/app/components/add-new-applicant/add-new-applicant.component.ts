@@ -4,6 +4,9 @@ import { Applicant } from "../../model/Applicant";
 import { JobsServiceService } from "../../services/jobs-service.service";
 import { SkillsetServiceService } from "../../services/skillset-service.service";
 import { Skillset } from '../../model/skillset';
+import { UploadFileService } from '../../services/upload-file.service';
+import { Upload } from '../../model/upload';
+import * as _ from "lodash";
 
 @Component({
   selector: 'add-new-applicant',
@@ -15,10 +18,13 @@ export class AddNewApplicantComponent implements OnInit {
   arSkillSetPicked: string[] = [];
   arSkillset: any;
   newArSkillSet: Skillset[] = [];
+  selectedFiles: FileList;
+  currentUpload: Upload;
   constructor(
     public ApplicantServiceService: ApplicantServiceService,
     public jobService: JobsServiceService,
-    public SkillsetService: SkillsetServiceService) { }
+    public SkillsetService: SkillsetServiceService,
+    private upSvc: UploadFileService) { }
   ngOnInit() {
     this.SkillsetService.getSkillsets().subscribe(skills => {
       this.arSkillset = skills[0];
@@ -56,23 +62,24 @@ export class AddNewApplicantComponent implements OnInit {
     }
     this.ApplicantServiceService.addNewApplicant(newApplicant)
   }
-  //   detectFiles(event) {
-  //     this.selectedFiles = event.target.files;
-  // }
-  //   uploadSingle() {
-  //     let file = this.selectedFiles.item(0)
-  //     this.currentUpload = new Upload(file);
-  //     this.upSvc.pushUpload(this.currentUpload)
-  //   }
+  detectFiles(event) {
+    this.selectedFiles = event.target.files;
+  }
+  uploadSingle() {
+    let file = this.selectedFiles.item(0);
+    this.currentUpload = new Upload(file);
+    this.upSvc.pushUpload(this.currentUpload);
+  }
 
-  //   uploadMulti() {
-  //     let files = this.selectedFiles
-  //     if (_.isEmpty(files)) return;
+  uploadMulti() {
+    let files = this.selectedFiles
+    if (_.isEmpty(files)) return;
 
-  //     let filesIndex = _.range(files.length)
-  //     _.each(filesIndex, (idx) => {
-  //       this.currentUpload = new Upload(files[idx]);
-  //       this.upSvc.pushUpload(this.currentUpload)}
-  //     )
-  //   }
+    let filesIndex = _.range(files.length)
+    _.each(filesIndex, (idx) => {
+      this.currentUpload = new Upload(files[idx]);
+      this.upSvc.pushUpload(this.currentUpload)
+    }
+    )
+  }
 }
