@@ -1,3 +1,23 @@
-<p>
-  add-new-applicant works!
-</p>
+<div class="container">
+  <h3>Add new applicant</h3>
+  <form #formAddApplicant="ngForm" (ngSubmit)="addApplicant(formAddApplicant.value)">
+    <div class="form-group">
+      <label for="customerPrice">First name</label>
+      <input type="text" class="form-control" name="FirstName" [(ngModel)]="newApplicant.FirstName" required #trvFirstName="ngModel">
+    </div>
+    <div class="form-group">
+      <label for="customerPrice">Last name</label>
+      <input type="text" class="form-control" name="LastName" [(ngModel)]="newApplicant.LastName" required #trvLastName="ngModel">
+    </div>
+    <div class="form-group">
+      <label for="job">Skillset</label>
+      <div class="checkbox-inline" *ngFor="let skill of newArSkillSet">
+        <label>
+          <input type="checkbox" name="skill" [(ngModel)]="skill.selected" (change)="skillSetArray(skill)"> {{skill.name}}
+        </label>
+      </div>
+    </div>
+    <button [disabled]="!formAddApplicant.valid"  class="btn btn-primary">Add Appicant</button>
+    
+  </form>
+</div>

@@ -11,27 +11,42 @@ import { Skillset } from '../../model/skillset';
 })
 export class AddNewJobComponent implements OnInit {
   newJob: Job = <Job>{};
-  arSkillset: Skillset[]=[];
-
+  arSkillSetPicked: string[] = [];
+  arSkillset: any;
+  newArSkillSet: Skillset[] = [];
  
   constructor(public jobService: JobsServiceService,
-    public SkillsetService: SkillsetServiceService) {}
+    public SkillsetService: SkillsetServiceService) { }
   ngOnInit() {
    
-    this.SkillsetService.getSkillsets().subscribe(Skills => {
-      this.arSkillset = Skills;
-      console.log(this.arSkillset);
+    this.SkillsetService.getSkillsets().subscribe(skills => {
+      this.arSkillset = skills[0];
+      this.arSkillset.skillset.forEach(element => {
+        const skil = { name: element, selected: false };
+        this.newArSkillSet.push(skil);
+      });
     });
-
   }
+
+  skillSetArray(skill) {
+    if (skill.selected) {
+      this.arSkillSetPicked.push(skill.name)
+    }
+    if (!skill.selected) {
+      console.log(skill)
+      let aa = this.arSkillSetPicked.indexOf(skill.name);
+      this.arSkillSetPicked.splice(aa, 1)
+    }
+    console.log(this.arSkillSetPicked)
+  }
+
   addNewJobSubmitHandler() {
     const body = {
-      Postion:this.newJob.Postion,
-      MinimumReqYears:this.newJob.MinimumReqYears,
-      Description:this.newJob.Description,
-      IsArcheive:false,
-      Skills:this.newJob.Skills,
-      
+      Postion: this.newJob.Postion,
+      MinimumReqYears: this.newJob.MinimumReqYears,
+      Description: this.newJob.Description,
+      IsArcheive: false,      
+      Skills: this.arSkillSetPicked,
     }
     this.jobService.addNewJob(body);
   }
