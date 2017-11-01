@@ -13,9 +13,10 @@ export const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'jobs', component: JobsComponent },
     { path: 'applicant', component: ApplicantComponent },
-    { path: 'app-applicant', component: AddNewApplicantComponent },
+    { path: 'add-applicant', component: AddNewApplicantComponent },
     { path: 'login', component: LoginComponent },
     { path: 'add-job', component: AddNewJobComponent },
     { path: 'edit-job', component: EditJobComponent },
+    { path: 'admin', component: AdminComponent },
     { path: '**', redirectTo: '/404' }
 ];
