@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Upload } from './../model/upload';
+
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import * as firebase from 'firebase';
 import { Observable } from 'rxjs/Observable';
@@ -33,8 +34,8 @@ export class UploadFileService {
   }
 
   // Executes the file uploading to firebase https://firebase.google.com/docs/storage/web/upload-files
- public pushUpload(upload: Upload) {
-   debugger;
+  public pushUpload(upload: Upload) {
+    debugger;
     const storageRef = firebase.storage().ref();
     const uploadTask = storageRef.child(`${this.basePath}/${upload.file.name}`).put(upload.file);
 
