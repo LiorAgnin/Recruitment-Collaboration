@@ -7,7 +7,7 @@ import { Skillset } from '../../model/skillset';
 import { UploadFileService } from '../../services/upload-file.service';
 import { Upload } from '../../model/upload';
 import * as _ from "lodash";
-
+import * as firebase from 'firebase';
 @Component({
   selector: 'add-new-applicant',
   templateUrl: './add-new-applicant.component.html',
