@@ -22,6 +22,7 @@
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
     "@ng-bootstrap/ng-bootstrap": "^1.0.0-beta.5",
+    "angular-auto-save-form": "^1.5.1",
     "angularfire2": "^5.0.0-rc.3",
     "core-js": "^2.4.1",
     "firebase": "^4.6.0",

@@ -18,8 +18,8 @@
   
     <div class="form-group">
       <label for="IdSkills">Skills</label>
-      <select id="IdSkills" type="text" class="form-control" required [(ngModel)]="newjob.Skills" name="skills">
-          <option *ngFor="let skill of arSkillset" [value]="skill.Skills" >{{skill.Skills}}</option>
+      <select id="IdSkills" type="text" class="form-control" required [(ngModel)]="newJob.Skills" name="skills">
+          <option *ngFor="let skill of arSkillset;let i =index" [value]="skill.skillset" >{{skill.skillset}}</option>
       </select>
     </div>
     <button [disabled]="!trvForm.valid"  class="btn btn-primary">Add Job</button>

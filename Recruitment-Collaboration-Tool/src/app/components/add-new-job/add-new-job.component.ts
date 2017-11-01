@@ -13,13 +13,13 @@ export class AddNewJobComponent implements OnInit {
   newJob: Job = <Job>{};
   arSkillset: Skillset[]=[];
 
+ 
   constructor(public jobService: JobsServiceService,
     public SkillsetService: SkillsetServiceService) {}
   ngOnInit() {
-    console.log("AddNewJobComponent");
-
-    this.SkillsetService.getSkillsets().subscribe(skills => {
-      this.arSkillset = skills;
+   
+    this.SkillsetService.getSkillsets().subscribe(Skills => {
+      this.arSkillset = Skills;
       console.log(this.arSkillset);
     });
 
