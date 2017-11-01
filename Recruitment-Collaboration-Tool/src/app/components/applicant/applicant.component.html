@@ -1,3 +1,48 @@
-<p>
-  applicant works!
-</p>
+<div style="cursor:pointer" class="container" >
+  <button type="button" (click)="addnewJob()" class="btn"><i class="glyphicon glyphicon-plus"></i>Add</button>
+<div *ngIf="showAddJobFrom">
+  <app-add-new-job></app-add-new-job>
+</div>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>FirstName</th>
+      <th>LastName</th>
+      <th>Experience</th>
+      <th>City</th>
+      <th>Email</th>
+      <th>PhoneNumber</th>
+      <!-- <th>Age</th>
+      <th>Gender</th>
+      <th>CV</th>
+      <th>Position</th>
+      <th>Skills</th> -->
+      <th>locked</th>
+      <th>Edit</th>
+      <th>delet/archeive</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let allApplicant of arAllApplicants">
+      <td>{{allApplicant.Id}}</td>
+      <td>{{allApplicant.FirstName}}</td>
+      <td>{{allApplicant.LastName}}</td>
+      <td>{{allApplicant.Experience}}</td>
+      <td>{{allApplicant.City}}</td>
+      <td>{{allApplicant.Email}}</td>
+      <td>{{allApplicant.PhoneNumber}}</td>
+      <!-- <td>{{allApplicant.Age}}</td>
+      <td>{{allApplicant.Gender}}</td>
+      <td>{{allApplicant.CV}}</td>
+      <td>{{allApplicant.Position}}</td>
+      <td>{{allApplicant.Skills}}</td> -->
+      <td ><i class="fa fa-unlock-alt"></i>
+        <i class="fa fa-lock"></i></td>      
+      <td (click)="EditJob(Job)"><i class="glyphicon glyphicon-pencil"></i></td>
+      <td (click)="archivedJob(Job)"><i class="glyphicon glyphicon-remove"></i></td>
+    </tr>
+  </tbody>
+</table>
+</div>
