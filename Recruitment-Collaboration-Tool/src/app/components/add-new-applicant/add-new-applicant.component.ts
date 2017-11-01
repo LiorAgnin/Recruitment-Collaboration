@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ApplicantServiceService } from "../../services/applicant-service.service";
 import { Applicant } from "../../model/Applicant";
+import { JobsServiceService } from "../../services/jobs-service.service";
+import { SkillsetServiceService } from "../../services/skillset-service.service";
+import { Skillset } from '../../model/skillset';
 
 @Component({
   selector: 'add-new-applicant',
@@ -9,18 +12,21 @@ import { Applicant } from "../../model/Applicant";
 })
 export class AddNewApplicantComponent implements OnInit {
   newApplicant: Applicant = <Applicant>{};
-  arSkillSetPicked: any[] = [];
-  skillSet = {
-    skills: [
-      { name: 'JavaScript', selected: true },
-      { name: 'CSS', selected: false },
-    ]
-  }
-
-  constructor(public ApplicantServiceService:ApplicantServiceService) { }
-
+  arSkillSetPicked: string[] = [];
+  arSkillset: any;
+  newArSkillSet: Skillset[] = [];
+  constructor(
+    public ApplicantServiceService: ApplicantServiceService,
+    public jobService: JobsServiceService,
+    public SkillsetService: SkillsetServiceService) { }
   ngOnInit() {
-
+    this.SkillsetService.getSkillsets().subscribe(skills => {
+      this.arSkillset = skills[0];
+      this.arSkillset.skillset.forEach(element => {
+        const skil = { name: element, selected: false };
+        this.newArSkillSet.push(skil);
+      });
+    });
   }
   skillSetArray(skill) {
     if (skill.selected) {
@@ -33,23 +39,40 @@ export class AddNewApplicantComponent implements OnInit {
     }
     console.log(this.arSkillSetPicked)
   }
-//   detectFiles(event) {
-//     this.selectedFiles = event.target.files;
-// }
-//   uploadSingle() {
-//     let file = this.selectedFiles.item(0)
-//     this.currentUpload = new Upload(file);
-//     this.upSvc.pushUpload(this.currentUpload)
-//   }
+  addApplicant(formAddApplicant) {
+    console.log(formAddApplicant)
+    const newApplicant = {
+      FirstName: this.newApplicant.FirstName,
+      LastName: this.newApplicant.LastName,
+      // Experience:this.newApplicant.Experience,
+      // City:this.newApplicant.City,
+      // Email:this.newApplicant.Email,
+      // PhoneNumber:,
+      // Age:,
+      // Gender:,
+      // CV:,
+      // Position:,
+      Skills: this.arSkillSetPicked,
+    }
+    this.ApplicantServiceService.addNewApplicant(newApplicant)
+  }
+  //   detectFiles(event) {
+  //     this.selectedFiles = event.target.files;
+  // }
+  //   uploadSingle() {
+  //     let file = this.selectedFiles.item(0)
+  //     this.currentUpload = new Upload(file);
+  //     this.upSvc.pushUpload(this.currentUpload)
+  //   }
 
-//   uploadMulti() {
-//     let files = this.selectedFiles
-//     if (_.isEmpty(files)) return;
+  //   uploadMulti() {
+  //     let files = this.selectedFiles
+  //     if (_.isEmpty(files)) return;
 
-//     let filesIndex = _.range(files.length)
-//     _.each(filesIndex, (idx) => {
-//       this.currentUpload = new Upload(files[idx]);
-//       this.upSvc.pushUpload(this.currentUpload)}
-//     )
-//   }
+  //     let filesIndex = _.range(files.length)
+  //     _.each(filesIndex, (idx) => {
+  //       this.currentUpload = new Upload(files[idx]);
+  //       this.upSvc.pushUpload(this.currentUpload)}
+  //     )
+  //   }
 }

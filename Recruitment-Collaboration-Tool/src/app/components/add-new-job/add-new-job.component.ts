@@ -12,7 +12,6 @@ import { Skillset } from '../../model/skillset';
 export class AddNewJobComponent implements OnInit {
   newJob: Job = <Job>{};
   arSkillset: Skillset[]=[];
-
   constructor(public jobService: JobsServiceService,
     public SkillsetService: SkillsetServiceService) {}
   ngOnInit() {

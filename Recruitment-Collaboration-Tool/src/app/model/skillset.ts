@@ -1,3 +1,4 @@
 export interface Skillset {
-    Skillset?:string[];
+    selected?:boolean;
+    name?:string;
 }

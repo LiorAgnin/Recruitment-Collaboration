@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [AngularFireAuth]
 })
 export class LoginComponent implements OnInit {
 
@@ -11,15 +13,25 @@ export class LoginComponent implements OnInit {
   password: string;
   error: string;
 
-  constructor() { }
+  constructor(private auth: AngularFireAuth) { }
 
   ngOnInit() {
-  }
 
+  }
+  async signUp(email, password) {
+    try {
+      let result = await this.auth.auth.createUserWithEmailAndPassword(email, password);
+      console.log(result)
+
+    } catch (e) {
+      console.log(e)
+    }
+  }
   submitHandler(myNgForm: any) {
-   if(this.formValid()){
-     console.log("Valid");
-   }
+    if (this.formValid()) {
+      console.log("Valid");
+      this.signUp(this.email, this.password);
+    }
   }
 
   formValid(): boolean {
