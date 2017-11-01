@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { routes } from './app.routes';
 import { RouterModule, Routes } from '@angular/router';
 import { environment } from '../environments/environment';
-import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 import { NgForm } from '@angular/forms';
@@ -28,7 +27,19 @@ import { DataServiceService } from "./services/data-service.service";
 import { SkillsetServiceService } from "./services/skillset-service.service";
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { UploadFileService } from './services/upload-file.service';
+import { AngularFireModule } from 'angularfire2';     
+  
 
+export const firebaseConfig = {
+  
+        apiKey: "AIzaSyCd29YeaTCi9rB54ltcAHrDYuI1xvxp4o8",
+        authDomain: "recruitment-collaboration.firebaseapp.com",
+        databaseURL: "https://recruitment-collaboration.firebaseio.com",
+        projectId: "recruitment-collaboration",
+        storageBucket: "recruitment-collaboration.appspot.com",
+        messagingSenderId: "292230634028"
+
+};
 
 @NgModule({
   declarations: [
@@ -41,6 +52,7 @@ import { UploadFileService } from './services/upload-file.service';
     LoginComponent,
     AddNewJobComponent,
     EditJobComponent
+  
   ],
   imports: [
     BrowserModule,
@@ -50,7 +62,8 @@ import { UploadFileService } from './services/upload-file.service';
     AngularFireModule.initializeApp(environment.firebase, 'Recruitment-Collaboration'),
     AngularFirestoreModule,
     FormsModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    AngularFireModule.initializeApp(firebaseConfig)
 
   ],
   providers: [
