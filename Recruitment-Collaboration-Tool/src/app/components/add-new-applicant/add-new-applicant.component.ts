@@ -68,6 +68,7 @@ export class AddNewApplicantComponent implements OnInit {
   uploadSingle() {
     let file = this.selectedFiles.item(0);
     this.currentUpload = new Upload(file);
+    console.log(this.currentUpload)
     this.upSvc.pushUpload(this.currentUpload);
   }
 
