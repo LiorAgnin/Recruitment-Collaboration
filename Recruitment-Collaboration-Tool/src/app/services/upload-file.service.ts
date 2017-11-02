@@ -36,10 +36,7 @@ export class UploadFileService {
 
   // Executes the file uploading to firebase https://firebase.google.com/docs/storage/web/upload-files
   public pushUpload(upload: Upload) {
-<<<<<<< HEAD
     debugger;
-=======
->>>>>>> 99589f9245c897e2ed7665d564e10a9d9f86e215
     const storageRef = firebase.storage().ref();
     const uploadTask = storageRef.child(`${this.basePath}/${upload.file.name}`).put(upload.file);
 
