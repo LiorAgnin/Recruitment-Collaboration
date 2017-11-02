@@ -11,8 +11,8 @@ export class ApplicantServiceService {
   applicantDocm:AngularFirestoreDocument<Applicant>;
   applicanCollection:AngularFirestoreCollection<Applicant>;
   applicants:Observable<Applicant[]>;
-  // applicantsStatus:Observable<Applicant[]>;
-  // applicantsHistory:Observable<Applicant[]>;
+  applicantsStatus:Observable<Applicant[]>;
+  applicantsHistory:Observable<Applicant[]>;
 
 
   constructor(public applicant:AngularFirestore ) {
@@ -28,8 +28,8 @@ export class ApplicantServiceService {
     });
 
 
-    // this.applicantsStatus= this.applicant.collection('ApplicantStatus').valueChanges();
-    // this.applicantsHistory=this.applicant.collection('ApplicantHistory').valueChanges();
+    this.applicantsStatus= this.applicant.collection('ApplicantStatus').valueChanges();
+    this.applicantsHistory=this.applicant.collection('ApplicantHistory').valueChanges();
    }
 
    getApplicants(){
@@ -45,12 +45,12 @@ export class ApplicantServiceService {
     this.applicantDocm.update(updeteJob);
   }
 
-  //  getApplicantsStatus(){
-  //   return this.applicantsStatus;
-  //  }
+   getApplicantsStatus(){
+    return this.applicantsStatus;
+   }
 
-  //  getApplicantsHistory(){
-  //   return this.applicantsHistory;
-  //  }
+   getApplicantsHistory(){
+    return this.applicantsHistory;
+   }
 
 }

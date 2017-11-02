@@ -27,17 +27,17 @@ import { DataServiceService } from "./services/data-service.service";
 import { SkillsetServiceService } from "./services/skillset-service.service";
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { UploadFileService } from './services/upload-file.service';
-import { AngularFireModule } from 'angularfire2';     
-  
+import { AngularFireModule } from 'angularfire2';
+
 
 export const firebaseConfig = {
-  
-        apiKey: "AIzaSyCd29YeaTCi9rB54ltcAHrDYuI1xvxp4o8",
-        authDomain: "recruitment-collaboration.firebaseapp.com",
-        databaseURL: "https://recruitment-collaboration.firebaseio.com",
-        projectId: "recruitment-collaboration",
-        storageBucket: "recruitment-collaboration.appspot.com",
-        messagingSenderId: "292230634028"
+
+  apiKey: "AIzaSyCd29YeaTCi9rB54ltcAHrDYuI1xvxp4o8",
+  authDomain: "recruitment-collaboration.firebaseapp.com",
+  databaseURL: "https://recruitment-collaboration.firebaseio.com",
+  projectId: "recruitment-collaboration",
+  storageBucket: "recruitment-collaboration.appspot.com",
+  messagingSenderId: "292230634028"
 
 };
 
@@ -52,7 +52,7 @@ export const firebaseConfig = {
     LoginComponent,
     AddNewJobComponent,
     EditJobComponent
-  
+
   ],
   imports: [
     BrowserModule,
