@@ -1,21 +1,13 @@
-<<<<<<< HEAD
-
-.applicant-card{
-=======
 div{
     display: inline-block; 
 }
-.job-card{
->>>>>>> ac6cdf3fea5bff5b58d24c398282a5f61d594dab
+.applicant-card{
     width:25%; 
     height:50%;
     display: inline-block;
     margin: 10px;
     padding: 10px;
 }
-<<<<<<< HEAD
-=======
 a{
     text-decoration: none;
 }
->>>>>>> ac6cdf3fea5bff5b58d24c398282a5f61d594dab
