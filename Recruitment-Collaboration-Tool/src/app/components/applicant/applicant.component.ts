@@ -23,19 +23,19 @@ export class ApplicantComponent implements OnInit {
 
     this.applicantService.getApplicants().subscribe(applicant => {
       this.arAllApplicants = applicant;
-      console.log(this.arAllApplicants);
+      //console.log(this.arAllApplicants);
     });
 
     this.applicantService.getApplicantsStatus().subscribe(applicantStatus => {
       this.arApplicantStatus = applicantStatus;
-      console.log(this.arApplicantStatus);
+      //console.log(this.arApplicantStatus);
     });
 
     this.arAllApplicants.forEach(applicant => {
       this.arApplicantStatus.forEach(applicantStatus => {
 
-        console.log(applicant);
-        console.log(applicantStatus);
+       // console.log(applicant);
+       // console.log(applicantStatus);
         // if(applicant.Id!= applicantStatus.ApplicantId)
       });
 
@@ -48,7 +48,7 @@ export class ApplicantComponent implements OnInit {
 
 
 
-    console.log("applicant");
+    //console.log("applicant");
 
 
   }
