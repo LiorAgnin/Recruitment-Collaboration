@@ -1,110 +1,79 @@
 <div style="cursor:pointer" class="container">
   <button type="button" class="btn">
-    <i class="glyphicon glyphicon-plus"></i><a [routerLink]="['/add-applicant']">Add</a></button>
-    <br>
+    <i class="glyphicon glyphicon-plus"></i>
+    <a [routerLink]="['/add-applicant']">Add</a>
+  </button>
+  <br>
   <!-- <table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>FirstName</th>
-      <th>LastName</th>
-      <th>Experience</th>
-      <th>City</th>
-      <th>Email</th>
-      <th>PhoneNumber</th> -->
-  <!-- <th>Age</th>
-      <th>Gender</th>
-      <th>CV</th>
-      <th>Position</th>
-      <th>Skills</th> -->
-  <!-- <th>locked</th>
-      <th>Edit</th>
-      <th>delet/archeive</th>
-    </tr>
-  </thead>
-  <tbody>
-<<<<<<< HEAD
-    <tr *ngFor="let applicant of arAllApplicants">
-      <td>{{applicant.Id}}</td>
-      <td>{{applicant.FirstName}}</td>
-      <td>{{applicant.LastName}}</td>
-      <td>{{applicant.Experience}}</td>
-      <td>{{applicant.City}}</td>
-      <td [hidden]="applicant.IsActive==true">{{applicant.Email}}</td>
-      <td [hidden]="applicant.IsActive==true">{{applicant.PhoneNumber}}</td>
-      <!-- <td>{{allApplicant.Age}}</td>
-=======
-    <tr *ngFor="let allApplicant of arAllApplicants">
-      <td>{{allApplicant.Id}}</td>
-      <td>{{allApplicant.FirstName}}</td>
-      <td>{{allApplicant.LastName}}</td>
-      <td>{{allApplicant.Experience}}</td>
-      <td>{{allApplicant.City}}</td>
-      <td>{{allApplicant.Email}}</td>
-      <td>{{allApplicant.PhoneNumber}}</td> -->
-  <!-- <td>{{allApplicant.Age}}</td>
->>>>>>> ac6cdf3fea5bff5b58d24c398282a5f61d594dab
-      <td>{{allApplicant.Gender}}</td>
-      <td>{{allApplicant.CV}}</td>
-      <td>{{allApplicant.Position}}</td>
-      <td>{{allApplicant.Skills}}</td> -->
-<<<<<<< HEAD
-      <td> <button type="button" class="btn btn-xs " (click)="lockToggle(applicant)">
-          <i class="fa {{ applicant.IsActive ? 'fa-lock' : 'fa-unlock' }}" aria-hidden="true"></i>
-      </button></td>      
-      <td (click)="EditJob(Job)"><i class="glyphicon glyphicon-pencil"></i></td>
-      <td (click)="archivedJob(Job)"><i class="glyphicon glyphicon-remove"></i></td>
-    </tr>
-  </tbody>
-</table>
-</div>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Experience</th> -->
+        <!-- <th>City</th>
+        <th>Email</th>
+        <th>PhoneNumber</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>CV</th>
+        <th>Position</th>
+        <th>Skills</th> -->
+        <!-- <th>locked</th>
+        <th>Edit</th>
+        <th>delet/archeive</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let allApplicant of arAllApplicants">
+        <td>{{allApplicant.Id}}</td>
+        <td>{{allApplicant.FirstName}}</td>
+        <td>{{allApplicant.LastName}}</td>
+        <td>{{allApplicant.Experience}}</td> -->
+        <!-- <td>{{allApplicant.City}}</td>
+        <td>{{allApplicant.Email}}</td>
+        <td>{{allApplicant.PhoneNumber}}</td>
+        <td>{{allApplicant.Age}}</td>
+        <td>{{allApplicant.Gender}}</td>
+        <td>{{allApplicant.CV}}</td>
+        <td>{{allApplicant.Position}}</td>
+        <td>{{allApplicant.Skills}}</td> -->
+        <!-- <td>
+          <button type="button" class="btn btn-xs " (click)="lockToggle(applicant)">
+            <i class="fa {{ applicant.IsActive== true ? 'fa-lock' : 'fa-unlock' }}" aria-hidden="true"></i>
+          </button>
+        </td>
+        <td (click)="EditJob(Job)">
+          <i class="glyphicon glyphicon-pencil"></i>
+        </td>
+        <td (click)="archivedJob(Job)">
+          <i class="glyphicon glyphicon-remove"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->
 
 <div class="card applicant-card" *ngFor="let applicant of arAllApplicants">
-    <div class="card-body">
+  <div class="card-body">
 
-        <div class="card-title">{{applicant.FirstName}}
-            <div  (click)="EditJob(applicant)"><i class="glyphicon glyphicon-pencil"></i></div>
-            <div (click)="archivedJob(applicant)"><i class="glyphicon glyphicon-remove"></i></div>
-            <button type="button" class="btn btn-xs " (click)="lockToggle(applicant)">
-                <i class="fa {{ applicant.IsActive ? 'fa-lock' : 'fa-unlock' }}" aria-hidden="true"></i>
-            </button>
-        </div>
-         
-          <span [hidden]="applicant.IsActive==true" class="card-text">
-              {{applicant.FirstName}}, {{applicant.LastName}}, {{applicant.Experience}},{{applicant.City}},{{applicant.Email}},{{applicant.PhoneNumber}}
-          </span>
-          <span [hidden]="applicant.IsActive==false" class="card-text">
-              {{applicant.FirstName}}, {{applicant.LastName}}, {{applicant.Experience}},{{applicant.City}}
-          </span>
-    </div>
-  </div>
-=======
-  <!-- <td ><i class="fa fa-unlock-alt"></i>
-        <i class="fa fa-lock"></i></td>      
-      <td ><i class="glyphicon glyphicon-pencil"></i></td>
-      <td ><i class="glyphicon glyphicon-remove"></i></td>
-    </tr>
-  </tbody>
-</table>-->
-
-
-
-  <div class="card job-card" *ngFor="let allApplicant of arAllApplicants">
-    <div class="card-body">
-
-      <div class="card-title">{{allApplicant.FirstName}} {{allApplicant.LastName}}
-        <div>
-          <i class="glyphicon glyphicon-pencil"></i>
-        </div>
-        <div>
-          <i class="glyphicon glyphicon-remove"></i>
-        </div>
+    <div class="card-title">{{applicant.FirstName}}
+      <div (click)="EditJob(applicant)">
+        <i class="glyphicon glyphicon-pencil"></i>
       </div>
-
-      <p class="card-text">
-        {{allApplicant.Skills}}
-      </p>
+      <div (click)="archivedJob(applicant)">
+        <i class="glyphicon glyphicon-remove"></i>
+      </div>
+      <button type="button" class="btn btn-xs " (click)="lockToggle(applicant)">
+        <i class="fa {{ applicant.IsActive ? 'fa-lock' : 'fa-unlock' }}" aria-hidden="true"></i>
+      </button>
     </div>
+
+    <span [hidden]="applicant.IsActive==true" class="card-text">
+      {{applicant.FirstName}}, {{applicant.LastName}}, {{applicant.Experience}},{{applicant.City}},{{applicant.Email}},{{applicant.PhoneNumber}}
+    </span>
+    <span [hidden]="applicant.IsActive==false" class="card-text">
+      {{applicant.FirstName}}, {{applicant.LastName}}, {{applicant.Experience}},{{applicant.City}}
+    </span>
   </div>
 </div>
->>>>>>> ac6cdf3fea5bff5b58d24c398282a5f61d594dab
