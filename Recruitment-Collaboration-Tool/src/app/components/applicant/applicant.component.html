@@ -1,10 +1,8 @@
-<div style="cursor:pointer" class="container" >
-  <button type="button" (click)="addnewJob()" class="btn"><i class="glyphicon glyphicon-plus"></i>Add</button>
-<div *ngIf="showAddJobFrom">
-  <app-add-new-job></app-add-new-job>
-</div>
-
-<table class="table table-hover">
+<div style="cursor:pointer" class="container">
+  <button type="button" class="btn">
+    <i class="glyphicon glyphicon-plus"></i><a [routerLink]="['/add-applicant']">Add</a></button>
+    <br>
+  <!-- <table class="table table-hover">
   <thead>
     <tr>
       <th>Id</th>
@@ -13,13 +11,13 @@
       <th>Experience</th>
       <th>City</th>
       <th>Email</th>
-      <th>PhoneNumber</th>
-      <!-- <th>Age</th>
+      <th>PhoneNumber</th> -->
+  <!-- <th>Age</th>
       <th>Gender</th>
       <th>CV</th>
       <th>Position</th>
       <th>Skills</th> -->
-      <th>locked</th>
+  <!-- <th>locked</th>
       <th>Edit</th>
       <th>delet/archeive</th>
     </tr>
@@ -32,17 +30,37 @@
       <td>{{allApplicant.Experience}}</td>
       <td>{{allApplicant.City}}</td>
       <td>{{allApplicant.Email}}</td>
-      <td>{{allApplicant.PhoneNumber}}</td>
-      <!-- <td>{{allApplicant.Age}}</td>
+      <td>{{allApplicant.PhoneNumber}}</td> -->
+  <!-- <td>{{allApplicant.Age}}</td>
       <td>{{allApplicant.Gender}}</td>
       <td>{{allApplicant.CV}}</td>
       <td>{{allApplicant.Position}}</td>
       <td>{{allApplicant.Skills}}</td> -->
-      <td ><i class="fa fa-unlock-alt"></i>
+  <!-- <td ><i class="fa fa-unlock-alt"></i>
         <i class="fa fa-lock"></i></td>      
-      <td (click)="EditJob(Job)"><i class="glyphicon glyphicon-pencil"></i></td>
-      <td (click)="archivedJob(Job)"><i class="glyphicon glyphicon-remove"></i></td>
+      <td ><i class="glyphicon glyphicon-pencil"></i></td>
+      <td ><i class="glyphicon glyphicon-remove"></i></td>
     </tr>
   </tbody>
-</table>
+</table>-->
+
+
+
+  <div class="card job-card" *ngFor="let allApplicant of arAllApplicants">
+    <div class="card-body">
+
+      <div class="card-title">{{allApplicant.FirstName}} {{allApplicant.LastName}}
+        <div>
+          <i class="glyphicon glyphicon-pencil"></i>
+        </div>
+        <div>
+          <i class="glyphicon glyphicon-remove"></i>
+        </div>
+      </div>
+
+      <p class="card-text">
+        {{allApplicant.Skills}}
+      </p>
+    </div>
+  </div>
 </div>

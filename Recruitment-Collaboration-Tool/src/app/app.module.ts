@@ -30,17 +30,6 @@ import { UploadFileService } from './services/upload-file.service';
 import { AngularFireModule } from 'angularfire2';
 
 
-export const firebaseConfig = {
-
-  apiKey: "AIzaSyCd29YeaTCi9rB54ltcAHrDYuI1xvxp4o8",
-  authDomain: "recruitment-collaboration.firebaseapp.com",
-  databaseURL: "https://recruitment-collaboration.firebaseio.com",
-  projectId: "recruitment-collaboration",
-  storageBucket: "recruitment-collaboration.appspot.com",
-  messagingSenderId: "292230634028"
-
-};
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,7 +52,7 @@ export const firebaseConfig = {
     AngularFirestoreModule,
     FormsModule,
     NgbModule.forRoot(),
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebase)
 
   ],
   providers: [

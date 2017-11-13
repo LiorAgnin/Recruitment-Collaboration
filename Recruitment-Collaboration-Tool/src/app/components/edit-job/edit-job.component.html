@@ -1,54 +1,133 @@
- <h1>Job Edit</h1>
-<<<<<<< HEAD
-<!-- Edit job -->
-=======
- <button><i class="fa fa-pencil" aria-hidden="true"></i></button>
+<!-- <h1>Job Edit</h1>
 <div>
->>>>>>> 4a57dee8544f343e9406a3fff2cfe2b5ea0a80d7
 <div class="container">
  <form #trvForm="ngForm" (ngSubmit)="EditJobs()">
    <div class="form-group">
      <label for="IdPostion">Postion</label>
-<<<<<<< HEAD
-     <input id="IdPostion" type="text" class="form-control" required [(ngModel)]="EJob.Postion" name="Postion" #trvName=ngModel > 
-   </div>
+     <input id="IdPostion" type="text" class="form-control" required [(ngModel)]="editJob.Postion" name="Postion" #trvPostion="ngModel" > 
+     <div *ngIf="trvPostion.errors && (trvPostion.dirty || trvPostion.touched)" class="alert alert-danger">
+        <div [hidden]="!trvPostion.errors.required">Postion is required</div>
+      </div>
+    </div>
    <div class="form-group">
      <label for="IdMinimumReqYears">Minimum Requst Years</label>
-     <input id="IdMinimumReqYears" type="number" class="form-control" required [(ngModel)]="EJob.MinimumReqYears" name="minimumReqYears">
+     <input id="IdMinimumReqYears" type="number" class="form-control" required [(ngModel)]="editJob.MinimumReqYears" name="minimumReqYears" #trvMinimumReqYears="ngModel">
+     <div *ngIf="trvMinimumReqYears.errors && (trvMinimumReqYears.dirty || trvMinimumReqYears.touched)" class="alert alert-danger">
+        <div [hidden]="!trvMinimumReqYears.errors.required">Minimum ReqYears is required</div>
+      </div>
+    </div>
+   <div class="form-group">
+     <label for="IdDescription">Description</label>
+     <input id="IdDescription" type="text" class="form-control" required [(ngModel)]="editJob.Description" name="description"  #trvDescription="ngModel"> 
+     <div *ngIf="trvDescription.errors && (trvDescription.dirty || trvDescription.touched)" class="alert alert-danger">
+        <div [hidden]="!trvDescription.errors.required">Description is required</div>
+      </div>
+    </div>
+   <div class="form-group">
+     <label for="IdMinimumReqYears">Minimum Requst Years</label>
+     <input id="IdMinimumReqYears" type="number" class="form-control" required [(ngModel)]="editJob.MinimumReqYears" name="minimumReqYears" #trvPostion="ngModel">
    </div>
    <div class="form-group">
      <label for="IdDescription">Description</label>
-     <input id="IdDescription" type="text" class="form-control" required [(ngModel)]="EJob.Description" name="description">
-=======
-     <input id="IdPostion" type="text" class="form-control" required [(ngModel)]="editJob.Postion" name="postion" #trvName=ngModel > 
-   </div>
-   <div class="form-group">
-     <label for="IdMinimumReqYears">Minimum Requst Years</label>
-     <input id="IdMinimumReqYears" type="number" class="form-control" required [(ngModel)]="editJob.MinimumReqYears" name="minimumReqYears">
-   </div>
-   <div class="form-group">
-     <label for="IdDescription">Description</label>
-     <input id="IdDescription" type="text" class="form-control" required [(ngModel)]="editJob.Description" name="description">
->>>>>>> 4a57dee8544f343e9406a3fff2cfe2b5ea0a80d7
+     <input id="IdDescription" type="text" class="form-control" required [(ngModel)]="editJob.Description" name="description" #trvPostion="ngModel">
    </div>
  
    <div class="form-group">
     <label for="IsArcheive">Is Archeive</label>
-    <input id="IsArcheive" type="text" class="form-control" required [(ngModel)]="EJob.IsArcheive" name="IsArcheive">
+    <input id="IsArcheive" type="text" class="form-control" required [(ngModel)]="editJob.IsArcheive" name="IsArcheive" #trvPostion="ngModel">
   </div>
    <div class="form-group">
      <label for="IdSkills">Skills</label>
-<<<<<<< HEAD
-     <input id="IdSkills" type="text" class="form-control" required [(ngModel)]="EJob.Skills" name="skills">
-=======
-     <input id="IdSkills" type="text" class="form-control" required [(ngModel)]="editJob.Skills" name="skills">
->>>>>>> 4a57dee8544f343e9406a3fff2cfe2b5ea0a80d7
+     <input id="IdSkills" type="text" class="form-control" required [(ngModel)]="editJob.Skills" name="skills" #trvPostion="ngModel">
    </div>
    <button [disabled]="!trvForm.valid"  class="btn btn-primary">Edit Job</button>
  </form>
+</div> -->
+
+<div class="modal fade" id="myModalHorizontal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span>
+          <span class="sr-only">Close</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">
+          Job Edit
+        </h4>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <form #trvForm="ngForm" (ngSubmit)="EditJobs()">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="IdPostion">Postion</label>
+              <input id="IdPostion" type="text" class="form-control" required [(ngModel)]="editJob.Postion" name="Postion" #trvPostion="ngModel">
+              <div *ngIf="trvPostion.errors && (trvPostion.dirty || trvPostion.touched)" class="alert alert-danger">
+                <div [hidden]="!trvPostion.errors.required">Postion is required</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="IdMinimumReqYears">Minimum Requst Years</label>
+              <input id="IdMinimumReqYears" type="number" class="form-control" required [(ngModel)]="editJob.MinimumReqYears" name="minimumReqYears"
+                #trvMinimumReqYears="ngModel">
+              <div *ngIf="trvMinimumReqYears.errors && (trvMinimumReqYears.dirty || trvMinimumReqYears.touched)" class="alert alert-danger">
+                <div [hidden]="!trvMinimumReqYears.errors.required">Minimum ReqYears is required</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="IdDescription">Description</label>
+              <input id="IdDescription" type="text" class="form-control" required [(ngModel)]="editJob.Description" name="description"
+                #trvDescription="ngModel">
+              <div *ngIf="trvDescription.errors && (trvDescription.dirty || trvDescription.touched)" class="alert alert-danger">
+                <div [hidden]="!trvDescription.errors.required">Description is required</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="IdMinimumReqYears">Minimum Requst Years</label>
+              <input id="IdMinimumReqYears" type="number" class="form-control" required [(ngModel)]="editJob.MinimumReqYears" name="minimumReqYears"
+                #trvPostion="ngModel">
+            </div>
+          </div>
+          <div class="col-md-6">
+
+            <div class="form-group">
+              <label for="IdDescription">Description</label>
+              <input id="IdDescription" type="text" class="form-control" required [(ngModel)]="editJob.Description" name="description"
+                #trvPostion="ngModel">
+            </div>
+
+            <div class="form-group">
+              <label for="IsArcheive">Is Archeive</label>
+              <input id="IsArcheive" type="text" class="form-control" required [(ngModel)]="editJob.IsArcheive" name="IsArcheive" #trvPostion="ngModel">
+            </div>
+
+            <div class="form-group">
+              <label for="IdSkills">Skills</label>
+              <!-- <input id="IdSkills" type="text" class="form-control" required [(ngModel)]="editJob.Skills" name="skills" #trvPostion="ngModel"> -->
+              <div class="checkbox-inline" *ngFor="let skill of newArSkillSet">
+                  <label>
+                    <input type="checkbox" class="checkbox checkbox-primary" name="skill" [(ngModel)]="skill.selected" > {{skill.name}}
+                  </label>
+                </div>
+            </div>
+          </div>
+          <br>
+          <button [disabled]="!trvForm.valid" class="btn btn-primary">Edit Job</button>
+        </form>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 4a57dee8544f343e9406a3fff2cfe2b5ea0a80d7

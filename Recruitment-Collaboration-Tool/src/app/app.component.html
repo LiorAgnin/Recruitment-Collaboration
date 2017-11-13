@@ -1,30 +1,5 @@
-<!-- <div class="container">
-  <div  class="row">
-    <div class="col-sm-2 ">
-      <div>
-        <img class="logo-Img" src="../assets/at&t.jpg">
-      </div>
-    </div>
-    <div class="col-sm-10">
-      <h5>Home > Applicants > ....</h5>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-2 ">
-      <div>
-        <h1>
-          All Search
-        </h1>
-      </div>
-    </div>
-    <div class="col-sm-10">
-      <router-outlet></router-outlet>
-    </div>
-  </div>
-
-</div> -->
-
-<div class="w3-content w3-margin-top" style="max-width:1400px;">
+<div>
+  <div class="w3-content w3-margin-top" style="max-width:1400px;">
 
   <div class="w3-row-padding">
 
@@ -79,8 +54,12 @@
     <div class="w3-twothird">
 
       <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
-        <div>Home > Applicants > </div> 
+        <div><ul class="nav ">
+            <li><a [routerLink]="['/home']">Home</a></li>
+            <li><a [routerLink]="['/jobs']">Jobs</a></li>
+            <li><a [routerLink]="['/applicant']">Applicants</a></li> 
+            <li><a [routerLink]="['/login']">Login</a></li>  
+        </ul></div> 
         <hr>
           <router-outlet></router-outlet>
       </div>
@@ -99,3 +78,6 @@
   <i class="fa fa-linkedin w3-hover-opacity"></i>
   <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
 </footer>
+</div>
+
+

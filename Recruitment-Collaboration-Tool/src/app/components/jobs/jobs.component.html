@@ -1,9 +1,8 @@
-<!-- <div style="cursor:pointer" class="container" >
-  <button type="button" (click)="addnewJob()" class="btn"><i class="glyphicon glyphicon-plus"></i>Add</button>
-<div *ngIf="showAddJobFrom">
-  <app-add-new-job></app-add-new-job>
-</div>
-
+ <div style="cursor:pointer" class="container" >
+  <button type="button" (click)="addnewJob()" class="btn"><i class="glyphicon glyphicon-plus"></i>
+    <a [routerLink]="['/add-job']">Add</a></button>
+<br>
+<!--
 <table class="table table-hover">
   <thead>
     <tr>
@@ -33,17 +32,20 @@
 </div> -->
 
 <div class="card job-card" *ngFor="let Job of arNotArchivedJobs">
-    <div class="card-body">
+  <div class="card-body">
 
-        <h4 class="card-title">{{Job.Postion}}
-            <div  (click)="EditJob(Job)"><i class="glyphicon glyphicon-pencil"></i></div>
-            <div (click)="archivedJob(Job)"><i class="glyphicon glyphicon-remove"></i></div>
-          </h4>
-         
-          <p class="card-text">
-            {{Job.Description}}, {{Job.MinimumReqYears}}, {{Job.Skills}}
-          </p>
-    </div>
+    <h4 class="card-title">{{Job.Postion}}
+      <div data-toggle="modal" data-target="#myModalHorizontal" (click)="EditJob(Job)">
+        <i  class="glyphicon glyphicon-pencil"></i>
+      </div>
+      <div (click)="archivedJob(Job)">
+        <i class="glyphicon glyphicon-remove"></i>
+      </div>
+    </h4>
+
+    <p class="card-text">
+      {{Job.Description}}, {{Job.MinimumReqYears}}, {{Job.Skills}}
+    </p>
   </div>
-
-  
+</div>
+</div>

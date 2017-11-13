@@ -1,6 +1,4 @@
-<h1>
-  Add new job</h1>
-<button class="btn">Add new job</button>
+<h1>Add new job</h1>
 <div class="container">
   <form #trvForm="ngForm" (ngSubmit)="addNewJobSubmitHandler()">
     <div class="form-group">
@@ -24,12 +22,6 @@
             <input type="checkbox" class="checkbox checkbox-primary" name="skill" [(ngModel)]="skill.selected" (change)="skillSetArray(skill)"> {{skill.name}}
           </label>
         </div>
-      <label for="job"></label>
-      <div class="checkbox-inline" *ngFor="let skill of newArSkillSet">
-        <label>
-          <input type="checkbox" class="checkbox checkbox-primary" name="skill" [(ngModel)]="skill.selected" (change)="skillSetArray(skill)"> {{skill.name}}
-        </label>
-      </div>
     </div>
     <button [disabled]="!trvForm.valid" class="btn btn-primary">Add Job</button>
   </form>
