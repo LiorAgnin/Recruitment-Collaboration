@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div style="cursor:pointer" class="container" >
 <div style="cursor:pointer" class="container" >
 
@@ -6,6 +7,13 @@
 
 </div>
 
+=======
+ <div style="cursor:pointer" class="container" >
+  <button type="button" (click)="addnewJob()" class="btn"><i class="glyphicon glyphicon-plus"></i>
+    <a [routerLink]="['/add-job']">Add</a></button>
+<br>
+<!--
+>>>>>>> ac6cdf3fea5bff5b58d24c398282a5f61d594dab
 <table class="table table-hover">
   <thead>
     <tr>
@@ -38,18 +46,25 @@
 </div>
 
 <div class="card job-card" *ngFor="let Job of arNotArchivedJobs">
-    <div class="card-body">
+  <div class="card-body">
 
-        <h4 class="card-title">{{Job.Postion}}
-            <div  (click)="EditJob(Job)"><i class="glyphicon glyphicon-pencil"></i></div>
-            <div (click)="archivedJob(Job)"><i class="glyphicon glyphicon-remove"></i></div>
-          </h4>
-         
-          <p class="card-text">
-            {{Job.Description}}, {{Job.MinimumReqYears}}, {{Job.Skills}}
-          </p>
-    </div>
-  </div>
+    <h4 class="card-title">{{Job.Postion}}
+      <div data-toggle="modal" data-target="#myModalHorizontal" (click)="EditJob(Job)">
+        <i  class="glyphicon glyphicon-pencil"></i>
+      </div>
+      <div (click)="archivedJob(Job)">
+        <i class="glyphicon glyphicon-remove"></i>
+      </div>
+    </h4>
 
+<<<<<<< HEAD
   
 
+=======
+    <p class="card-text">
+      {{Job.Description}}, {{Job.MinimumReqYears}}, {{Job.Skills}}
+    </p>
+  </div>
+</div>
+</div>
+>>>>>>> ac6cdf3fea5bff5b58d24c398282a5f61d594dab

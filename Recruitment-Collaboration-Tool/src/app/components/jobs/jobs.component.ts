@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { JobsServiceService } from "../../services/jobs-service.service";
 import { Job } from "../../model/job";
 import { DataServiceService } from "../../services/data-service.service";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-jobs',
@@ -16,7 +17,9 @@ export class JobsComponent implements OnInit {
   showAddJobFrom: boolean = false;
 
   constructor(public jobService: JobsServiceService,
-    public DataService: DataServiceService) { }
+    public DataService: DataServiceService,
+    private router: Router,
+    private route: ActivatedRoute,) { }
 
   ngOnInit() {
     console.log("JobsComponent");
@@ -43,11 +46,13 @@ export class JobsComponent implements OnInit {
   }
 
   EditJob(editJob: Job) {
-    this.DataService.jobToEdit=editJob;
     console.log(editJob);
+    this.DataService.jobToEdit=editJob;
+    this.router.navigate(['/edit-job']);
   }
 
   archivedJob(archivedJob: Job) {
+    window.alert("archivedJob");
     console.log(archivedJob)
   }
 

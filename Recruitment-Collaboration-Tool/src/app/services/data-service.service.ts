@@ -4,7 +4,7 @@ import { Job } from "../model/job";
 @Injectable()
 export class DataServiceService {
 
-  jobToEdit:Job;
+ public jobToEdit:Job;
 
   constructor() { }
 
