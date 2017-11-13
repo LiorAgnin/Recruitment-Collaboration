@@ -31,7 +31,6 @@ export class JobsComponent implements OnInit {
           this.arNotArchivedJobs.push(job);
         }
       });
-      console.log(this.arNotArchivedJobs);
     });
 
   }

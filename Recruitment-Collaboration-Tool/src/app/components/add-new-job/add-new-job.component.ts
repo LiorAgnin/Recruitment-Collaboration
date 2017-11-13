@@ -3,6 +3,7 @@ import { JobsServiceService } from "../../services/jobs-service.service";
 import { Job } from "../../model/job";
 import { SkillsetServiceService } from "../../services/skillset-service.service";
 import { Skillset } from '../../model/skillset';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-add-new-job',
@@ -16,7 +17,9 @@ export class AddNewJobComponent implements OnInit {
   newArSkillSet: Skillset[] = [];
  
   constructor(public jobService: JobsServiceService,
-    public SkillsetService: SkillsetServiceService) { }
+    public SkillsetService: SkillsetServiceService,
+    private router: Router,
+    private route: ActivatedRoute,) { }
   ngOnInit() {
    
     this.SkillsetService.getSkillsets().subscribe(skills => {
@@ -49,5 +52,6 @@ export class AddNewJobComponent implements OnInit {
       Skills: this.arSkillSetPicked,
     }
     this.jobService.addNewJob(body);
+    this.router.navigate(['/jobs']);
   }
 }
