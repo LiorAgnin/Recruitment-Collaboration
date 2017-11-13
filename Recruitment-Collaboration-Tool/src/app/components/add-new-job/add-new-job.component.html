@@ -21,15 +21,9 @@
         <label for="job"></label>
         <div class="checkbox-inline" *ngFor="let skill of newArSkillSet">
           <label>
-            <input type="checkbox" class="checkbox checkbox-primary" name="skill" [(ngModel)]="skill.selected" (change)="skillSetArray(skill)"> {{skill.name}}
+            <input type="checkbox" name="skill" [(ngModel)]="skill.selected" (change)="skillSetArray(skill)"> {{skill.name}}
           </label>
         </div>
-      <label for="job"></label>
-      <div class="checkbox-inline" *ngFor="let skill of newArSkillSet">
-        <label>
-          <input type="checkbox" class="checkbox checkbox-primary" name="skill" [(ngModel)]="skill.selected" (change)="skillSetArray(skill)"> {{skill.name}}
-        </label>
-      </div>
     </div>
     <button [disabled]="!trvForm.valid" class="btn btn-primary">Add Job</button>
   </form>

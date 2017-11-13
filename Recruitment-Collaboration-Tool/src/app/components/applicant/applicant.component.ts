@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApplicantServiceService } from "../../services/applicant-service.service";
 import { Applicant } from "../../model/Applicant";
+import { DataServiceService } from "../../services/data-service.service";
 
 @Component({
   selector: 'app-applicant',
@@ -12,19 +13,20 @@ export class ApplicantComponent implements OnInit {
   arAllApplicants: Applicant[] = new Array();
   arApplicantStatus: Applicant[] = new Array();
   arUnlockApplicants: Applicant[] = new Array();
-
-  constructor(public ApplicantServiceService: ApplicantServiceService) { }
+  LockUnlock: boolean = false;
+  constructor(public applicantService: ApplicantServiceService,
+    public dataService: DataServiceService) { }
 
   ngOnInit() {
 
     console.log("ApplicantComponent");
 
-    this.ApplicantServiceService.getApplicants().subscribe(applicant => {
+    this.applicantService.getApplicants().subscribe(applicant => {
       this.arAllApplicants = applicant;
       console.log(this.arAllApplicants);
     });
 
-    this.ApplicantServiceService.getApplicantsStatus().subscribe(applicantStatus => {
+    this.applicantService.getApplicantsStatus().subscribe(applicantStatus => {
       this.arApplicantStatus = applicantStatus;
       console.log(this.arApplicantStatus);
     });
@@ -47,6 +49,14 @@ export class ApplicantComponent implements OnInit {
 
 
     console.log("applicant");
+
+
+  }
+
+  lockToggle(applicant: Applicant) {
+    applicant.IsActive = !applicant.IsActive;
+    this.applicantService.updeteApplicants(applicant);
+
   }
 
 }

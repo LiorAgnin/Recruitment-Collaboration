@@ -11,4 +11,5 @@ export interface Applicant {
     CV?: any[];
     Position?: string;
     Skills?: string[];
+    IsActive?:boolean;
 }

@@ -40,8 +40,8 @@ export class ApplicantServiceService {
      this.applicanCollection.add(newApplicant);
    }
 
-   updeteJob(updeteJob: Applicant) {
-    this.applicantDocm = this.applicant.doc(`Jobs/${updeteJob.Id}`);
+   updeteApplicants(updeteJob: Applicant) {
+    this.applicantDocm = this.applicant.doc(`Applicants/${updeteJob.Id}`);
     this.applicantDocm.update(updeteJob);
   }
 
