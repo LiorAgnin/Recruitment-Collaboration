@@ -29,7 +29,9 @@ import { SkillsetServiceService } from "./services/skillset-service.service";
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { UploadFileService } from './services/upload-file.service';
 import { AngularFireModule } from 'angularfire2';
-
+import { AngularFireAuth } from "angularfire2/auth";
+import { ApplicantDetailComponent } from './components/applicant-detail/applicant-detail.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -41,8 +43,8 @@ import { AngularFireModule } from 'angularfire2';
     AddNewApplicantComponent,
     LoginComponent,
     AddNewJobComponent,
-    EditJobComponent
-
+    EditJobComponent,
+    ApplicantDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -54,8 +56,7 @@ import { AngularFireModule } from 'angularfire2';
     FormsModule,
     NgbModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
-    Ng2CarouselamosModule,
-
+    NgxPaginationModule
   ],
   providers: [
     LoginServiceService,
@@ -64,6 +65,7 @@ import { AngularFireModule } from 'angularfire2';
     SkillsetServiceService,
     DataServiceService,
     AngularFireDatabase,
+    AngularFireAuth,
     UploadFileService
   ],
   bootstrap: [AppComponent]

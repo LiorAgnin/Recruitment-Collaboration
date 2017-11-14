@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="card">
+    <div class="card-block">
+      <h4 class="card-title">Name : {{applicant.FirstName +" "+applicant.LastName}}</h4>
+      <h6 class="card-subtitle mb-2 text-muted">Title : {{applicant.Position}}</h6>
+    </div>
+  </div>
+  <br>
+  <div class="card">
+    <div class="card-block">
+      <div class="form-group">
+        <label for="IdSkills">Skills : </label>
+        <br>
+        <div class="checkbox-inline" *ngFor="let skill of applicant.Skills">
+          <label>
+            <input type="checkbox" class="checkbox checkbox-primary" name="skill" checked> {{skill}}
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="card">
+    <div class="card-block">
+      <h4 class="card-title">CV :</h4>
+      <div class="card-content">
+        <button class="fa fa-cloud-download" class="btn" (click)="downloadCV()" style="float:right">
+          Download CV
+        </button>
+    </div>
+  </div>
+  <br>
+  <div class="card">
+    <div class="card-block">
+      <h4 class="card-title">Interview Summary :</h4>
+      <div class="card-content">
+        Interview Summary
+      </div>
+    </div>
+  </div>
+</div>

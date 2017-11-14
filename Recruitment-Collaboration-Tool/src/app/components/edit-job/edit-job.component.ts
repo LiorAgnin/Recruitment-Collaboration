@@ -18,6 +18,7 @@ export class EditJobComponent implements OnInit {
   arSkillset: any;
   newArSkillSet: Skillset[] = [];
   arSkillSetPicked: string[] = [];
+  skil;
 
   constructor(public jobService: JobsServiceService,
     public DataService: DataServiceService,
@@ -26,7 +27,6 @@ export class EditJobComponent implements OnInit {
     private route: ActivatedRoute, ) {
     this.editJob = DataService.jobToEdit;
   }
-  skil;
   ngOnInit() {
     let skillsSelected;
     this.SkillsetService.getSkillsets().subscribe(skills => {
@@ -67,10 +67,9 @@ export class EditJobComponent implements OnInit {
       Postion: this.editJob.Postion,
       MinimumReqYears: this.editJob.MinimumReqYears,
       Description: this.editJob.Description,
-      IsArcheive: false,
-      Skills: this.editJob.Skills,
+      IsArcheive: this.editJob.IsArcheive,
+      Skills: this.editJob.Skills
     }
-    console.log(body);
     this.jobService.updeteJob(body);
     this.router.navigate(['/jobs']);
   }
