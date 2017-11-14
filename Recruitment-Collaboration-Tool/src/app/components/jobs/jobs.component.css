@@ -9,3 +9,18 @@ div{
     padding: 10px;
 }
 
+.darts-icon{
+    font-size: 48px !important;
+    height: 48px !important;
+    width: 48px !important;
+}
+
+#left, #right{
+    margin: 30px;
+}
+
+.first-card{
+    padding: 20px;
+    display: inline-block; 
+}
+

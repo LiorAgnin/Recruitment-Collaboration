@@ -1,54 +1,59 @@
-<div style="cursor:pointer" class="container" >
-<div style="cursor:pointer" class="container" >
- <div style="cursor:pointer" class="container" >
-  <button type="button" (click)="addnewJob()" class="btn"><i class="glyphicon glyphicon-plus"></i>
-    <a [routerLink]="['/add-job']">Add</a></button>
-<br>
+<div style="cursor:pointer" class="container">
+  <button type="button" (click)="addnewJob()" class="btn">
+    <i class="glyphicon glyphicon-plus"></i>
+    <a [routerLink]="['/add-job']">Add</a>
+  </button>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Postion</th>
-      <th>MinimumReqYears</th>
-      <th>Description</th>
-      <th>IsArcheive</th>
-      <th>Skills</th>
-      <th>Edit</th>
-      <th>delet/archeive</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let Job of arNotArchivedJobs">
-      <td>{{Job.Id}}</td>
-      <td>{{Job.Postion}}</td>
-      <td>{{Job.MinimumReqYears}}</td>
-      <td>{{Job.Description}}</td>
-      <td>{{Job.IsArcheive}}</td>
-      <td>{{Job.Skills}}</td>
-      <td (click)="EditJob(Job)"><i class="glyphicon glyphicon-pencil"></i></td>
-      <td (click)="archivedJob(Job)"><i class="glyphicon glyphicon-remove"></i></td>
-    </tr>
-  </tbody>
-</table>
+  <br>
+  <br>
+  <!-- <div class="row">
+      <div class="col-xs-4 " *ngFor="let Job of arNotArchivedJobs">
+          <div class="card card-block">
+              <h4 class="card-title">{{ Job.Postion }}
+                  <div data-toggle="modal" data-target="#myModalHorizontal" (click)="EditJob(Job)">
+                      <i class="glyphicon glyphicon-pencil"></i>
+                    </div>
+                    <div (click)="archivedJob(Job)">
+                      <i class="glyphicon glyphicon-remove"></i>
+                    </div>
+              </h4>
+              <p class="card-text">
+                  {{Job.Description}}, {{Job.MinimumReqYears}}, {{Job.Skills}}
+              </p>
+          </div>
+      </div>
+  </div> -->
 </div>
 
-</div>
-<div class="card job-card" *ngFor="let Job of arNotArchivedJobs">
-  <div class="card-body">
-
-    <h4 class="card-title">{{Job.Postion}}
-      <div data-toggle="modal" data-target="#myModalHorizontal" (click)="EditJob(Job)">
-        <i  class="glyphicon glyphicon-pencil"></i>
-      </div>
-      <div (click)="archivedJob(Job)">
-        <i class="glyphicon glyphicon-remove"></i>
-      </div>
-    </h4>
-    <p class="card-text">
-      {{Job.Description}}, {{Job.MinimumReqYears}}, {{Job.Skills}}
-    </p>
+<div>
+  <div ng2-carouselamos class="slides-wrapper" [items]="arNotArchivedJobs" [width]="850" [$prev]="prev" [$next]="next" [$item]="item">
   </div>
 </div>
-</div>
 
+<ng-template #prev>
+  <i class="glyphicon glyphicon-chevron-left darts-icon"></i>
+</ng-template>
+<ng-template #next>
+  <i class="glyphicon glyphicon-chevron-right darts-icon"></i>
+</ng-template>
+
+<div class="first-card">
+  <ng-template #item let-item>
+    <div class="card job-card">
+      <div class="card-body">
+
+        <h4 class="card-title">{{item.Postion}}
+          <div data-toggle="modal" data-target="#myModalHorizontal" (click)="EditJob(item)">
+            <i class="glyphicon glyphicon-pencil"></i>
+          </div>
+          <div (click)="archivedJob(item)">
+            <i class="glyphicon glyphicon-remove"></i>
+          </div>
+        </h4>
+        <p class="card-text">
+          {{item.Description}}, {{item.MinimumReqYears}}, {{item.Skills}}
+        </p>
+      </div>
+    </div>
+  </ng-template>
+</div>

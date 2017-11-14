@@ -13,13 +13,12 @@ export class JobsComponent implements OnInit {
 
   arAllJobs: Job[] = new Array();
   arNotArchivedJobs: Job[] = new Array();
-
   showAddJobFrom: boolean = false;
 
   constructor(public jobService: JobsServiceService,
     public DataService: DataServiceService,
     private router: Router,
-    private route: ActivatedRoute,) { }
+    private route: ActivatedRoute, ) {}
 
   ngOnInit() {
     console.log("JobsComponent");
@@ -46,7 +45,7 @@ export class JobsComponent implements OnInit {
 
   EditJob(editJob: Job) {
     console.log(editJob);
-    this.DataService.jobToEdit=editJob;
+    this.DataService.jobToEdit = editJob;
     this.router.navigate(['/edit-job']);
   }
 
@@ -54,5 +53,6 @@ export class JobsComponent implements OnInit {
     window.alert("archivedJob");
     console.log(archivedJob)
   }
+
 
 }
