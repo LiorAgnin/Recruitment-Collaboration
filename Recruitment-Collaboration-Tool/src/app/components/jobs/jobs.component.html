@@ -1,54 +1,26 @@
-<div style="cursor:pointer" class="container" >
-<div style="cursor:pointer" class="container" >
- <div style="cursor:pointer" class="container" >
-  <button type="button" (click)="addnewJob()" class="btn"><i class="glyphicon glyphicon-plus"></i>
+<div style="cursor:pointer" class="container">
+  <div style="cursor:pointer" class="container">
+    <div style="cursor:pointer" class="container">
+      <button type="button" (click)="addnewJob()" class="btn"><i class="glyphicon glyphicon-plus"></i>
     <a [routerLink]="['/add-job']">Add</a></button>
-<br>
+      <br>
+    </div>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Postion</th>
-      <th>MinimumReqYears</th>
-      <th>Description</th>
-      <th>IsArcheive</th>
-      <th>Skills</th>
-      <th>Edit</th>
-      <th>delet/archeive</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let Job of arNotArchivedJobs">
-      <td>{{Job.Id}}</td>
-      <td>{{Job.Postion}}</td>
-      <td>{{Job.MinimumReqYears}}</td>
-      <td>{{Job.Description}}</td>
-      <td>{{Job.IsArcheive}}</td>
-      <td>{{Job.Skills}}</td>
-      <td (click)="EditJob(Job)"><i class="glyphicon glyphicon-pencil"></i></td>
-      <td (click)="archivedJob(Job)"><i class="glyphicon glyphicon-remove"></i></td>
-    </tr>
-  </tbody>
-</table>
-</div>
+  </div>
+  <div class="card job-card" *ngFor="let Job of arNotArchivedJobs">
+    <div class="card-body">
 
-</div>
-<div class="card job-card" *ngFor="let Job of arNotArchivedJobs">
-  <div class="card-body">
-
-    <h4 class="card-title">{{Job.Postion}}
-      <div data-toggle="modal" data-target="#myModalHorizontal" (click)="EditJob(Job)">
-        <i  class="glyphicon glyphicon-pencil"></i>
-      </div>
-      <div (click)="archivedJob(Job)">
-        <i class="glyphicon glyphicon-remove"></i>
-      </div>
-    </h4>
-    <p class="card-text">
-      {{Job.Description}}, {{Job.MinimumReqYears}}, {{Job.Skills}}
-    </p>
+      <h4 class="card-title">{{Job.Postion}}
+        <div data-toggle="modal" data-target="#myModalHorizontal" (click)="EditJob(Job)">
+          <i class="glyphicon glyphicon-pencil"></i>
+        </div>
+        <div (click)="archivedJob(Job)">
+          <i class="glyphicon glyphicon-remove"></i>
+        </div>
+      </h4>
+      <p class="card-text">
+        {{Job.Description}}, {{Job.MinimumReqYears}}, {{Job.Skills}}
+      </p>
+    </div>
   </div>
 </div>
-</div>
-

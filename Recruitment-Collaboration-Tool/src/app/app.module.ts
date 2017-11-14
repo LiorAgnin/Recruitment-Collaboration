@@ -28,6 +28,7 @@ import { SkillsetServiceService } from "./services/skillset-service.service";
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { UploadFileService } from './services/upload-file.service';
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuth } from "angularfire2/auth";
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import { AngularFireModule } from 'angularfire2';
     SkillsetServiceService,
     DataServiceService,
     AngularFireDatabase,
+    AngularFireAuth,
     UploadFileService
   ],
   bootstrap: [AppComponent]

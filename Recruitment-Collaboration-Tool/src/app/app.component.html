@@ -1,83 +1,89 @@
 <div>
   <div class="w3-content w3-margin-top" style="max-width:1400px;">
 
-  <div class="w3-row-padding">
+    <div class="w3-row-padding">
 
-    <div class="w3-third">
+      <div class="w3-third">
 
-      <div class="w3-white w3-text-grey w3-card-4">
-        <div class="w3-display-container">
-          <img class="logo-Img" src="../assets/at&t.jpg" alt="Avatar">
-        </div>
-        <div class="w3-container">
-          <hr>
-
-          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>All Search</b></p>
-          <p>Adobe Photoshop</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:90%">90%</div>
+        <div class="w3-white w3-text-grey w3-card-4">
+          <div class="w3-display-container">
+            <img class="logo-Img" src="../assets/at&t.jpg" alt="Avatar">
           </div>
-          <p>Photography</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">
-              <div class="w3-center w3-text-white">80%</div>
+          <div class="w3-container">
+            <hr>
+
+            <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>All Search</b></p>
+            <p>Adobe Photoshop</p>
+            <div class="w3-light-grey w3-round-xlarge w3-small">
+              <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:90%">90%</div>
             </div>
-          </div>
-          <p>Illustrator</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:75%">75%</div>
-          </div>
-          <p>Media</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:50%">50%</div>
-          </div>
-          <br>
+            <p>Photography</p>
+            <div class="w3-light-grey w3-round-xlarge w3-small">
+              <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">
+                <div class="w3-center w3-text-white">80%</div>
+              </div>
+            </div>
+            <p>Illustrator</p>
+            <div class="w3-light-grey w3-round-xlarge w3-small">
+              <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:75%">75%</div>
+            </div>
+            <p>Media</p>
+            <div class="w3-light-grey w3-round-xlarge w3-small">
+              <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:50%">50%</div>
+            </div>
+            <br>
 
-          <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
-          <p>English</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-teal" style="height:24px;width:100%"></div>
+            <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
+            <p>English</p>
+            <div class="w3-light-grey w3-round-xlarge">
+              <div class="w3-round-xlarge w3-teal" style="height:24px;width:100%"></div>
+            </div>
+            <p>Spanish</p>
+            <div class="w3-light-grey w3-round-xlarge">
+              <div class="w3-round-xlarge w3-teal" style="height:24px;width:55%"></div>
+            </div>
+            <p>German</p>
+            <div class="w3-light-grey w3-round-xlarge">
+              <div class="w3-round-xlarge w3-teal" style="height:24px;width:25%"></div>
+            </div>
+            <br>
           </div>
-          <p>Spanish</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-teal" style="height:24px;width:55%"></div>
-          </div>
-          <p>German</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-teal" style="height:24px;width:25%"></div>
-          </div>
-          <br>
-        </div>
-      </div><br>
-    </div>
+        </div><br>
+      </div>
 
-    <div class="w3-twothird">
+      <div class="w3-twothird">
 
-      <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <div><ul class="nav ">
-            <li><a [routerLink]="['/home']">Home</a></li>
-            <li><a [routerLink]="['/jobs']">Jobs</a></li>
-            <li><a [routerLink]="['/applicant']">Applicants</a></li> 
-            <li><a [routerLink]="['/login']">Login</a></li>  
-        </ul></div> 
-        <hr>
+        <div class="w3-container w3-card w3-white w3-margin-bottom">
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-left">
+              <li><a class="navbar-brand" [routerLink]="['/home']">Home</a></li>
+              <li><a *ngIf="DataService.IsUserAuthentication" [routerLink]="['/jobs']">Jobs</a></li>
+              <li><a *ngIf="DataService.IsUserAuthentication" [routerLink]="['/applicant']">Applicants</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right"> 
+              <li><a *ngIf="DataService.IsUserAuthentication" (click)="logOut()">Hello {{DataService.UserLoggedIn}}</a></li>
+              <li><a class="active" *ngIf="!DataService.IsUserAuthentication" [routerLink]="['/login']">Log-In</a></li>
+              <li><a class="active" *ngIf="DataService.IsUserAuthentication" (click)="logOut()" [routerLink]="['/login']">Log-Out</a></li>
+            </ul>
+          </div>
+          <hr>
+          <div class="container" style="height:715px">
           <router-outlet></router-outlet>
+          </div>
+        </div>
       </div>
     </div>
+
   </div>
 
+  <footer class="w3-container w3-teal w3-center w3-margin-top">
+    <p>Find me on social media.</p>
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+  </footer>
 </div>
-
-<footer class="w3-container w3-teal w3-center w3-margin-top">
-  <p>Find me on social media.</p>
-  <i class="fa fa-facebook-official w3-hover-opacity"></i>
-  <i class="fa fa-instagram w3-hover-opacity"></i>
-  <i class="fa fa-snapchat w3-hover-opacity"></i>
-  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-  <i class="fa fa-twitter w3-hover-opacity"></i>
-  <i class="fa fa-linkedin w3-hover-opacity"></i>
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-</footer>
-</div>
-
-
