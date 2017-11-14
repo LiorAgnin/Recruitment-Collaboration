@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   }
   async signUp(email, password) {
     try {
-      let result = await this.auth.auth.createUserWithEmailAndPassword(email, password);
+      let result = await this.auth.auth.signInWithEmailAndPassword(email, password);
       console.log(result)
 
     } catch (e) {
