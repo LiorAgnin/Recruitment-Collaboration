@@ -68,19 +68,18 @@ export class AddNewApplicantComponent implements OnInit {
   uploadSingle() {
     let file = this.selectedFiles.item(0);
     this.currentUpload = new Upload(file);
-    console.log(this.currentUpload)
+    this.currentUpload.name = this.newApplicant.FirstName.toLocaleLowerCase()+' '+this.newApplicant.LastName.toLocaleLowerCase()+" CV".toLocaleLowerCase();
     this.upSvc.pushUpload(this.currentUpload);
   }
+  // uploadMulti() {
+  //   let files = this.selectedFiles
+  //   if (_.isEmpty(files)) return;
 
-  uploadMulti() {
-    let files = this.selectedFiles
-    if (_.isEmpty(files)) return;
-
-    let filesIndex = _.range(files.length)
-    _.each(filesIndex, (idx) => {
-      this.currentUpload = new Upload(files[idx]);
-      this.upSvc.pushUpload(this.currentUpload)
-    }
-    )
-  }
+  //   let filesIndex = _.range(files.length)
+  //   _.each(filesIndex, (idx) => {
+  //     this.currentUpload = new Upload(files[idx]);
+  //     this.upSvc.pushUpload(this.currentUpload)
+  //   }
+  //   )
+  // }
 }

@@ -9,3 +9,8 @@ export class Upload {
         this.file = file;
     }
 }
+export interface File1 {
+    lastModifiedDate: any;
+    name: string;
+    webkitRelativePath: string;
+}

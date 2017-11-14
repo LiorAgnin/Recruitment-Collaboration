@@ -4,13 +4,11 @@
     <br>
 
     <div class="card applicant-card" *ngFor="let applicant of arAllApplicants">
-        <div class="card-body">
+        <div class="card-body" (click)="goToApplicantDetail(applicant)">
 
             <div class="card-title">{{applicant.FirstName}}
-                <div (click)="EditJob(applicant)"><i class="glyphicon glyphicon-pencil"></i></div>
-                <div (click)="archivedJob(applicant)"><i class="glyphicon glyphicon-remove"></i></div>
-                <button type="button" class="btn btn-xs " (click)="lockToggle(applicant)">
-                <i class="fa {{ applicant.IsActive ? 'fa-lock' : 'fa-unlock' }}" aria-hidden="true"></i>
+                <button type="button" class="btn btn-xs" (click)="lockToggle(applicant)">
+                <i title="{{manger}}" class="fa {{ applicant.IsActive ? 'fa-lock' : 'fa-unlock' }}" aria-hidden="true"></i>
             </button>
             </div>
 

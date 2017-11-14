@@ -29,6 +29,7 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { UploadFileService } from './services/upload-file.service';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from "angularfire2/auth";
+import { ApplicantDetailComponent } from './components/applicant-detail/applicant-detail.component';
 
 
 @NgModule({
@@ -41,8 +42,8 @@ import { AngularFireAuth } from "angularfire2/auth";
     AddNewApplicantComponent,
     LoginComponent,
     AddNewJobComponent,
-    EditJobComponent
-
+    EditJobComponent,
+    ApplicantDetailComponent
   ],
   imports: [
     BrowserModule,
