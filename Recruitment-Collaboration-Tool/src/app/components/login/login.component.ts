@@ -13,7 +13,8 @@ export class LoginComponent implements OnInit {
   password: string;
   error: string;
 
-  constructor(private auth: AngularFireAuth) { }
+  constructor(private auth: AngularFireAuth) { 
+  }
 
   ngOnInit() {
 

@@ -61,7 +61,7 @@
 </div>-->
 
 <div class="card applicant-card" *ngFor="let applicant of arAllApplicants">
-    <div class="card-body">
+    <div class="card-body" (click)="goToApplicantDetail(applicant)">
 
         <div class="card-title">{{applicant.FirstName}}
             <div  (click)="EditJob(applicant)"><i class="glyphicon glyphicon-pencil"></i></div>
