@@ -29,7 +29,7 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { UploadFileService } from './services/upload-file.service';
 import { AngularFireModule } from 'angularfire2';
 import { ApplicantDetailComponent } from './components/applicant-detail/applicant-detail.component';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -53,8 +53,8 @@ import { ApplicantDetailComponent } from './components/applicant-detail/applican
     AngularFirestoreModule,
     FormsModule,
     NgbModule.forRoot(),
-    AngularFireModule.initializeApp(environment.firebase)
-
+    AngularFireModule.initializeApp(environment.firebase),
+    NgxPaginationModule
   ],
   providers: [
     LoginServiceService,
