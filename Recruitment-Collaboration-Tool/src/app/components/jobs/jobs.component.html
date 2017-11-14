@@ -57,3 +57,8 @@
     </div>
   </ng-template>
 </div>
+<div class="form-group">
+    <label>Filter </label>
+    <input  type="text"  id="inputName" [(ngModel)]="inputName"/>
+    <input type="button" (click)="FilterByName()" value="Apply"/>
+</div>
