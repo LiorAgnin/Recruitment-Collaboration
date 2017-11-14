@@ -4,6 +4,7 @@ import { Applicant } from "../../model/Applicant";
 import { DataServiceService } from "../../services/data-service.service";
 import { Manger } from "../../model/manger";
 import { AngularFireAuth } from 'angularfire2/auth';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-applicant',
   templateUrl: './applicant.component.html',
@@ -18,7 +19,9 @@ export class ApplicantComponent implements OnInit {
   manger: string;
   LockUnlock: boolean = false;
   constructor(public applicantService: ApplicantServiceService,
-    public dataService: DataServiceService, private auth: AngularFireAuth) { }
+    public dataService: DataServiceService, 
+    private auth: AngularFireAuth,
+  private router:Router) { }
 
   ngOnInit() {
 
@@ -39,7 +42,10 @@ export class ApplicantComponent implements OnInit {
       });
     });
   }
-
+  goToApplicantDetail(applicant) {
+    this.dataService.jobToEdit = applicant;
+    this.router.navigate(['./applicant-detail'])
+  }
   lockToggle(applicant: Applicant, manger: Manger) {
 
     console.log("My email", this.auth.auth.currentUser.email)
