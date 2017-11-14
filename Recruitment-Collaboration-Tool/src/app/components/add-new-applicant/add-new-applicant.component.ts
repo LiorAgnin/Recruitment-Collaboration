@@ -5,6 +5,7 @@ import { JobsServiceService } from "../../services/jobs-service.service";
 import { SkillsetServiceService } from "../../services/skillset-service.service";
 import { Skillset } from '../../model/skillset';
 import { UploadFileService } from '../../services/upload-file.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Upload } from '../../model/upload';
 import * as _ from "lodash";
 import * as firebase from 'firebase';
@@ -24,7 +25,8 @@ export class AddNewApplicantComponent implements OnInit {
     public ApplicantServiceService: ApplicantServiceService,
     public jobService: JobsServiceService,
     public SkillsetService: SkillsetServiceService,
-    private upSvc: UploadFileService) { }
+    private upSvc: UploadFileService, private router: Router,
+    private route: ActivatedRoute) { }
   ngOnInit() {
     this.SkillsetService.getSkillsets().subscribe(skills => {
       this.arSkillset = skills[0];
@@ -60,7 +62,8 @@ export class AddNewApplicantComponent implements OnInit {
       // Position:,
       Skills: this.arSkillSetPicked,
     }
-    this.ApplicantServiceService.addNewApplicant(newApplicant)
+    this.ApplicantServiceService.addNewApplicant(newApplicant);
+    this.router.navigate(['/applicant']);
   }
   detectFiles(event) {
     this.selectedFiles = event.target.files;

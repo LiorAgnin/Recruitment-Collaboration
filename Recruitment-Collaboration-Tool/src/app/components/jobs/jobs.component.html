@@ -5,22 +5,49 @@
     <a [routerLink]="['/add-job']">Add</a></button>
       <br>
     </div>
-
   </div>
-  <div class="card job-card" *ngFor="let Job of arNotArchivedJobs">
-    <div class="card-body">
 
-      <h4 class="card-title">{{Job.Postion}}
-        <div data-toggle="modal" data-target="#myModalHorizontal" (click)="EditJob(Job)">
-          <i class="glyphicon glyphicon-pencil"></i>
-        </div>
-        <div (click)="archivedJob(Job)">
-          <i class="glyphicon glyphicon-remove"></i>
-        </div>
-      </h4>
-      <p class="card-text">
-        {{Job.Description}}, {{Job.MinimumReqYears}}, {{Job.Skills}}
-      </p>
+  <div class="form-group">
+      <label>Filter </label>
+      <input type="text" id="inputName" [(ngModel)]="inputName" />
+      <input type="button" (click)="FilterByName()" value="Search" />
+    </div>
+
+  <div *ngIf="isNotSearch">
+    <div class="card job-card" *ngFor="let Job of arNotArchivedJobs">
+      <div class="card-body">
+
+        <h4 class="card-title">{{Job.Postion}}
+          <div data-toggle="modal" data-target="#myModalHorizontal" (click)="EditJob(Job)">
+            <i class="glyphicon glyphicon-pencil"></i>
+          </div>
+          <div (click)="archivedJob(Job)">
+            <i class="glyphicon glyphicon-remove"></i>
+          </div>
+        </h4>
+        <p class="card-text">
+          {{Job.Description}}, {{Job.MinimumReqYears}}, {{Job.Skills}}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="isSearch">
+    <div class="card job-card" *ngFor="let Job of filteredItems">
+      <div class="card-body">
+
+        <h4 class="card-title">{{Job.Postion}}
+          <div data-toggle="modal" data-target="#myModalHorizontal" (click)="EditJob(Job)">
+            <i class="glyphicon glyphicon-pencil"></i>
+          </div>
+          <div (click)="archivedJob(Job)">
+            <i class="glyphicon glyphicon-remove"></i>
+          </div>
+        </h4>
+        <p class="card-text">
+          {{Job.Description}}, {{Job.MinimumReqYears}}, {{Job.Skills}}
+        </p>
+      </div>
     </div>
   </div>
 </div>
