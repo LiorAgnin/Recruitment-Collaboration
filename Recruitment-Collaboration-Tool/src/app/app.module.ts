@@ -4,6 +4,7 @@ import { routes } from './app.routes';
 import { RouterModule, Routes } from '@angular/router';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 
 import { NgForm } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';

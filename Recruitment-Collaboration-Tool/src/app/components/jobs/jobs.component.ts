@@ -13,13 +13,14 @@ export class JobsComponent implements OnInit {
 
   arAllJobs: Job[] = new Array();
   arNotArchivedJobs: Job[] = new Array();
-
   showAddJobFrom: boolean = false;
+  inputName: string = '';
+  filteredItems: Job[];
 
   constructor(public jobService: JobsServiceService,
     public DataService: DataServiceService,
     private router: Router,
-    private route: ActivatedRoute,) { }
+    private route: ActivatedRoute, ) { }
 
   ngOnInit() {
     console.log("JobsComponent");
@@ -32,7 +33,22 @@ export class JobsComponent implements OnInit {
         }
       });
     });
+  }
 
+  FilterByName() {
+    this.filteredItems = [];
+    if (this.inputName != "") {
+      this.arAllJobs.forEach(element => {
+        if (element.Postion.toUpperCase().indexOf(this.inputName.toUpperCase()) >= 0) {
+          this.filteredItems.push(element);
+          console.log(element);
+        }
+      });
+    } 
+    //else {
+    //   this.filteredItems = productList;
+    // }
+    console.log(this.filteredItems);
   }
 
   addnewJob() {
@@ -46,7 +62,7 @@ export class JobsComponent implements OnInit {
 
   EditJob(editJob: Job) {
     console.log(editJob);
-    this.DataService.jobToEdit=editJob;
+    this.DataService.jobToEdit = editJob;
     this.router.navigate(['/edit-job']);
   }
 
@@ -54,5 +70,6 @@ export class JobsComponent implements OnInit {
     window.alert("archivedJob");
     console.log(archivedJob)
   }
+
 
 }

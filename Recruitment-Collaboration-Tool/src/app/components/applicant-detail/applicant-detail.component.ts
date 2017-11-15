@@ -29,7 +29,7 @@ export class ApplicantDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    console.log("Applicant Detail Component")
   }
   downloadCV() {
     let getCvOf = (this.applicant.FirstName + " " + this.applicant.LastName + ' CV').toLocaleLowerCase()
