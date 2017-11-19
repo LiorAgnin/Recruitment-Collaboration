@@ -1,44 +1,47 @@
-<h1>Add new job</h1>
 <div class="container">
-  <form #trvForm="ngForm" (ngSubmit)="addNewJobSubmitHandler()">
-    <div class="form-group">
-      <label for="IdPostion">Postion</label>
-      <input id="IdPostion" type="text" class="form-control" required [(ngModel)]="newJob.Postion" name="postion" #trvPostion=ngModel>
-      <div *ngIf="trvPostion.errors && (trvPostion.dirty || trvPostion.touched)" class="alert alert-danger">
+  <div class="row main">
+    <form #trvForm="ngForm" (ngSubmit)="addNewJobSubmitHandler()">
+      <h1>Add new job</h1>
+      <div class="form-group">
+        <label for="IdPostion" class="cols-sm-2 control-label">Postion</label>
+        <input id="IdPostion" type="text" class="form-control" required [(ngModel)]="newJob.Postion" name="postion" #trvPostion=ngModel>
+        <div *ngIf="trvPostion.errors && (trvPostion.dirty || trvPostion.touched)" class="alert alert-danger">
           <div [hidden]="!trvPostion.errors.required">
-              Postion is required
+            Postion is required
           </div>
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <label  for="IdMinimumReqYears">Minimum Requst Years</label>
-      <input id="IdMinimumReqYears" type="number" class="form-control" title="Insert Minimum Requst Years" required [(ngModel)]="newJob.MinimumReqYears" min="0" step="1" name="minimumReqYears" #trvMinimum=ngModel>
-      <div *ngIf="trvMinimum.errors && (trvMinimum.dirty || trvMinimum.touched)" class="alert alert-danger">
+      <div class="form-group">
+        <label for="IdMinimumReqYears" class="cols-sm-2 control-label">Minimum Requst Years</label>
+        <input id="IdMinimumReqYears" type="number" class="form-control" title="Insert Minimum Requst Years" required [(ngModel)]="newJob.MinimumReqYears"
+          min="0" step="1" name="minimumReqYears" #trvMinimum=ngModel>
+        <div *ngIf="trvMinimum.errors && (trvMinimum.dirty || trvMinimum.touched)" class="alert alert-danger">
           <div [hidden]="!trvMinimum.errors.required">
-              Minimum Requst Years is required
+            Minimum Requst Years is required
           </div>
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <label for="IdDescription">Description</label>
-      <textarea id="IdDescription" [(ngModel)]="newJob.Description" name="description" placeholder="Enter Description" class="form-control" required #trvDescription=ngModel></textarea>
-      <div *ngIf="trvDescription.errors && (trvDescription.dirty || trvDescription.touched)" class="alert alert-danger">
+      <div class="form-group">
+        <label for="IdDescription" class="cols-sm-2 control-label">Description</label>
+        <textarea id="IdDescription" [(ngModel)]="newJob.Description" name="description" placeholder="Enter Description" class="form-control"
+          required #trvDescription=ngModel></textarea>
+        <div *ngIf="trvDescription.errors && (trvDescription.dirty || trvDescription.touched)" class="alert alert-danger">
           <div [hidden]="!trvDescription.errors.required">
-              Description is required
+            Description is required
           </div>
+        </div>
       </div>
-    </div>
 
-    <div class="form-group">
-      <h3>Skills</h3>
-        <label for="job"></label>
+      <div class="form-group">
+        <label for="job">Skills</label>
         <div class="checkbox-inline" *ngFor="let skill of newArSkillSet">
           <label>
             <input type="checkbox" name="skill" required [(ngModel)]="skill.selected" (change)="skillSetArray(skill)"> {{skill.name}}
           </label>
         </div>
-    </div>
-    
-    <button [disabled]="!trvForm.valid" title="Please fill all required fields!" class="btn btn-primary">Add Job</button>
-  </form>
+      </div>
+
+      <button [disabled]="!trvForm.valid" title="Please fill all required fields!" class="btn btn-primary">Add Job</button>
+    </form>
+  </div>
 </div>
