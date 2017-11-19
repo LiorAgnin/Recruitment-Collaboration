@@ -1,0 +1,12 @@
+
+.form-control{
+    width: 30%;
+}
+.errorMessage{
+    margin-left: 2%;
+    color: red;
+}
+.container{
+    position: absolute;
+    left: 45%;
+}

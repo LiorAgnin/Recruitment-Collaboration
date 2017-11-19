@@ -14,10 +14,6 @@ export class JobsComponent implements OnInit {
   arAllJobs: Job[] = new Array();
   arNotArchivedJobs: Job[] = new Array();
   showAddJobFrom: boolean = false;
-  inputName: string = '';
-  filteredItems: Job[];
-  isSearch: boolean = false;
-  isNotSearch: boolean = true;
 
   constructor(public jobService: JobsServiceService,
     public DataService: DataServiceService,
@@ -35,23 +31,6 @@ export class JobsComponent implements OnInit {
         }
       });
     });
-  }
-
-  FilterByName() {
-    this.isSearch = true;
-    this.isNotSearch = false;
-    this.filteredItems = [];
-    if (this.inputName != "") {
-      this.arNotArchivedJobs.forEach(element => {
-        if (element.Postion.toUpperCase().indexOf(this.inputName.toUpperCase()) >= 0) {
-          this.filteredItems.push(element);
-        }
-      });
-    }
-    else {
-      this.filteredItems = this.arNotArchivedJobs;
-    }
-    console.log(this.filteredItems);
   }
 
   addnewJob() {
@@ -73,5 +52,5 @@ export class JobsComponent implements OnInit {
     window.alert("archivedJob");
     console.log(archivedJob)
   }
-
+  
 }

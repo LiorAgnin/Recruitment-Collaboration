@@ -1,53 +1,47 @@
 <div style="cursor:pointer" class="container">
   <div style="cursor:pointer" class="container">
-    <div style="cursor:pointer" class="container">
-      <button type="button" (click)="addnewJob()" class="btn"><i class="glyphicon glyphicon-plus"></i>
-    <a [routerLink]="['/add-job']">Add</a></button>
-      <br>
-    </div>
-  </div>
-
-  <div class="form-group">
-      <label>Filter </label>
-      <input type="text" id="inputName" [(ngModel)]="inputName" />
-      <input type="button" (click)="FilterByName()" value="Search" />
-    </div>
-
-  <div *ngIf="isNotSearch">
-    <div class="card job-card" *ngFor="let Job of arNotArchivedJobs">
-      <div class="card-body">
-
-        <h4 class="card-title">{{Job.Postion}}
-          <div data-toggle="modal" data-target="#myModalHorizontal" (click)="EditJob(Job)">
-            <i class="glyphicon glyphicon-pencil"></i>
-          </div>
-          <div (click)="archivedJob(Job)">
-            <i class="glyphicon glyphicon-remove"></i>
-          </div>
-        </h4>
-        <p class="card-text">
-          {{Job.Description}}, {{Job.MinimumReqYears}}, {{Job.Skills}}
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div *ngIf="isSearch">
-    <div class="card job-card" *ngFor="let Job of filteredItems">
-      <div class="card-body">
-
-        <h4 class="card-title">{{Job.Postion}}
-          <div data-toggle="modal" data-target="#myModalHorizontal" (click)="EditJob(Job)">
-            <i class="glyphicon glyphicon-pencil"></i>
-          </div>
-          <div (click)="archivedJob(Job)">
-            <i class="glyphicon glyphicon-remove"></i>
-          </div>
-        </h4>
-        <p class="card-text">
-          {{Job.Description}}, {{Job.MinimumReqYears}}, {{Job.Skills}}
-        </p>
-      </div>
-    </div>
+    <button type="button" (click)="addnewJob()" class="btn">
+        <i class="glyphicon glyphicon-plus"></i>
+        <a [routerLink]="['/add-job']">Add</a>
+      </button>
+    <br>
   </div>
 </div>
+
+<!-- <div class="container" *ngFor="let Job of arNotArchivedJobs">
+    <div class="row">
+      <div class="col-sm-3">
+        
+        <div class="card card-with-border card-centred-text black-grey">
+          <div class="card-content text-white">
+              <div data-toggle="modal" data-target="#myModalHorizontal" (click)="EditJob(Job)">
+                  <i class="glyphicon glyphicon-pencil"></i>
+                  <div (click)="archivedJob(Job)">
+                      <i class="glyphicon glyphicon-remove"></i>
+                    </div>
+                </div>
+            <h4 class="card-title">{{Job.Postion}}</h4>
+            <h6 class="card-description"> {{Job.Description}}, {{Job.MinimumReqYears}}, {{Job.Skills}}</h6>
+          </div>
+      </div>
+            
+      </div>
+    </div>    
+  </div> -->
+
+<div class="card text-center first-card" *ngFor="let Job of arNotArchivedJobs">
+  <div class="card-body">
+    <div class="card-block">
+      <h4 class="card-title">{{Job.Postion}}
+        <div data-toggle="modal" data-target="#myModalHorizontal" (click)="EditJob(Job)">
+          <i class="glyphicon glyphicon-pencil"></i>
+        </div>
+        <div (click)="archivedJob(Job)">
+          <i class="glyphicon glyphicon-remove"></i>
+        </div>
+      </h4>
+      <p class="card-text">
+        {{Job.Description}}, {{Job.MinimumReqYears}}, {{Job.Skills}}
+      </p>
+    </div>
+  </div>

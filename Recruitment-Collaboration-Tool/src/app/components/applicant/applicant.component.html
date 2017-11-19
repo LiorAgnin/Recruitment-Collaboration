@@ -3,21 +3,22 @@
     <i class="glyphicon glyphicon-plus"></i><a [routerLink]="['/add-applicant']">Add</a></button>
     <br>
 
-    <div class="card applicant-card" *ngFor="let applicant of arAllApplicants">
-        <div class="card-body" (click)="goToApplicantDetail(applicant)">
+<div style="cursor:pointer" class="container">
 
+    <div class="card applicant-card" *ngFor="let applicant of arAllApplicants | paginate: { itemsPerPage: 6, currentPage: p }">
+        <div class="card-body" (click)="goToApplicantDetail(applicant)">
             <div class="card-title">{{applicant.FirstName}}
                 <button type="button" class="btn btn-xs" (click)="lockToggle(applicant)">
-                <i title="{{manger}}" class="fa {{ applicant.IsActive ? 'fa-lock' : 'fa-unlock' }}" aria-hidden="true"></i>
-            </button>
+                    <i title="{{manger}}" class="fa {{ applicant.IsActive ? 'fa-lock' : 'fa-unlock' }}" aria-hidden="true"></i>
+                </button>
             </div>
-
             <span [hidden]="applicant.IsActive==true" class="card-text">
-              {{applicant.FirstName}}, {{applicant.LastName}}, {{applicant.Experience}},{{applicant.City}},{{applicant.Email}},{{applicant.PhoneNumber}}
-          </span>
+                {{applicant.FirstName}}, {{applicant.LastName}}, {{applicant.Experience}},{{applicant.City}},{{applicant.Email}},{{applicant.PhoneNumber}}
+            </span>
             <span [hidden]="applicant.IsActive==false" class="card-text">
-              {{applicant.FirstName}}, {{applicant.LastName}}, {{applicant.Experience}},{{applicant.City}}
-          </span>
+                {{applicant.FirstName}}, {{applicant.LastName}}, {{applicant.Experience}},{{applicant.City}}
+            </span>
         </div>
     </div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
