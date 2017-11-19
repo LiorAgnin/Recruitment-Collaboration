@@ -62,13 +62,8 @@ export class AddNewApplicantComponent implements OnInit {
       Position: this.newApplicant.Position,
       Skills: this.arSkillSetPicked,
     }
-<<<<<<< HEAD
-    this.ApplicantServiceService.addNewApplicant(newApplicant);
-    this.router.navigate(['/applicant']);
-=======
     this.uploadSingle();
     this.ApplicantServiceService.addNewApplicant(newApplicant);
->>>>>>> 364cfef805bf8b6ec5467fadc8e124f899b80169
   }
   detectFiles(event) {
     this.selectedFiles = event.target.files;

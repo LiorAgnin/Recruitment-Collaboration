@@ -26,7 +26,6 @@
                 <div class="w3-center w3-text-white">80%</div>
               </div>
             </div>
-<<<<<<< HEAD
           </div><br>
         </div>
   
@@ -43,11 +42,6 @@
                 <li><a class="active" *ngIf="!DataService.IsUserAuthentication" [routerLink]="['/login']">Log-In</a></li>
                 <li><a class="active" *ngIf="DataService.IsUserAuthentication" (click)="logOut()" [routerLink]="['/login']">Log-Out</a></li>
               </ul>
-=======
-            <p>Illustrator</p>
-            <div class="w3-light-grey w3-round-xlarge w3-small">
-              <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:75%">75%</div>
->>>>>>> 364cfef805bf8b6ec5467fadc8e124f899b80169
             </div>
             <p>Media</p>
             <div class="w3-light-grey w3-round-xlarge w3-small">
@@ -67,66 +61,9 @@
             <div class="w3-light-grey w3-round-xlarge">
               <div class="w3-round-xlarge w3-teal" style="height:24px;width:55%"></div>
             </div>
-<<<<<<< HEAD
-=======
-            <p>German</p>
-            <div class="w3-light-grey w3-round-xlarge">
-              <div class="w3-round-xlarge w3-teal" style="height:24px;width:25%"></div>
-            </div>
-            <br>
-          </div>
-        </div>
-        <br>
-      </div>
-
-      <div class="w3-twothird">
-
-        <div class="w3-container w3-card w3-white w3-margin-bottom">
-          <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-left">
-              <li>
-                <a class="navbar-brand" [routerLink]="['/home']">Home</a>
-              </li>
-              <li>
-                <a *ngIf="auth.isAuthenticated()" [routerLink]="['/jobs']">Jobs</a>
-              </li>
-              <li>
-                <a *ngIf="auth.isAuthenticated()" [routerLink]="['/applicant']">Applicants</a>
-              </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li>
-                <a *ngIf="auth.isAuthenticated()">Hello {{auth.user}}</a>
-              </li>
-              <li>
-                <a class="active" *ngIf="!auth.isAuthenticated()" [routerLink]="['/login']">Log-In</a>
-              </li>
-              <li>
-                <a class="active" *ngIf="auth.isAuthenticated()" (click)="auth.logout()">Log-Out</a>
-              </li>
-            </ul>
-          </div>
-          <hr>
-          <div class="container" style="height:715px">
-            <router-outlet></router-outlet>
-          </div>
->>>>>>> 364cfef805bf8b6ec5467fadc8e124f899b80169
         </div>
       </div>
     </div>
-<<<<<<< HEAD
-    <footer class="w3-container w3-teal w3-center w3-margin-top">
-      <p>Find me on social media.</p>
-      <i class="fa fa-facebook-official w3-hover-opacity"></i>
-      <i class="fa fa-instagram w3-hover-opacity"></i>
-      <i class="fa fa-snapchat w3-hover-opacity"></i>
-      <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-      <i class="fa fa-twitter w3-hover-opacity"></i>
-      <i class="fa fa-linkedin w3-hover-opacity"></i>
-      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-    </footer>
-  </div>
-=======
 
   </div>
 
@@ -144,4 +81,3 @@
   </footer>
 </div>
 <!-- <side-navbar></side-navbar> -->
->>>>>>> 364cfef805bf8b6ec5467fadc8e124f899b80169

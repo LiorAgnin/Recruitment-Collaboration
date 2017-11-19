@@ -1,39 +1,3 @@
-<<<<<<< HEAD
-<div style="cursor:pointer" class="container">
-  <div style="cursor:pointer" class="container">
-    <button type="button" (click)="addnewJob()" class="btn">
-        <i class="glyphicon glyphicon-plus"></i>
-        <a [routerLink]="['/add-job']">Add</a>
-      </button>
-    <br>
-  </div>
-</div>
-
-<!-- <div class="container" *ngFor="let Job of arNotArchivedJobs">
-    <div class="row">
-      <div class="col-sm-3">
-        
-        <div class="card card-with-border card-centred-text black-grey">
-          <div class="card-content text-white">
-              <div data-toggle="modal" data-target="#myModalHorizontal" (click)="EditJob(Job)">
-                  <i class="glyphicon glyphicon-pencil"></i>
-                  <div (click)="archivedJob(Job)">
-                      <i class="glyphicon glyphicon-remove"></i>
-                    </div>
-                </div>
-            <h4 class="card-title">{{Job.Postion}}</h4>
-            <h6 class="card-description"> {{Job.Description}}, {{Job.MinimumReqYears}}, {{Job.Skills}}</h6>
-          </div>
-      </div>
-            
-      </div>
-    </div>    
-  </div> -->
-
-<div class="card text-center first-card" *ngFor="let Job of arNotArchivedJobs">
-  <div class="card-body">
-    <div class="card-block">
-=======
 <!-- <div class="form-group"> -->
 <!-- <label>Filter </label> -->
 <!-- <input type="text" id="inputName" [(ngModel)]="inputName" /> -->
@@ -51,7 +15,6 @@
 <div class="container" *ngIf="!addFormBooli">
   <div class="card job-card" *ngFor="let Job of arNotArchivedJobs | paginate: { itemsPerPage: 6, currentPage: p }">
     <div class="card-body">
->>>>>>> 364cfef805bf8b6ec5467fadc8e124f899b80169
       <h4 class="card-title">{{Job.Postion}}
         <div data-toggle="modal" data-target="#myModalHorizontal" (click)="editJobToggle(Job)">
           <i class="glyphicon glyphicon-pencil"></i>
@@ -64,11 +27,7 @@
         {{Job.Description}}, {{Job.MinimumReqYears}}, {{Job.Skills}}
       </p>
     </div>
-<<<<<<< HEAD
-  </div>
-=======
   </div>
   <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
 <!-- </div> -->
->>>>>>> 364cfef805bf8b6ec5467fadc8e124f899b80169

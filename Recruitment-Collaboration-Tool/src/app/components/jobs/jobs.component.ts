@@ -14,15 +14,11 @@ export class JobsComponent implements OnInit {
   arAllJobs: Job[] = new Array();
   arNotArchivedJobs: Job[] = new Array();
   showAddJobFrom: boolean = false;
-<<<<<<< HEAD
-
-=======
   inputName: string = '';
   filteredItems: Job[];
   jobForEdit: Job;
   editFormBooli: boolean = false;
   addFormBooli: boolean = false;
->>>>>>> 364cfef805bf8b6ec5467fadc8e124f899b80169
   constructor(public jobService: JobsServiceService,
     public DataService: DataServiceService,
     private router: Router,
@@ -42,18 +38,6 @@ export class JobsComponent implements OnInit {
     });
   }
 
-<<<<<<< HEAD
-  addnewJob() {
-    if (this.showAddJobFrom == true) {
-      this.showAddJobFrom = false;
-    }
-    else {
-      this.showAddJobFrom = true;
-    }
-  }
-
-  EditJob(editJob: Job) {
-=======
   FilterByName() {
     this.filteredItems = [];
     if (this.inputName != "") {
@@ -70,7 +54,6 @@ export class JobsComponent implements OnInit {
     console.log(this.filteredItems);
   }
   editJobToggle(editJob: Job) {
->>>>>>> 364cfef805bf8b6ec5467fadc8e124f899b80169
     console.log(editJob);
     this.jobForEdit = editJob;
     this.editFormBooli = true;
@@ -89,8 +72,4 @@ export class JobsComponent implements OnInit {
   archivedJob(archivedJob: Job) {
     console.log(archivedJob)
   }
-<<<<<<< HEAD
-  
-=======
->>>>>>> 364cfef805bf8b6ec5467fadc8e124f899b80169
 }
