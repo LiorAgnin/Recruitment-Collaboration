@@ -1,25 +1,83 @@
-<div class="container">
-  <button type="button" *ngIf="authService.isUserAdmin()" (click)="addFormBooli = !addFormBooli" class="btn">
+<!-- <div>
+    <button type="button" *ngIf="authService.isUserAdmin()" (click)="addFormBooli = !addFormBooli" class="btn">
     <i class="glyphicon glyphicon-plus"></i>
     {{addFormBooli ? 'Jobs' : 'Add'}}
   </button>
+  </div>
+  <div *ngIf="addFormBooli">
+    <add-new-job (onClickAdd)="onClickAdddForm($event)"></add-new-job>
+  </div>
+  <br/>
+  <br/>
+  <br/>
+  <div *ngIf="!addFormBooli">
+    <div style="cursor:pointer" class="container" *ngFor="let Job of arNotArchivedJobs | paginate: { itemsPerPage: 6, currentPage: p }">
+      <div class="JobCard">
+        <div style="display: block;">
+
+          <div class="JobIcons">
+            <div (click)="goToJobDetail(Job)">
+              <i class="fa fa-info-circle" title="View job details" aria-hidden="true"></i>
+            </div>
+            <div (click)="archivedJob(Job)">
+              <i class="glyphicon glyphicon-remove"></i>
+            </div>
+          </div>
+          <div class="JobTitel">{{Job.Postion}}</div>
+        </div>
+        <br/>
+        <article>
+          <br/>
+          <br/>
+          <p>Rectuter : {{Job.RecruitingManager}}</p>
+          <p>MinimumReqYears - {{Job.MinimumReqYears}}</p>
+          <p class="Description">{{Job.Description}}</p>
+          <p class="Skills">{{Job.Skills}}</p>
+        </article>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div> -->
+
+<div>
+  <button type="button" *ngIf="authService.isUserAdmin()" (click)="addFormBooli = !addFormBooli" class="btn">
+        <i class="glyphicon glyphicon-plus"></i>
+        {{addFormBooli ? 'Jobs' : 'Add'}}
+      </button>
 </div>
-<div class="container" *ngIf="addFormBooli">
+<div *ngIf="addFormBooli">
   <add-new-job (onClickAdd)="onClickAdddForm($event)"></add-new-job>
 </div>
-<div class="container" *ngIf="!addFormBooli">
-  <div class="card job-card" *ngFor="let Job of arNotArchivedJobs | paginate: { itemsPerPage: 6, currentPage: p }">
-    <div class="card-body">
-      <h4 class="card-title">{{Job.Postion}}
+<br/>
+<br/>
+<br/>
+<div *ngIf="!addFormBooli">
+  <div style="cursor:pointer" class="container" *ngFor="let Job of arNotArchivedJobs | paginate: { itemsPerPage: 6, currentPage: p }">
+    <div class="JobCard">
+      <div style="display: block;">
+
+        <div class="JobIcons">
+          <div (click)="goToJobDetail(Job)">
+            <i class="fa fa-info-circle" title="View job details" aria-hidden="true"></i>
+          </div>
+        </div>
         <div (click)="archivedJob(Job)">
           <i class="glyphicon glyphicon-remove"></i>
         </div>
-        <div (click)="goToJobDetail(Job)"><i class="fa fa-info-circle" title="View job details" aria-hidden="true"></i></div>
-      </h4>
-      <p class="card-text">
-        {{Job.Description}}, {{Job.MinimumReqYears}}, {{Job.Skills}}
-      </p>
+      </div>
+      <div class="JobTitel">{{Job.Postion}}</div>
     </div>
+    <br/>
+    <article>
+      <br/>
+      <br/>
+      <p>Rectuter : {{Job.RecruitingManager}}</p>
+      <p>MinimumReqYears - {{Job.MinimumReqYears}}</p>
+      <p class="Description">{{Job.Description}}</p>
+      <p class="Skills">{{Job.Skills}}</p>
+    </article>
+    <div class="clear"></div>
   </div>
-  <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

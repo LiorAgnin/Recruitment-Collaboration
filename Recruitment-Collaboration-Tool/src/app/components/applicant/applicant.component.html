@@ -1,31 +1,34 @@
-<div class="container">
-    <button *ngIf="authService.isUserAdmin()" (click)="addFormToggle = !addFormToggle" type="button" class="btn">
-        <i class="glyphicon glyphicon-plus"></i>
-        {{addFormToggle ? 'Applicatns' : 'Add'}}
-        <!-- <a [routerLink]="['/add-applicant']">Add</a> -->
-    </button>
-    <br>
-    <add-new-applicant *ngIf="addFormToggle"></add-new-applicant>
+<button *ngIf="authService.isUserAdmin()" (click)="addFormToggle = !addFormToggle" type="button" class="btn">
+    <i class="glyphicon glyphicon-plus"></i>
+    {{addFormToggle ? 'Applicatns' : 'Add'}}
+    <a [routerLink]="['/add-applicant']">Add</a>
+</button>
+<br>
+<add-new-applicant *ngIf="addFormToggle"></add-new-applicant>
+<br/>
+<br/>
+<div *ngIf="!addFormToggle">
+    <div style="cursor:pointer" class="container" *ngFor="let applicant of arAllApplicants | paginate: { itemsPerPage: 12, currentPage: p }">
 
-    <div class="container" *ngIf="!addFormToggle">
-
-    <div class="card applicant-card" *ngFor="let applicant of arAllApplicants | paginate: { itemsPerPage: 6, currentPage: p }">
-        <div class="card-body">
-            <div class="card-title">{{applicant.FirstName}}
-                <button type="button" class="btn btn-xs" (click)="lockToggle(applicant)">
-                    <i title="{{manger}}" class="fa {{ applicant.IsActive ? 'fa-lock' : 'fa-unlock' }}" aria-hidden="true"></i>
-                </button>
-            </div>
-            
-            <span [hidden]="applicant.IsActive==true" class="card-text">
-                {{applicant.FirstName}}, {{applicant.LastName}}, {{applicant.Experience}},{{applicant.City}},{{applicant.Email}},{{applicant.PhoneNumber}}
-            </span>
-            <span [hidden]="applicant.IsActive==false" class="card-text">
-                {{applicant.FirstName}}, {{applicant.LastName}}, {{applicant.Experience}},{{applicant.City}}
-            </span>
+        <div class="ApplicantbCard">
+            <article>
+                <div>
+                    <h3 class="ApplicantTitel">{{applicant.FirstName}} {{applicant.LastName}}</h3>
+                    <div class="ApplicantIcons">
+                            <i title="{{manger}}" class="fa {{ applicant.IsActive ? 'fa-lock' : 'fa-unlock' }}" aria-hidden="true"></i>
+                        
+                    </div>
+                </div>
+                <br/>
+                <div>
+                    <h3 class="ApplicantTitel"> {{applicant.Position}}</h3>
+                    <div class="ApplicantIcons" (click)="goToApplicantDetail(applicant)">
+                        <i class="fa fa-file-word-o" title="View CV" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </article>
+            <div class="clear"></div>
         </div>
-        <div (click)="goToApplicantDetail(applicant)"><i class="fa fa-info-circle" title="View applicant details" aria-hidden="true"></i></div>
-       
     </div>
 
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
