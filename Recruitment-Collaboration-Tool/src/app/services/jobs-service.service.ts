@@ -22,7 +22,6 @@ export class JobsServiceService {
     });
   }
 
-
   getJobs() {
     return this.jobs;
   }
@@ -32,9 +31,8 @@ export class JobsServiceService {
   }
 
   updeteJob(jobEdit: Job) {
-    console.log(jobEdit)
     this.jobDocum = this.job.doc(`Jobs/${jobEdit.Id}`);
     this.jobDocum.update(jobEdit);
   }
-
+ 
 }

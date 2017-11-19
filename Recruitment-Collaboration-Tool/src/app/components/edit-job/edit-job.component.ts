@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Job } from '../../model/job';
 import { JobsServiceService } from "../../services/jobs-service.service";
 import { DataServiceService } from "../../services/data-service.service";
@@ -7,25 +7,23 @@ import { Skillset } from '../../model/skillset';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-edit-job',
+  selector: 'edit-job',
   templateUrl: './edit-job.component.html',
   styleUrls: ['./edit-job.component.css']
 })
 export class EditJobComponent implements OnInit {
 
   show = false;
-  editJob: Job = <Job>{};
+  @Input() editJob: Job = <Job>{};
   arSkillset: any;
   newArSkillSet: Skillset[] = [];
   arSkillSetPicked: string[] = [];
   skil;
-
+  @Output() onClickEdit = new EventEmitter<Job>();
   constructor(public jobService: JobsServiceService,
     public DataService: DataServiceService,
     public SkillsetService: SkillsetServiceService,
-    private router: Router,
-    private route: ActivatedRoute, ) {
-    this.editJob = DataService.jobToEdit;
+    private router: Router) {
   }
   ngOnInit() {
     let skillsSelected;
@@ -59,10 +57,10 @@ export class EditJobComponent implements OnInit {
       this.newArSkillSet[index].selected = true;
     }
   }
-
-  EditJobs() {
+  spinNow: boolean = false;
+  onSubmitEditForm() {
     this.editJob.Skills = this.arSkillSetPicked;
-    const body = {
+    const editedJob = {
       Id: this.editJob.Id,
       Postion: this.editJob.Postion,
       MinimumReqYears: this.editJob.MinimumReqYears,
@@ -70,8 +68,7 @@ export class EditJobComponent implements OnInit {
       IsArcheive: this.editJob.IsArcheive,
       Skills: this.editJob.Skills
     }
-    this.jobService.updeteJob(body);
-    this.router.navigate(['/jobs']);
+    this.onClickEdit.emit(this.editJob);
   }
 }
 

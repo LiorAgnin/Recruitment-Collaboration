@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ApplicantServiceService } from "../../services/applicant-service.service";
 import { Applicant } from "../../model/Applicant";
 import { JobsServiceService } from "../../services/jobs-service.service";
@@ -52,18 +52,23 @@ export class AddNewApplicantComponent implements OnInit {
     const newApplicant = {
       FirstName: this.newApplicant.FirstName,
       LastName: this.newApplicant.LastName,
-      // Experience:this.newApplicant.Experience,
-      // City:this.newApplicant.City,
-      // Email:this.newApplicant.Email,
-      // PhoneNumber:,
-      // Age:,
-      // Gender:,
+      Experience: this.newApplicant.Experience,
+      City: this.newApplicant.City,
+      Email: this.newApplicant.Email,
+      PhoneNumber: this.newApplicant.PhoneNumber,
+      Age: this.newApplicant.Age,
+      Gender:this.newApplicant.Gender,
       // CV:,
-      // Position:,
+      Position: this.newApplicant.Position,
       Skills: this.arSkillSetPicked,
     }
+<<<<<<< HEAD
     this.ApplicantServiceService.addNewApplicant(newApplicant);
     this.router.navigate(['/applicant']);
+=======
+    this.uploadSingle();
+    this.ApplicantServiceService.addNewApplicant(newApplicant);
+>>>>>>> 364cfef805bf8b6ec5467fadc8e124f899b80169
   }
   detectFiles(event) {
     this.selectedFiles = event.target.files;
@@ -71,7 +76,7 @@ export class AddNewApplicantComponent implements OnInit {
   uploadSingle() {
     let file = this.selectedFiles.item(0);
     this.currentUpload = new Upload(file);
-    this.currentUpload.name = this.newApplicant.FirstName.toLocaleLowerCase()+' '+this.newApplicant.LastName.toLocaleLowerCase()+" CV".toLocaleLowerCase();
+    this.currentUpload.name = this.newApplicant.FirstName.toLocaleLowerCase() + ' ' + this.newApplicant.LastName.toLocaleLowerCase() + " CV".toLocaleLowerCase();
     this.upSvc.pushUpload(this.currentUpload);
   }
   // uploadMulti() {

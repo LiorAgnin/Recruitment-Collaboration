@@ -4,6 +4,10 @@ import { routes } from './app.routes';
 import { RouterModule, Routes } from '@angular/router';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+<<<<<<< HEAD
+=======
+// import { Ng2CarouselamosModule } from 'ng2-carouselamos';
+>>>>>>> 364cfef805bf8b6ec5467fadc8e124f899b80169
 
 import { NgForm } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -31,6 +35,10 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from "angularfire2/auth";
 import { ApplicantDetailComponent } from './components/applicant-detail/applicant-detail.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { AuthService } from './services/auth.service';
+import { AuthGuardService } from './services/auth-guard.service';
+import { SideNavbarComponent } from './components/side-navbar/side-navbar.component';
+import { FilterPipe } from './filters-pipes/filter-jobs.pipe';
 
 @NgModule({
   declarations: [
@@ -43,7 +51,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     LoginComponent,
     AddNewJobComponent,
     EditJobComponent,
-    ApplicantDetailComponent
+    ApplicantDetailComponent,
+    SideNavbarComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -65,7 +75,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     DataServiceService,
     AngularFireDatabase,
     AngularFireAuth,
-    UploadFileService
+    UploadFileService,
+    AuthService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })
