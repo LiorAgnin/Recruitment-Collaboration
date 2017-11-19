@@ -4,7 +4,7 @@ import { routes } from './app.routes';
 import { RouterModule, Routes } from '@angular/router';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
-
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { NgForm } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -31,7 +31,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from "angularfire2/auth";
 import { ApplicantDetailComponent } from './components/applicant-detail/applicant-detail.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-
+// import {enableProdMode} from '@angular/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +55,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FormsModule,
     NgbModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
-    NgxPaginationModule
+    NgxPaginationModule,
+    PdfViewerModule
   ],
   providers: [
     LoginServiceService,
@@ -67,6 +68,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AngularFireAuth,
     UploadFileService
   ],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
