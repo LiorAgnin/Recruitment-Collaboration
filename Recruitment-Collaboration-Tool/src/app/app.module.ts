@@ -32,6 +32,11 @@ import { AngularFireAuth } from "angularfire2/auth";
 import { ApplicantDetailComponent } from './components/applicant-detail/applicant-detail.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 // import {enableProdMode} from '@angular/core';
+import { AuthService } from './services/auth.service';
+import { AuthGuardService } from './services/auth-guard.service';
+import { SideNavbarComponent } from './components/side-navbar/side-navbar.component';
+import { FilterPipe } from './filters-pipes/filter-jobs.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +48,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     LoginComponent,
     AddNewJobComponent,
     EditJobComponent,
-    ApplicantDetailComponent
+    ApplicantDetailComponent,
+    SideNavbarComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -66,7 +73,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     DataServiceService,
     AngularFireDatabase,
     AngularFireAuth,
-    UploadFileService
+    UploadFileService,
+    AuthService,
+    AuthGuardService
   ],
   
   bootstrap: [AppComponent]

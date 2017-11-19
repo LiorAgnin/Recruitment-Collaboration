@@ -1,16 +1,22 @@
-<div style="cursor:pointer" class="container">
-  <div style="cursor:pointer" class="container">
-    <div style="cursor:pointer" class="container">
-      <button type="button" (click)="addnewJob()" class="btn"><i class="glyphicon glyphicon-plus"></i>
-    <a [routerLink]="['/add-job']">Add</a></button>
-      <br>
-    </div>
-
-  </div>
+<!-- <div class="form-group"> -->
+<!-- <label>Filter </label> -->
+<!-- <input type="text" id="inputName" [(ngModel)]="inputName" /> -->
+<!-- <input type="button" (click)="FilterByName()" value="Apply" /> -->
+<div class="container">
+  <button type="button" *ngIf="authService.isUserAdmin()" (click)="addFormBooli = !addFormBooli" class="btn">
+    <i class="glyphicon glyphicon-plus"></i>
+    {{addFormBooli ? 'Jobs' : 'Add'}}
+  </button>
+</div>
+<div class="container" *ngIf="addFormBooli">
+  <add-new-job (onClickAdd)="onClickAdddForm($event)"></add-new-job>
+</div>
+<edit-job (onClickEdit)="onClickEditForm($event)" *ngIf="editFormBooli" [editJob]="jobForEdit"></edit-job>
+<div class="container" *ngIf="!addFormBooli">
   <div class="card job-card" *ngFor="let Job of arNotArchivedJobs | paginate: { itemsPerPage: 6, currentPage: p }">
     <div class="card-body">
       <h4 class="card-title">{{Job.Postion}}
-        <div data-toggle="modal" data-target="#myModalHorizontal" (click)="EditJob(Job)">
+        <div data-toggle="modal" data-target="#myModalHorizontal" (click)="editJobToggle(Job)">
           <i class="glyphicon glyphicon-pencil"></i>
         </div>
         <div (click)="archivedJob(Job)">
@@ -24,3 +30,4 @@
   </div>
   <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
+<!-- </div> -->

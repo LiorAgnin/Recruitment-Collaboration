@@ -1,49 +1,3 @@
-<!-- <h1>Job Edit</h1>
-<div>
-<div class="container">
- <form #trvForm="ngForm" (ngSubmit)="EditJobs()">
-   <div class="form-group">
-     <label for="IdPostion">Postion</label>
-     <input id="IdPostion" type="text" class="form-control" required [(ngModel)]="editJob.Postion" name="Postion" #trvPostion="ngModel" > 
-     <div *ngIf="trvPostion.errors && (trvPostion.dirty || trvPostion.touched)" class="alert alert-danger">
-        <div [hidden]="!trvPostion.errors.required">Postion is required</div>
-      </div>
-    </div>
-   <div class="form-group">
-     <label for="IdMinimumReqYears">Minimum Requst Years</label>
-     <input id="IdMinimumReqYears" type="number" class="form-control" required [(ngModel)]="editJob.MinimumReqYears" name="minimumReqYears" #trvMinimumReqYears="ngModel">
-     <div *ngIf="trvMinimumReqYears.errors && (trvMinimumReqYears.dirty || trvMinimumReqYears.touched)" class="alert alert-danger">
-        <div [hidden]="!trvMinimumReqYears.errors.required">Minimum ReqYears is required</div>
-      </div>
-    </div>
-   <div class="form-group">
-     <label for="IdDescription">Description</label>
-     <input id="IdDescription" type="text" class="form-control" required [(ngModel)]="editJob.Description" name="description"  #trvDescription="ngModel"> 
-     <div *ngIf="trvDescription.errors && (trvDescription.dirty || trvDescription.touched)" class="alert alert-danger">
-        <div [hidden]="!trvDescription.errors.required">Description is required</div>
-      </div>
-    </div>
-   <div class="form-group">
-     <label for="IdMinimumReqYears">Minimum Requst Years</label>
-     <input id="IdMinimumReqYears" type="number" class="form-control" required [(ngModel)]="editJob.MinimumReqYears" name="minimumReqYears" #trvPostion="ngModel">
-   </div>
-   <div class="form-group">
-     <label for="IdDescription">Description</label>
-     <input id="IdDescription" type="text" class="form-control" required [(ngModel)]="editJob.Description" name="description" #trvPostion="ngModel">
-   </div>
- 
-   <div class="form-group">
-    <label for="IsArcheive">Is Archeive</label>
-    <input id="IsArcheive" type="text" class="form-control" required [(ngModel)]="editJob.IsArcheive" name="IsArcheive" #trvPostion="ngModel">
-  </div>
-   <div class="form-group">
-     <label for="IdSkills">Skills</label>
-     <input id="IdSkills" type="text" class="form-control" required [(ngModel)]="editJob.Skills" name="skills" #trvPostion="ngModel">
-   </div>
-   <button [disabled]="!trvForm.valid"  class="btn btn-primary">Edit Job</button>
- </form>
-</div> -->
-
 <div class="modal fade" id="myModalHorizontal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -58,11 +12,10 @@
         </h4>
       </div>
 
-      <!-- Modal Body -->
+      <!-- Modal Body <i class="fa fa-spinner fa-spin" style="font-size:24px" *ngIf=""></i>-->
       <div class="modal-body">
-        <form #trvForm="ngForm" (ngSubmit)="EditJobs()">
+        <form #trvForm="ngForm" (ngSubmit)="onSubmitEditForm()">
           <div class="col-md-6">
-
             <div class="form-group">
               <label for="IdPostion">Postion</label>
               <input id="IdPostion" type="text" class="form-control" required [(ngModel)]="editJob.Postion" name="Postion" #trvPostion="ngModel">
@@ -96,7 +49,6 @@
               <br>
               <div class="checkbox-inline" *ngFor="let skill of newArSkillSet">
                 <label>
-                  <!--[(ngModel)]="skill.selected"-->
                   <input type="checkbox" class="checkbox checkbox-primary" (change)="skillSetArray(skill)" name="skill" [checked]="skill.selected"> {{skill.name}}
                 </label>
               </div>
@@ -104,7 +56,8 @@
           </div>
           <br>
           <div class="modal-footer">
-            <button [disabled]="!trvForm.valid" class="btn btn-primary">Edit Job</button>
+            <button type="button" data-dismiss="modal" [disabled]="!trvForm.valid" class="btn btn-primary">Edit Job</button>
+            <button (click)="onSubmitEditForm()" data-dismiss="modal" [disabled]="!trvForm.valid" class="btn btn-primary">Edit Job</button>
           </div>
         </form>
       </div>
@@ -112,3 +65,43 @@
     </div>
   </div>
 </div>
+
+
+<div class="container">
+    <div class="row main">
+      <div class="main-login main-center">
+        <h1>Login</h1>
+        <form #trvForm="ngForm" (ngSubmit)="submitHandler(trvForm)">
+          <div class="form-group">
+            <label for="idEmail" class="cols-sm-2 control-label">Your Email</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                <input type="email" id="idEmail" class="form-control" name="email" placeholder="Enter your Email" pattern="[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)"
+                  class="form-control" required email [(ngModel)]="email" #trvEmail="ngModel" />
+                <div *ngIf="trvEmail.errors && (trvEmail.dirty || trvEmail.touched)">
+                  <div [hidden]="!trvEmail.errors.required" class="errorMessage">Email is required</div>
+                  <div [hidden]="!trvEmail.errors.pattern" class="errorMessage">Email is not valid</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password" class="cols-sm-2 control-label">Password</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                <input type="password" id="idPassword" class="form-control" name="password" placeholder="Enter your Password" required [(ngModel)]="password"
+                  #trvPassword="ngModel" />
+                <div *ngIf="trvPassword.errors && (trvPassword.dirty || trvPassword.touched)">
+                  <div [hidden]="!trvPassword.errors.required" class="errorMessage">Password is required</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button [disabled]="!trvForm.valid" class="btn btn-primary">Login</button>
+          <div style="color:red">{{ LoginService.error }}</div>
+        </form>
+      </div>
+    </div>
+  </div>

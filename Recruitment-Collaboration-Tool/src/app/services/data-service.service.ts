@@ -28,5 +28,4 @@ export class DataServiceService {
       return false;
     }
   }
-
 }

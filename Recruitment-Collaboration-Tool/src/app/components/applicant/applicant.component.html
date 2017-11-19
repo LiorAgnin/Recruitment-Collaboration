@@ -1,9 +1,13 @@
-<div style="cursor:pointer" class="container">
-    <button *ngIf="dataService.IsUserIsAdmin" type="button" class="btn">
-    <i class="glyphicon glyphicon-plus"></i><a [routerLink]="['/add-applicant']">Add</a></button>
+<div class="container">
+    <button *ngIf="authService.isUserAdmin()" (click)="addFormToggle = !addFormToggle" type="button" class="btn">
+        <i class="glyphicon glyphicon-plus"></i>
+        {{addFormToggle ? 'Applicatns' : 'Add'}}
+        <!-- <a [routerLink]="['/add-applicant']">Add</a> -->
+    </button>
     <br>
+    <add-new-applicant *ngIf="addFormToggle"></add-new-applicant>
 
-<div style="cursor:pointer" class="container">
+    <div class="container" *ngIf="!addFormToggle">
 
     <div class="card applicant-card" *ngFor="let applicant of arAllApplicants | paginate: { itemsPerPage: 6, currentPage: p }">
         <div class="card-body">

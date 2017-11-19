@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ApplicantServiceService } from "../../services/applicant-service.service";
 import { Applicant } from "../../model/Applicant";
 import { JobsServiceService } from "../../services/jobs-service.service";
 import { SkillsetServiceService } from "../../services/skillset-service.service";
 import { Skillset } from '../../model/skillset';
 import { UploadFileService } from '../../services/upload-file.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Upload } from '../../model/upload';
 import * as _ from "lodash";
 import * as firebase from 'firebase';
@@ -24,7 +25,8 @@ export class AddNewApplicantComponent implements OnInit {
     public ApplicantServiceService: ApplicantServiceService,
     public jobService: JobsServiceService,
     public SkillsetService: SkillsetServiceService,
-    private upSvc: UploadFileService) { }
+    private upSvc: UploadFileService, private router: Router,
+    private route: ActivatedRoute) { }
   ngOnInit() {
     this.SkillsetService.getSkillsets().subscribe(skills => {
       this.arSkillset = skills[0];
@@ -50,17 +52,18 @@ export class AddNewApplicantComponent implements OnInit {
     const newApplicant = {
       FirstName: this.newApplicant.FirstName,
       LastName: this.newApplicant.LastName,
-      // Experience:this.newApplicant.Experience,
-      // City:this.newApplicant.City,
-      // Email:this.newApplicant.Email,
-      // PhoneNumber:,
-      // Age:,
-      // Gender:,
+      Experience: this.newApplicant.Experience,
+      City: this.newApplicant.City,
+      Email: this.newApplicant.Email,
+      PhoneNumber: this.newApplicant.Phone,
+      Age: this.newApplicant.Age,
+      Gender:this.newApplicant.Gender,
       // CV:,
-      // Position:,
+      Position: this.newApplicant.Position,
       Skills: this.arSkillSetPicked,
     }
-    this.ApplicantServiceService.addNewApplicant(newApplicant)
+    this.uploadSingle();
+    this.ApplicantServiceService.addNewApplicant(newApplicant);
   }
   detectFiles(event) {
     this.selectedFiles = event.target.files;
@@ -68,7 +71,7 @@ export class AddNewApplicantComponent implements OnInit {
   uploadSingle() {
     let file = this.selectedFiles.item(0);
     this.currentUpload = new Upload(file);
-    this.currentUpload.name = this.newApplicant.FirstName.toLocaleLowerCase()+' '+this.newApplicant.LastName.toLocaleLowerCase()+" CV".toLocaleLowerCase();
+    this.currentUpload.name = this.newApplicant.FirstName.toLocaleLowerCase() + ' ' + this.newApplicant.LastName.toLocaleLowerCase() + " CV".toLocaleLowerCase();
     this.upSvc.pushUpload(this.currentUpload);
   }
   // uploadMulti() {
