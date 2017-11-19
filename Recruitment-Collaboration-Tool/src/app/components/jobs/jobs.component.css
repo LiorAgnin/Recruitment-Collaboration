@@ -1,99 +1,86 @@
+.container{ 
+  width: 235px;
+  display: inline-block;
+  padding: 2px 0 0 0;
+  margin: 0 0 28px 29px;
+  border: solid 1px #d1cbbd;
+  border-radius: 6px ;
+  background: #ffffff;
+  text-align: center; 
+}
+div{
+  display: inline-block;
+  cursor:pointer
+}
+.JobIcons{
+  display: inline-block;
+  font-size: 12px;
+}
+.container:hover
+{
+  -moz-box-shadow: 0 0 10px #ccc;
+  -webkit-box-shadow: 0 0 10px #ccc;
+  box-shadow: 0 0 10px #ccc;
+height: auto;
+-webkit-transition: .3s ease-in-out;
+transition: .3s ease-in-out;
+}
 
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+.JobCard{
+  width: 100%;
+  padding: 4px ;
+  margin: 5px;
+  display: block;
+  box-sizing: border-box;
+}
+.JobTitel{
+  display: inline-block;
+  float: left;
+  font-weight: bold;
+  margin: 0;
+  font-size: 19px;
+  line-height: 16px;
+  min-height: 32px;
+  text-align: left;
+  -webkit-margin-before: 1.33em;
+  -webkit-margin-after: 1.33em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+}
+.clear {
+  clear: both;
+  font-size: 1px;
+  line-height: 1px;
+  display: block;
+  height: 0;
+}
+p{
+  text-align: left;
+  font-size: 12px;
+}
 
-/*main card style*/
-/* .card {
-    max-width: 100%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-height: 0;
-    background: #fff;
-    padding: 0;
-    border: none;
-    border-radius: .5rem;
-    box-shadow: 0 1px 3px 0 #d4d4d5,0 0 0 1px #d4d4d5;
-    transition: box-shadow 0.1s ease, transform 0.1s ease;
-    z-index: '';
-    margin-bottom: 30px;
-  }
-  
-  .card > .card-content,
-  .cards > .card > .card-content {
-    flex-grow: 1;
-    border: none;
-    background: 0 0;
-    margin: 0;
-    padding: 1em;
-    box-shadow: none;
-    font-size: 1em;
-    border-radius: 0;
-  }
-  .card > .card-content:after,
-  .cards > .card > .card-content:after {
-    display: block;
-    height: 0;
-  }
-  .card > .card-content > h4.card-title,
-  .cards > .card > .card-content > h4.card-title {
-    display: block;
-    margin: 0px;
-    font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  }
-  .card > .card-content > h6.card-meta,
-  .cards > .card > .card-content > h6.card-meta {
-    margin-top: 0.2em;
-  }
-  .card > .card-content > h6.card-meta + .card-description,
-  .cards > .card > .card-content > h6.card-meta + .card-description,
-  .card > .card-content > h4.card-title + .card-description,
-  .cards > .card > .card-content > h4.card-title + .card-description{
-    margin-top: 1em;
-  }
-  .card > .card-content > .card-description,
-  .cards > .card > .card-content > .card-description {
-    clear: both;
-    margin-top: 1em;
-  }
-  .card > .card-content p,
-  .cards > .card > .card-content p {
-    margin: 0 0 0.5em;
-  }
-  .card > .card-content p:last-child,
-  .cards > .card > .card-content p:last-child {
-    margin-bottom: 0;
-  }
-  .card > .card-content > a.card-title,
-  .cards > .card > .card-content > a.card-title {
-    color: rgba(0, 0, 0, 0.85);
-  }
-  .card > .card-content > a.card-title:hover,
-  .cards > .card > .card-content > a.card-title:hover {
-    color: #1e70bf;
-  }
-  
-  /*card with border*/
-  /* .card.card-centred-text {
-      text-align: center;
-      padding: 50px 50px;
-  }
-  /*card with border*/
-  /* .card.card-with-border .card-content {
-    position: relative;
-    padding: 15px 15px 25px 15px;
-  }
-  .card.card-with-border::after {
-    position: absolute;
-    display: block;
-    width: calc(100% - 10px);
-    height: calc(100% - 10px);
-    content: '';
-    top: 5px;
-    left: 5px;
-    z-index: 1;
-    border-radius: 5px;
-    border: 1px solid rgba(255, 255, 255, 0.8); 
-  }  */
-  /*bg and text*/
-  /* .black-grey {color:#fff!important;background-color:#009688!important}
-  .text-white,.text-white-hover:hover{color:#fff!important} */
-  
+.Description{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.Skills{
+  white-space: nowrap; 
+  width: 16em; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

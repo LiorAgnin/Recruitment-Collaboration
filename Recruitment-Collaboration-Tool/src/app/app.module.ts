@@ -7,7 +7,10 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { NgForm } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FilterPipe } from './filters-pipes/filter-jobs.pipe';
 
+// components
 import { AppComponent } from './app.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { JobsComponent } from './components/jobs/jobs.component';
@@ -17,7 +20,7 @@ import { AddNewApplicantComponent } from './components/add-new-applicant/add-new
 import { LoginComponent } from './components/login/login.component';
 import { AddNewJobComponent } from './components/add-new-job/add-new-job.component';
 import { EditJobComponent } from './components/edit-job/edit-job.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SideNavbarComponent } from './components/side-navbar/side-navbar.component';
 
 //Services
 import { LoginServiceService } from "./services/login-service.service";
@@ -34,8 +37,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 // import {enableProdMode} from '@angular/core';
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
-import { SideNavbarComponent } from './components/side-navbar/side-navbar.component';
-import { FilterPipe } from './filters-pipes/filter-jobs.pipe';
+
+
 
 @NgModule({
   declarations: [
