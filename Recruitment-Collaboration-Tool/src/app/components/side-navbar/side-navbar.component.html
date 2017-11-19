@@ -1,14 +1,13 @@
-<div class="nav-side-menu">
-  <div class="brand">AT&T</div>
-  <div class="menu-list">
-    <ul id="menu-content">
-      <li *ngFor="let skill of newArSkillSet | filter">
-        <div class="checkbox-inline">
-          <label>
-            <input type="checkbox" name="skill" [(ngModel)]="skill.selected" (change)="skillSetArray(skill)"> {{skill.name}}
-          </label>
-        </div>
-      </li>
-    </ul>
-  </div>
+<div class="brand">
+  Skillset : </div>
+<div class="menu-list">
+  <ul id="menu-content">
+    <li *ngFor="let skill of newArSkillSet | filter">
+      <div class="checkbox-inline">
+        <label>
+          <input type="checkbox" name="skill" [(ngModel)]="skill.selected" (change)="skillSetArray(skill)"> {{skill.name}}
+        </label>
+      </div>
+    </li>
+  </ul>
 </div>

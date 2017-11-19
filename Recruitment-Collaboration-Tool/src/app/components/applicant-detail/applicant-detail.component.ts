@@ -37,6 +37,10 @@ export class ApplicantDetailComponent implements OnInit {
     let a = this.auth.app.storage().ref('/uploads/' + getCvOf);
     a.getDownloadURL().then(function (url) {
       console.log(url);
+     // var downloadUrl= window.URL.createObjectURL(url);
+      window.open(url);
+      //window.open(url);
+
     }).catch(function (error) {
       console.log(error)
     });
