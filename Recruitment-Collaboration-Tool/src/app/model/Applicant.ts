@@ -1,7 +1,7 @@
 export interface Applicant {
     Id?: number;
-    FirstName?:string;
-    LastName?:string;
+    FirstName?: string;
+    LastName?: string;
     Experience?: number;
     City?: string;
     Email?: string;
@@ -13,4 +13,3 @@ export interface Applicant {
     Skills?: string[];
     IsActive?:boolean;
 }
-

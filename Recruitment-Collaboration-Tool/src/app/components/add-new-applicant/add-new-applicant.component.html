@@ -5,130 +5,102 @@
       <div class="col-md-6">
         <div class="form-group">
           <label for="FirstName">First name</label>
-          <input id="FirstName" name="FirstName" type="text" required class="form-control" [(ngModel)]="newApplicant.FirstName" #trvFirstName="ngModel">
+          <input type="text" class="form-control" name="FirstName" [(ngModel)]="newApplicant.FirstName" required #trvFirstName="ngModel">
           <div *ngIf="trvFirstName.errors && (trvFirstName.dirty || trvFirstName.touched)" class="alert alert-danger">
             <div [hidden]="!trvFirstName.errors.required">
               First Name is required
             </div>
           </div>
         </div>
-
         <div class="form-group">
           <label for="LastName">Last name</label>
-          <input id="LastName" name="LastName" type="text" required class="form-control" [(ngModel)]="newApplicant.LastName" #trvLastName="ngModel">
+          <input type="text" class="form-control" name="LastName" [(ngModel)]="newApplicant.LastName" required #trvLastName="ngModel">
           <div *ngIf="trvLastName.errors && (trvLastName.dirty || trvLastName.touched)" class="alert alert-danger">
             <div [hidden]="!trvLastName.errors.required">
               Last Name is required
             </div>
           </div>
         </div>
-
         <div class="form-group">
-          <label for="Email">Email</label>
-          <input id="Email" name="Email" type="email" required class="form-control" email [(ngModel)]="newApplicant.Email" #trvEmail="ngModel">
-          <div *ngIf="trvEmail.errors && (trvEmail.dirty || trvEmail.touched)" class="alert alert-danger">
-            <div [hidden]="!trvEmail.errors.required">
-              Email is required
-            </div>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="City">City</label>
-          <input id="City" name="City" type="text" required class="form-control" [(ngModel)]="newApplicant.City" #trvCity="ngModel">
-          <div *ngIf="trvCity.errors && (trvCity.dirty || trvCity.touched)" class="alert alert-danger">
-            <div [hidden]="!trvCity.errors.required">
-              City is required
-            </div>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <!-- להמשיך לעשות ולידציה -->
-          <label for="Phone">Phone namber</label>
-          <input id="Phone" name="Phone" type="number" required class="form-control" [(ngModel)]="newApplicant.Phone" #trvPhone="ngModel">
-          <div *ngIf="trvPhone.errors && (trvPhone.dirty || trvPhone.touched)" class="alert alert-danger">
-            <div [hidden]="!trvPhone.errors.required">
-              Phone is required
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="form-group">
-          <label for="Age">Age</label>
-          <input id="Age" name="Age" type="namber" required class="form-control" [(ngModel)]="newApplicant.Age" #trvAge="ngModel">
-          <div *ngIf="trvAge.errors && (trvAge.dirty || trvAge.touched)" class="alert alert-danger">
-            <div [hidden]="!trvAge.errors.required">
-              Age is required
-            </div>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="Experience">Years of experience</label>
-          <input id="Experience" name="Experience" type="namber" required class="form-control" [(ngModel)]="newApplicant.Experience"
-            #trvExperience="ngModel">
+          <label for="experience">Experience</label>
+          <input type="number" class="form-control" name="experience" [(ngModel)]="newApplicant.Experience" required #trvExperience="ngModel">
           <div *ngIf="trvExperience.errors && (trvExperience.dirty || trvExperience.touched)" class="alert alert-danger">
             <div [hidden]="!trvExperience.errors.required">
               Experience is required
             </div>
           </div>
         </div>
-
         <div class="form-group">
-          <label for="Gender">Gender</label>
-          <select id="Gender" name="Gender" required class="form-control" [(ngModel)]="newApplicant.Gender" #trvGender="ngModel">
-            <option selected></option>
-            <option>Male</option>
-            <option>Female</option>
-          </select>
-          <div *ngIf="trvGender.errors && (trvGender.dirty || trvGender.touched)" class="alert alert-danger">
-            <div [hidden]="!trvGender.errors.required">
-              Gender is required
+          <label for="city">City</label>
+          <input type="text" class="form-control" name="city" [(ngModel)]="newApplicant.City" #trvCity="ngModel">
+        </div>
+        <div class="form-check form-check-inline">
+          <h5 style="font-weight:bold">Gender</h5>
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="female" value="Female" [(ngModel)]="newApplicant.Gender"> Female
+          </label>
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="male" value="male" [(ngModel)]="newApplicant.Gender"> Male
+          </label>
+        </div>
+
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" class="form-control" pattern="[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)" name="email"
+            [(ngModel)]="newApplicant.Email" required #trvEmail="ngModel">
+          <div *ngIf="trvEmail.errors && (trvEmail.dirty || trvEmail.touched)" class="alert alert-danger">
+            <div [hidden]="!trvEmail.errors.required">
+              Email is required
             </div>
           </div>
         </div>
+        <div class="form-group">
+          <label for="phoneNumber">Phone Number</label>
+          <input type="text" class="form-control" name="phoneNumber" [(ngModel)]="newApplicant.PhoneNumber" required #trvPhoneNumber="ngModel">
+          <div *ngIf="trvPhoneNumber.errors && (trvPhoneNumber.dirty || trvPhoneNumber.touched)" class="alert alert-danger">
+            <div [hidden]="!trvPhoneNumber.errors.required">
+              Phone number is required
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input type="number" class="form-control" name="age" [(ngModel)]="newApplicant.Age" #trvAge="ngModel">
+        </div>
 
         <div class="form-group">
-          <label for="Position">Position</label>
-          <input id="Position" name="Position" type="text" required class="form-control" [(ngModel)]="newApplicant.Position" #trvPosition="ngModel">
+          <label for="position">Position</label>
+          <input type="text" class="form-control" name="position" [(ngModel)]="newApplicant.Position" required #trvPosition="ngModel">
           <div *ngIf="trvPosition.errors && (trvPosition.dirty || trvPosition.touched)" class="alert alert-danger">
             <div [hidden]="!trvPosition.errors.required">
               Position is required
             </div>
           </div>
         </div>
-
-        <div class="form-group">
-          <h3>Skills</h3>
-          <label for="skill"></label>
-          <div class="checkbox-inline" *ngFor="let skill of newArSkillSet">
-            <label>
-              <input type="checkbox" name="skill" [(ngModel)]="skill.selected" (change)="skillSetArray(skill)"> {{skill.name}}
-            </label>
-          </div>
-        </div>
       </div>
     </div>
-    
+
+    <div class="form-group">
+      <h3>Skills</h3>
+      <label for="skill"></label>
+      <div class="checkbox-inline" *ngFor="let skill of newArSkillSet">
+        <label>
+          <input type="checkbox" name="skill" [(ngModel)]="skill.selected" (change)="skillSetArray(skill)"> {{skill.name}}
+        </label>
+      </div>
+    </div>
+
     <div class="form-group">
       <div *ngIf="currentUpload">
         <progress class="progress is-success" min=1 max=100 value="{{ currentUpload?.progress }}"></progress>
-
         Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete
       </div>
       <label>
         <input type="file" class="button" (change)="detectFiles($event)">
       </label>
-
-      <button class="button is-primary" [disabled]="!selectedFiles" (click)="uploadSingle()">
-        Upload CV
-      </button>
     </div>
     <button [disabled]="!formAddApplicant.valid" class="btn btn-primary">Add Appicant</button>
   </form>
 </div>
-
-
-<!-- pattern="[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)" -->

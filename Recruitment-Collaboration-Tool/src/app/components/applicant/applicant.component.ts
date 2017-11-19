@@ -5,6 +5,7 @@ import { DataServiceService } from "../../services/data-service.service";
 import { Manger } from "../../model/manger";
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service'
 @Component({
   selector: 'app-applicant',
   templateUrl: './applicant.component.html',
@@ -18,10 +19,12 @@ export class ApplicantComponent implements OnInit {
   arUnlockApplicants: Applicant[] = new Array();
   manger: string;
   LockUnlock: boolean = false;
+  addFormToggle: boolean = false;
   constructor(public applicantService: ApplicantServiceService,
     public dataService: DataServiceService,
     private auth: AngularFireAuth,
-    private router: Router) { }
+    private router: Router,
+    public authService: AuthService) { }
 
   ngOnInit() {
 
@@ -47,7 +50,6 @@ export class ApplicantComponent implements OnInit {
     this.router.navigate(['./applicant-detail'])
   }
   lockToggle(applicant: Applicant, manger: Manger) {
-    console.log("My email", this.auth.auth.currentUser.email)
     if (this.auth.auth.currentUser.email == 'weretawt5@gmail.com') {
       applicant.IsActive = !applicant.IsActive;
       this.applicantService.updeteApplicants(applicant);
