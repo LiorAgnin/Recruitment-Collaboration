@@ -5,7 +5,7 @@ export interface Applicant {
     Experience?: number;
     City?: string;
     Email?: string;
-    PhoneNumber?: string;
+    Phone?: string;
     Age?: number;
     Gender?: string;
     CV?: any[];
@@ -13,3 +13,4 @@ export interface Applicant {
     Skills?: string[];
     IsActive?:boolean;
 }
+
