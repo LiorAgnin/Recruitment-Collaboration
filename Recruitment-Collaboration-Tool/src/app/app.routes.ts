@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { AdminComponent } from './components/admin/admin.component';
 import { JobsComponent } from './components/jobs/jobs.component';
 import { ApplicantComponent } from './components/applicant/applicant.component';
 import { HomeComponent } from './components/home/home.component';
@@ -20,6 +19,5 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'add-job', component: AddNewJobComponent, canActivate: [AuthGuard]  },
     // { path: 'edit-job', component: EditJobComponent, canActivate: [AuthGuard]  },
-    { path: 'admin', component: AdminComponent , canActivate: [AuthGuard] },
     { path: '**', redirectTo: '/404' }
 ];
