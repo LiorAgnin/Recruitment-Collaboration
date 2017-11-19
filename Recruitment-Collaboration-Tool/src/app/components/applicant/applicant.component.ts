@@ -19,9 +19,15 @@ export class ApplicantComponent implements OnInit {
   manger: string;
   LockUnlock: boolean = false;
   constructor(public applicantService: ApplicantServiceService,
+<<<<<<< HEAD
     public dataService: DataServiceService, 
     private auth: AngularFireAuth,
   private router:Router) { }
+=======
+    public dataService: DataServiceService,
+    private auth: AngularFireAuth,
+    private router: Router) { }
+>>>>>>> e60147305c01688100829a2d78b94170f3ce845a
 
   ngOnInit() {
 
@@ -47,9 +53,7 @@ export class ApplicantComponent implements OnInit {
     this.router.navigate(['./applicant-detail'])
   }
   lockToggle(applicant: Applicant, manger: Manger) {
-
     console.log("My email", this.auth.auth.currentUser.email)
-
     if (this.auth.auth.currentUser.email == 'weretawt5@gmail.com') {
       applicant.IsActive = !applicant.IsActive;
       this.applicantService.updeteApplicants(applicant);
