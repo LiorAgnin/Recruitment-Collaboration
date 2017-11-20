@@ -19,7 +19,7 @@ export class JobsComponent implements OnInit {
   jobForEdit: Job;
   editFormBooli: boolean = false;
   addFormBooli: boolean = false;
-  
+
   constructor(public jobService: JobsServiceService,
     public DataService: DataServiceService,
     private router: Router,
@@ -39,6 +39,7 @@ export class JobsComponent implements OnInit {
     });
   }
   onClickAdddForm($event: Job) {
+    console.log($event);
     this.jobService.addNewJob($event);
     this.addFormBooli = false;
   }
@@ -46,7 +47,7 @@ export class JobsComponent implements OnInit {
     console.log(archivedJob)
   }
 
-  goToJobDetail(Job){
+  goToJobDetail(Job) {
     this.DataService.jobToEdit = Job;
     this.router.navigate(['./job-detail'])
   }
