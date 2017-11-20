@@ -1,29 +1,35 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Job } from '../../model/job';
+import { Component, OnInit } from '@angular/core';
 import { JobsServiceService } from "../../services/jobs-service.service";
+import { Job } from "../../model/job";
 import { DataServiceService } from "../../services/data-service.service";
-import { SkillsetServiceService } from '../../services/skillset-service.service';
+import { Router, ActivatedRoute } from "@angular/router";
+import { AuthService } from '../../services/auth.service';
 import { Skillset } from '../../model/skillset';
-import { ActivatedRoute, Router } from '@angular/router';
+import { SkillsetServiceService } from '../../services/skillset-service.service';
+
 
 @Component({
-  selector: 'edit-job',
+  selector: 'app-edit-job',
   templateUrl: './edit-job.component.html',
   styleUrls: ['./edit-job.component.css']
 })
 export class EditJobComponent implements OnInit {
 
   show = false;
-  @Input() editJob: Job = <Job>{};
+  editJob: any;
   arSkillset: any;
   newArSkillSet: Skillset[] = [];
   arSkillSetPicked: string[] = [];
   skil;
-  @Output() onClickEdit = new EventEmitter<Job>();
+  toggleAfterUpdate: boolean = true;
+  jobEditedMessage: string;
+
   constructor(public jobService: JobsServiceService,
     public DataService: DataServiceService,
     public SkillsetService: SkillsetServiceService,
-    private router: Router) {
+    private router: Router,
+    public authService: AuthService) {
+    this.editJob = DataService.jobToEdit;
   }
   ngOnInit() {
     let skillsSelected;
@@ -68,9 +74,10 @@ export class EditJobComponent implements OnInit {
       IsArcheive: this.editJob.IsArcheive,
       Skills: this.editJob.Skills
     }
-    this.onClickEdit.emit(this.editJob);
+    if (this.authService.isUserAdmin()) {
+      this.jobService.updeteJob(editedJob);
+      this.toggleAfterUpdate = false;
+      this.jobEditedMessage = "Job edited sucssefuly!";
+    }
   }
 }
-
-
-

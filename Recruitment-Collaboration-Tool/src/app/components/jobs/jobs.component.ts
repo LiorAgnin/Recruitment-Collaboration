@@ -19,6 +19,7 @@ export class JobsComponent implements OnInit {
   jobForEdit: Job;
   editFormBooli: boolean = false;
   addFormBooli: boolean = false;
+  
   constructor(public jobService: JobsServiceService,
     public DataService: DataServiceService,
     private router: Router,
@@ -37,14 +38,7 @@ export class JobsComponent implements OnInit {
       });
     });
   }
-
-  editJobToggle(editJob: Job) {
-    console.log(editJob);
-    this.jobForEdit = editJob;
-    this.editFormBooli = true;
-    // this.DataService.jobToEdit = editJob;
-    // this.router.navigate(['/edit-job']);
-  }
+  
   onClickEditForm($event: Job) {
     console.log("$event", $event)
     this.jobService.updeteJob($event);
@@ -56,5 +50,10 @@ export class JobsComponent implements OnInit {
   }
   archivedJob(archivedJob: Job) {
     console.log(archivedJob)
+  }
+
+  goToJobDetail(Job){
+    this.DataService.jobToEdit = Job;
+    this.router.navigate(['./job-detail'])
   }
 }

@@ -1,0 +1,39 @@
+<div class="container">
+  <h2>Job details</h2>
+  <div>
+    <i class="fa fa-pencil-square-o" (click)="goToEditJob()" *ngIf="toggleEditIcon" aria-hidden="true"></i>
+    <span style="color:red">{{ notpermissionMessage }}</span>
+  </div>
+  <div class="card">
+    <div class="card-block">
+      <h4 class="card-title">Position: {{ pickedJob.Postion }}</h4>
+    </div>
+  </div>
+  <br>
+  <div class="card">
+    <div class="card-block">
+      <h4 class="card-title">Minimum Required Years: {{ pickedJob.MinimumReqYears }}</h4>
+    </div>
+  </div>
+  <br>
+  <div class="card">
+    <div class="card-block">
+      <h4 class="card-title"> Description: {{ pickedJob.Description }}</h4>
+    </div>
+  </div>
+  <br>
+  <div class="card">
+    <div class="card-block">
+      <div class="form-group">
+        <h4>Skills: </h4>
+        <br>
+        <div class="checkbox-inline" *ngFor="let skill of pickedJob.Skills">
+          <label>
+              <input type="checkbox" class="checkbox checkbox-primary" name="skill" checked> {{skill}}
+            </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+</div>

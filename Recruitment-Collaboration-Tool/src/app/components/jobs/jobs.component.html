@@ -7,7 +7,6 @@
 <div *ngIf="addFormBooli">
   <add-new-job (onClickAdd)="onClickAdddForm($event)"></add-new-job>
 </div>
-<!-- <edit-job (onClickEdit)="onClickEditForm($event)" *ngIf="editFormBooli" [editJob]="jobForEdit"></edit-job> -->
 <br/>
 <br/>
 <br/>
@@ -17,8 +16,8 @@
       <div style="display: block;">
 
         <div class="JobIcons">
-          <div data-toggle="modal" data-target="#myModalHorizontal" (click)="editJobToggle(Job)">
-            <i class="glyphicon glyphicon-pencil"></i>
+          <div (click)="goToJobDetail(Job)">
+            <i class="fa fa-info-circle" title="View job details" aria-hidden="true"></i>
           </div>
           <div (click)="archivedJob(Job)">
             <i class="glyphicon glyphicon-remove"></i>

@@ -12,7 +12,6 @@ import { FilterPipe } from './filters-pipes/filter-jobs.pipe';
 
 // components
 import { AppComponent } from './app.component';
-import { AdminComponent } from './components/admin/admin.component';
 import { JobsComponent } from './components/jobs/jobs.component';
 import { ApplicantComponent } from './components/applicant/applicant.component';
 import { HomeComponent } from './components/home/home.component';
@@ -37,23 +36,25 @@ import { NgxPaginationModule } from 'ngx-pagination';
 // import {enableProdMode} from '@angular/core';
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
+import { JobDetailComponent } from "./components/job-detail/job-detail.component";
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdminComponent,
     JobsComponent,
     ApplicantComponent,
     HomeComponent,
     AddNewApplicantComponent,
     LoginComponent,
     AddNewJobComponent,
-    EditJobComponent,
     ApplicantDetailComponent,
     SideNavbarComponent,
-    FilterPipe
+    FilterPipe,
+    JobDetailComponent,
+    EditJobComponent
   ],
   imports: [
     BrowserModule,
