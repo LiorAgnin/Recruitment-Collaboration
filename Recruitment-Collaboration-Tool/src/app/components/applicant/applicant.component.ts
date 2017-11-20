@@ -56,12 +56,6 @@ export class ApplicantComponent implements OnInit {
   }
   lock(applicant) {
     let isLockedByMe: boolean = false;
-    // this.statusService.IsApplicantLockedByManager(applicant).subscribe(x => {
-    //   if (x[0].ApplicantId == applicant.Id) {
-    //     isLockedByMe = true;
-    //   }
-    //   return isLockedByMe;
-    // });
     let currentManagerId = this.auth.auth.currentUser.uid;
     this.arStatus.forEach(appli => {
       if ((appli.ApplicantId == applicant.Id) && (appli.MangerId == currentManagerId)) {
