@@ -20,7 +20,7 @@
                 <br/>
                 <div>
                     <h3 class="ApplicantTitel"> {{applicant.Position}}</h3>
-                    <div class="ApplicantIcons" (click)="goToApplicantDetail(applicant)">
+                    <div class="ApplicantIcons" (click)="goToApplicantDetail(applicant)" *ngIf="lock(applicant)">
                         <i class="fa fa-file-word-o" title="View CV" aria-hidden="true"></i>
                     </div>
                 </div>

@@ -10,7 +10,6 @@ export class ApplicantStatusService {
   applicantDocm: AngularFirestoreDocument<ApplicantStatus>;
   applicantStatusCollection: AngularFirestoreCollection<ApplicantStatus>;
   applicantsStatus: Observable<ApplicantStatus[]>;
-
   status: Observable<ApplicantStatus[]>;
   statusCol: AngularFirestoreCollection<ApplicantStatus>;
   constructor(private fs: AngularFirestore, private auth: AngularFireAuth) {
@@ -39,17 +38,17 @@ export class ApplicantStatusService {
     this.applicantDocm.delete();
   }
   public IsApplicantLockedByManager(applicant) {
-    let currentManagerId = this.auth.auth.currentUser.uid;
-    this.statusCol = this.fs.collection('ApplicantStatus', res =>
-      res.where('ApplicantId', '==', applicant.Id)
-        .where('MangerId', '==', currentManagerId));
-    return this.status = this.statusCol.snapshotChanges()
-      .map(actions => {
-        return actions.map(applicant => {
-          const applicantData = applicant.payload.doc.data() as ApplicantStatus;
-          applicantData.Id = applicant.payload.doc.id as any;
-          return applicantData;
-        });
-      });
+    // let currentManagerId = this.auth.auth.currentUser.uid;
+    // this.statusCol = this.fs.collection('ApplicantStatus', res =>
+    //   res.where('ApplicantId', '==', applicant.Id)
+    //     .where('MangerId', '==', currentManagerId));
+    // return this.status = this.statusCol.snapshotChanges()
+    //   .map(actions => {
+    //     return actions.map(applicant => {
+    //       const applicantData = applicant.payload.doc.data() as ApplicantStatus;
+    //       applicantData.Id = applicant.payload.doc.id as any;
+    //       return applicantData;
+    //     });
+    //   });
   }
 }
