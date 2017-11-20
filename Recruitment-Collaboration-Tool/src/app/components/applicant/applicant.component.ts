@@ -51,8 +51,4 @@ export class ApplicantComponent implements OnInit {
     this.dataService.jobToEdit = applicant;
     this.router.navigate(['./applicant-detail']);
   }
-  lock(applicant) {
-    this.authService.IsApplicantLockedByManager(applicant);
-
-  }
 }
