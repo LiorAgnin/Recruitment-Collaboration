@@ -3,6 +3,7 @@ import { JobsServiceService } from "../../services/jobs-service.service";
 import { Job } from "../../model/job";
 import { SkillsetServiceService } from "../../services/skillset-service.service";
 import { Skillset } from '../../model/skillset';
+import { DataServiceService } from "../../services/data-service.service";
 
 @Component({
   selector: 'add-new-job',
@@ -15,9 +16,12 @@ export class AddNewJobComponent implements OnInit {
   arSkillset: any;
   newArSkillSet: Skillset[] = [];
   @Output() onClickAdd = new EventEmitter<Job>();
+  recutManagerName: string;
+  RecruitingManager:string;
 
   constructor(public jobService: JobsServiceService,
-    public SkillsetService: SkillsetServiceService ) { }
+    public SkillsetService: SkillsetServiceService,
+    public dataServiceService: DataServiceService) { }
   ngOnInit() {
 
     this.SkillsetService.getSkillsets().subscribe(skills => {
@@ -44,11 +48,12 @@ export class AddNewJobComponent implements OnInit {
   addNewJobSubmitHandler() {
     const jobToAdd = {
       Postion: this.newJob.Postion,
+      RecruitingManager: this.RecruitingManager,
       MinimumReqYears: this.newJob.MinimumReqYears,
       Description: this.newJob.Description,
       IsArcheive: false,
       Skills: this.arSkillSetPicked,
     }
-    this.onClickAdd.emit(this.newJob);
+    this.onClickAdd.emit(jobToAdd);    
   }
 }

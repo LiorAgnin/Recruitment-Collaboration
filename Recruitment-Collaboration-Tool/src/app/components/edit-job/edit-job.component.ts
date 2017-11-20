@@ -22,13 +22,16 @@ export class EditJobComponent implements OnInit {
   skil;
   toggleAfterUpdate: boolean = true;
   jobEditedMessage: string;
+  recruitingManager: string;
 
   constructor(public jobService: JobsServiceService,
-    public DataService: DataServiceService,
+    public dataService: DataServiceService,
     public SkillsetService: SkillsetServiceService,
-  public authService:AuthService) {
-    this.editJob = DataService.jobToEdit;
+    public authService: AuthService) {
+    this.editJob = dataService.jobToEdit;
+    this.recruitingManager = dataService.jobToEdit.RecruitingManager;
   }
+
   ngOnInit() {
     let skillsSelected;
     this.SkillsetService.getSkillsets().subscribe(skills => {
@@ -62,15 +65,18 @@ export class EditJobComponent implements OnInit {
     }
   }
   onSubmitEditForm() {
+    console.log("onSubmitEditForm");
     this.editJob.Skills = this.arSkillSetPicked;
     const editedJob = {
       Id: this.editJob.Id,
       Postion: this.editJob.Postion,
+      RecruitingManager: this.recruitingManager,
       MinimumReqYears: this.editJob.MinimumReqYears,
       Description: this.editJob.Description,
       IsArcheive: this.editJob.IsArcheive,
       Skills: this.editJob.Skills
     }
+    console.log(editedJob);
     if (this.authService.isUserAdmin()) {
       this.jobService.updeteJob(editedJob);
       this.toggleAfterUpdate = false;
