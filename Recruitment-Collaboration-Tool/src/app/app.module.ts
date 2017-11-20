@@ -36,6 +36,7 @@ import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { SideNavbarComponent } from './components/side-navbar/side-navbar.component';
 import { FilterPipe } from './filters-pipes/filter-jobs.pipe';
+import { ApplicantStatusService } from './services/applicant-status.service';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { FilterPipe } from './filters-pipes/filter-jobs.pipe';
     AngularFireAuth,
     UploadFileService,
     AuthService,
-    AuthGuardService
+    AuthGuardService,
+    ApplicantStatusService
   ],
   
   bootstrap: [AppComponent]

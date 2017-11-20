@@ -3,6 +3,9 @@
     <div class="card-block">
       <h4 class="card-title">Name : {{applicant.FirstName +" "+applicant.LastName}}</h4>
       <h6 class="card-subtitle mb-2 text-muted">Title : {{applicant.Position}}</h6>
+      <button type="button" class="btn btn-xs" (click)="lockToggle()">
+          <i title="{{manger}}" class="fa {{ applicant.IsActive ? 'fa-lock' : 'fa-unlock' }}" aria-hidden="true"></i>
+      </button>
     </div>
   </div>
   <br>

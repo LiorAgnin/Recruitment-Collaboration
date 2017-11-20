@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ApplicantServiceService } from "../../services/applicant-service.service";
 import { Applicant } from "../../model/Applicant";
 import { DataServiceService } from "../../services/data-service.service";
@@ -45,16 +45,16 @@ export class ApplicantComponent implements OnInit {
       });
     });
   }
-  goToApplicantDetail(applicant) {
+  goToApplicantDetail(applicant: Applicant) {
     this.dataService.jobToEdit = applicant;
-    this.router.navigate(['./applicant-detail'])
+    this.router.navigate(['./applicant-detail']);
   }
-  lockToggle(applicant: Applicant, manger: Manger) {
-    if (this.auth.auth.currentUser.email == 'weretawt5@gmail.com') {
-      applicant.IsActive = !applicant.IsActive;
-      this.applicantService.updeteApplicants(applicant);
-      this.manger = 'weretawt5@gmail.com';
-    }
-  }
+  // lockToggle(applicant: Applicant, manger: Manger) {
+  //   if (this.auth.auth.currentUser.email == 'weretawt5@gmail.com') {
+  //     applicant.IsActive = !applicant.IsActive;
+  //     this.applicantService.updeteApplicants(applicant);
+  //     this.manger = 'weretawt5@gmail.com';
+  //   }
+  // }
 
 }

@@ -1,10 +1,6 @@
-<!-- <div class="form-group"> -->
-<!-- <label>Filter </label> -->
-<!-- <input type="text" id="inputName" [(ngModel)]="inputName" /> -->
-<!-- <input type="button" (click)="FilterByName()" value="Apply" /> -->
 <div class="container">
   <button type="button" *ngIf="authService.isUserAdmin()" (click)="addFormBooli = !addFormBooli" class="btn">
-    <i class="glyphicon glyphicon-plus"></i>
+    <i class="glyphicon glyphicon-plus" *ngIf="!addFormBooli"></i>
     {{addFormBooli ? 'Jobs' : 'Add'}}
   </button>
 </div>
@@ -30,4 +26,3 @@
   </div>
   <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
-<!-- </div> -->
