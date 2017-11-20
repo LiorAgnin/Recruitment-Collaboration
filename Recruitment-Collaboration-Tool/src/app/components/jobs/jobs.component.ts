@@ -19,6 +19,7 @@ export class JobsComponent implements OnInit {
   jobForEdit: Job;
   editFormBooli: boolean = false;
   addFormBooli: boolean = false;
+  
   constructor(public jobService: JobsServiceService,
     public DataService: DataServiceService,
     private router: Router,
@@ -37,39 +38,16 @@ export class JobsComponent implements OnInit {
       });
     });
   }
-
-  FilterByName() {
-    this.filteredItems = [];
-    if (this.inputName != "") {
-      this.arAllJobs.forEach(element => {
-        if (element.Postion.toUpperCase().indexOf(this.inputName.toUpperCase()) >= 0) {
-          this.filteredItems.push(element);
-          console.log(element);
-        }
-      });
-    }
-    //else {
-    //   this.filteredItems = productList;
-    // }
-    console.log(this.filteredItems);
-  }
-  editJobToggle(editJob: Job) {
-    console.log(editJob);
-    this.jobForEdit = editJob;
-    this.editFormBooli = true;
-    // this.DataService.jobToEdit = editJob;
-    // this.router.navigate(['/edit-job']);
-  }
-  onClickEditForm($event: Job) {
-    console.log("$event", $event)
-    this.jobService.updeteJob($event);
-  }
   onClickAdddForm($event: Job) {
-    console.log($event)
     this.jobService.addNewJob($event);
     this.addFormBooli = false;
   }
   archivedJob(archivedJob: Job) {
     console.log(archivedJob)
+  }
+
+  goToJobDetail(Job){
+    this.DataService.jobToEdit = Job;
+    this.router.navigate(['./job-detail'])
   }
 }

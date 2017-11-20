@@ -16,7 +16,4 @@ export class SkillsetServiceService {
   getSkillsets() {
     return this.skillsets;
   }
-
-  
-
 }

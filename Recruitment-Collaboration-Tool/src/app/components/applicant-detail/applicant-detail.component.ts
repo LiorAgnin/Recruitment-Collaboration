@@ -12,7 +12,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { FirebaseApp } from 'angularfire2';
 import { BrowserModule, DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import 'firebase/storage';
-import { ApplicantServiceService } from "../../services/applicant-service.service";
+import { ApplicantService } from "../../services/applicant-service.service";
 import { ApplicantStatusService } from '../../services/applicant-status.service';
 import { AuthService } from '../../services/auth.service';
 import { Observable } from 'rxjs/Observable';
@@ -45,7 +45,7 @@ export class ApplicantDetailComponent implements OnInit {
     private auth: AngularFireAuth,
     firebaseApp: FirebaseApp,
     private domSanitizer: DomSanitizer,
-    public applicantService: ApplicantServiceService,
+    public applicantService: ApplicantService,
     public statusService: ApplicantStatusService,
     private authService: AuthService) {
     this.applicant = DataService.jobToEdit;

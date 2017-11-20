@@ -3,7 +3,6 @@ import { JobsServiceService } from "../../services/jobs-service.service";
 import { Job } from "../../model/job";
 import { SkillsetServiceService } from "../../services/skillset-service.service";
 import { Skillset } from '../../model/skillset';
-import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'add-new-job',
@@ -18,9 +17,7 @@ export class AddNewJobComponent implements OnInit {
   @Output() onClickAdd = new EventEmitter<Job>();
 
   constructor(public jobService: JobsServiceService,
-    public SkillsetService: SkillsetServiceService,
-    private router: Router,
-    private route: ActivatedRoute, ) { }
+    public SkillsetService: SkillsetServiceService ) { }
   ngOnInit() {
 
     this.SkillsetService.getSkillsets().subscribe(skills => {
@@ -52,8 +49,6 @@ export class AddNewJobComponent implements OnInit {
       IsArcheive: false,
       Skills: this.arSkillSetPicked,
     }
-    // this.jobService.addNewJob(jobToAdd);
-    // this.router.navigate(['/jobs']);
     this.onClickAdd.emit(this.newJob);
   }
 }

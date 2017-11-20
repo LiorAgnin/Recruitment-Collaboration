@@ -1,26 +1,36 @@
-<div class="container">
-    <button *ngIf="authService.isUserAdmin()" (click)="addFormToggle = !addFormToggle" type="button" class="btn">
-        <i class="glyphicon glyphicon-plus" *ngIf="!addFormToggle"></i>
-        {{addFormToggle ? 'Applicatns' : 'Add'}}
-    </button>
-    <br>
-    <add-new-applicant *ngIf="addFormToggle"></add-new-applicant>
-    <div class="container" *ngIf="!addFormToggle">
+<button *ngIf="authService.isUserAdmin()" (click)="addFormToggle = !addFormToggle" type="button" class="btn">
+    <i class="glyphicon glyphicon-plus" *ngIf="!addFormToggle"></i>
+    {{addFormToggle ? 'Applicatns' : 'Add'}}
+    <a [routerLink]="['/add-applicant']">Add</a>
+</button>
+<br>
+<add-new-applicant *ngIf="addFormToggle"></add-new-applicant>
+<br/>
+<br/>
+<div *ngIf="!addFormToggle">
+    <div style="cursor:pointer" class="container" *ngFor="let applicant of arAllApplicants | paginate: { itemsPerPage: 12, currentPage: p }">
+        <div (click)="lock(applicant)">app</div>
 
-        <div class="card applicant-card" *ngFor="let applicant of arAllApplicants | paginate: { itemsPerPage: 6, currentPage: p }">
-            <div class="card-body">
-                <div class="card-title">{{applicant.FirstName}}
+        <div class="ApplicantbCard">
+            <article>
+                <div>
+                    <h3 class="ApplicantTitel">{{applicant.FirstName}} {{applicant.LastName}}</h3>
+                    <div class="ApplicantIcons">
+                        <i title="{{manger}}" class="fa {{ applicant.IsActive ? 'fa-lock' : 'fa-unlock' }}" aria-hidden="true"></i>
+
+                    </div>
                 </div>
-                <span [hidden]="applicant.IsActive" class="card-text">
-                    {{applicant.FirstName}}, {{applicant.LastName}}, {{applicant.Experience}},{{applicant.City}},{{applicant.Email}},{{applicant.PhoneNumber}}
-                </span>
-                <span [hidden]="!applicant.IsActive" class="card-text">
-                    {{applicant.FirstName}}, {{applicant.LastName}}, {{applicant.Experience}},{{applicant.City}}
-                </span>
-            </div>
-            <div (click)="goToApplicantDetail(applicant)" *ngIf="!applicant.IsActive">
-                <i class="fa fa-file-word-o" title="View CV" aria-hidden="true"></i>
-            </div>
+                <br/>
+                <div>
+                    <h3 class="ApplicantTitel"> {{applicant.Position}}</h3>
+                    <div class="ApplicantIcons" (click)="goToApplicantDetail(applicant)">
+                        <i class="fa fa-file-word-o" title="View CV" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </article>
+            <div class="clear"></div>
         </div>
-        <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </div>
+
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
