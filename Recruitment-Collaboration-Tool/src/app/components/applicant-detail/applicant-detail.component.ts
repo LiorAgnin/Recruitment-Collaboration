@@ -37,7 +37,7 @@ export class ApplicantDetailComponent implements OnInit {
   LockUnlock: boolean = false;
   manger: string;
   arApplicantStatus: ApplicantStatus[] = [];
-  toggleEditIcon: boolean = true;;
+  toggleEditIcon: boolean = false;
 
   constructor(public jobService: JobsServiceService,
     public DataService: DataServiceService,
@@ -59,7 +59,10 @@ export class ApplicantDetailComponent implements OnInit {
     this.pageurl = this.domSanitizer.bypassSecurityTrustResourceUrl(this.passUrl);
     this.statusService.getApplicantStatus().subscribe(statusDocs => {
       this.arApplicantStatus = statusDocs;
-    })
+    });
+    if (this.authService.isUserAdmin()) {
+      this.toggleEditIcon = true;
+    }
   }
 
   downloadCV() {
@@ -91,7 +94,9 @@ export class ApplicantDetailComponent implements OnInit {
   }
 
   goToEditApplicant(applicant) {
-    this.DataService.applicantToEdit = applicant;
-    this.router.navigate(['./edit-applicant'])
+    if (this.authService.isUserAdmin()) {
+      this.DataService.applicantToEdit = applicant;
+      this.router.navigate(['./edit-applicant'])
+    }
   }
 }
