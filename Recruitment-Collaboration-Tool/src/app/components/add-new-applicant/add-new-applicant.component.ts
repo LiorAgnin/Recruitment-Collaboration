@@ -24,7 +24,9 @@ export class AddNewApplicantComponent implements OnInit {
     public ApplicantServiceService: ApplicantService,
     public jobService: JobsServiceService,
     public SkillsetService: SkillsetServiceService,
-    private upSvc: UploadFileService) { }
+    private upSvc: UploadFileService) {
+      
+     }
   ngOnInit() {
     this.SkillsetService.getSkillsets().subscribe(skills => {
       this.arSkillset = skills[0];

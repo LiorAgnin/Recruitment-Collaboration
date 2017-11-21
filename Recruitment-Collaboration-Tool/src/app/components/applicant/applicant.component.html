@@ -1,7 +1,12 @@
 <button *ngIf="authService.isUserAdmin()" (click)="addFormToggle = !addFormToggle" type="button" class="btn">
+<<<<<<< HEAD
     <i style="color:#009edb" class="glyphicon glyphicon-plus" *ngIf="!addFormToggle"></i>
     {{addFormToggle ? 'Applicatns' : 'Add applicant'}}
     <a [routerLink]="['/add-applicant']">Add</a>
+=======
+    <i class="glyphicon glyphicon-plus" *ngIf="!addFormToggle"></i>
+    {{addFormToggle ? 'Applicatns' : 'Add'}}
+>>>>>>> f1910d3c0efebc8d00f8e891b534da3d89429e45
 </button>
 <br>
 <add-new-applicant *ngIf="addFormToggle"></add-new-applicant>
@@ -9,8 +14,6 @@
 <br/>
 <div *ngIf="!addFormToggle">
     <div style="cursor:pointer" class="container" *ngFor="let applicant of arAllApplicants | paginate: { itemsPerPage: 12, currentPage: p }">
-        <div (click)="lock(applicant)">app</div>
-
         <div class="ApplicantbCard">
             <article>
                 <div>
@@ -23,7 +26,7 @@
                 <br/>
                 <div>
                     <h3 class="ApplicantTitel"> {{applicant.Position}}</h3>
-                    <div class="ApplicantIcons" (click)="goToApplicantDetail(applicant)">
+                    <div class="ApplicantIcons" (click)="goToApplicantDetail(applicant)" *ngIf="lock(applicant)">
                         <i class="fa fa-file-word-o" title="View CV" aria-hidden="true"></i>
                     </div>
                 </div>
@@ -31,6 +34,5 @@
             <div class="clear"></div>
         </div>
     </div>
-
-    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    <pagination-controls (pageChange)="p = $event" *ngIf="arAllApplicants?.length > 0"></pagination-controls>
 </div>

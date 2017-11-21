@@ -7,6 +7,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service'
 import { ApplicantStatusService } from '../../services/applicant-status.service'
+import { ApplicantStatus } from '../../model/Applicant-Status';
+
 @Component({
   selector: 'app-applicant',
   templateUrl: './applicant.component.html',
@@ -21,6 +23,7 @@ export class ApplicantComponent implements OnInit {
   manger: string;
   LockUnlock: boolean = false;
   addFormToggle: boolean = false;
+  arStatus: ApplicantStatus[] = [];
   constructor(public applicantService: ApplicantService,
     public dataService: DataServiceService,
     private auth: AngularFireAuth,
@@ -34,25 +37,32 @@ export class ApplicantComponent implements OnInit {
 
     this.applicantService.getApplicants().subscribe(applicant => {
       this.arAllApplicants = applicant;
-      //console.log(this.arAllApplicants);
+      console.log(this.arAllApplicants);
     });
 
-    this.applicantService.getApplicantsStatus().subscribe(applicantStatus => {
-      this.arApplicantStatus = applicantStatus;
-      //console.log(this.arApplicantStatus);
+    this.statusService.getApplicantStatus().subscribe(applicantStatus => {
+      this.arStatus = applicantStatus;
+      console.log(this.arStatus);
     });
 
-    this.arAllApplicants.forEach(applicant => {
-      this.arApplicantStatus.forEach(applicantStatus => {
-      });
-    });
+    // this.arAllApplicants.forEach(applicant => {
+    //   this.arApplicantStatus.forEach(applicantStatus => {
+    //   });
+    // });
   }
   goToApplicantDetail(applicant: Applicant) {
     this.dataService.jobToEdit = applicant;
     this.router.navigate(['./applicant-detail']);
   }
   lock(applicant) {
-    this.authService.IsApplicantLockedByManager(applicant);
-
+    let isLockedByMe: boolean = false;
+    let currentManagerId = this.auth.auth.currentUser.uid;
+    this.arStatus.forEach(appli => {
+      if ((appli.ApplicantId == applicant.Id) && (appli.MangerId == currentManagerId)) {
+        isLockedByMe = true;
+      }
+    })
+    console.log(isLockedByMe)
+    return isLockedByMe;
   }
 }

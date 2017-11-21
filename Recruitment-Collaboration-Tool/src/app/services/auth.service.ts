@@ -26,9 +26,6 @@ export class AuthService {
         this.userOb = this.auth.authState;
       }
     });
-    this.statusService.getApplicantStatus().subscribe(statusDocs => {
-      this.arApplicantStatus = statusDocs;
-    })
   }
 
   public async login(email, password) {
@@ -37,7 +34,6 @@ export class AuthService {
       let result = await this.auth.auth.signInWithEmailAndPassword(email, password);
       this.IsUserAuthenticated = true;
       this.router.navigate(['/home']);
-
     } catch (e) {
       this.error = e.message
       this.router.navigate(['/login']);
@@ -61,14 +57,5 @@ export class AuthService {
     else {
       return false;
     }
-  }
-  public IsApplicantLockedByManager(applicant) {
-    let currentManager = this.auth.auth.currentUser.uid;
-    console.log(applicant.Id, currentManager)
-    let a = this.afs.collection('ApplicantStatus', ref =>
-      ref.where('ApplicantId', '==', applicant.Id)
-        .where('ManagerId', '==', currentManager));
-    a.valueChanges();
-    console.log(a, a.valueChanges());
   }
 }

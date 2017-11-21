@@ -37,6 +37,6 @@
     </article>
     <div class="clear"></div>
   </div>
-<pagination-controls (pageChange)="p = $event"></pagination-controls>
+  <pagination-controls (pageChange)="p = $event" *ngIf="arNotArchivedJobs?.length > 0"></pagination-controls>
 
 </div>
