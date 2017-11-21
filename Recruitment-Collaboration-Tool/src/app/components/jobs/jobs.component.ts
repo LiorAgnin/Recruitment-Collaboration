@@ -19,7 +19,8 @@ export class JobsComponent implements OnInit {
   jobForEdit: Job;
   editFormBooli: boolean = false;
   addFormBooli: boolean = false;
-
+  arArchivedJobs:Job[]=new Array();
+  jobIsArchived:boolean=false;
   constructor(public jobService: JobsServiceService,
     public DataService: DataServiceService,
     private router: Router,
@@ -44,7 +45,21 @@ export class JobsComponent implements OnInit {
     this.addFormBooli = false;
   }
   archivedJob(archivedJob: Job) {
+
+    if(archivedJob.IsArcheive==false)
+    {
+     archivedJob.IsArcheive=true;
+     this.jobIsArchived=false;
+     this.arArchivedJobs.push(archivedJob);
+    }
+    else
+    {
+      archivedJob.IsArcheive=false;
+      this.jobIsArchived=true;
+    }
+   
     console.log(archivedJob)
+    console.log("true",this.arArchivedJobs)
   }
 
   goToJobDetail(Job) {
