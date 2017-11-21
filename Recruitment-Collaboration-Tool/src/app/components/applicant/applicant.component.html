@@ -1,9 +1,15 @@
 <button *ngIf="authService.isUserAdmin()" (click)="addFormToggle = !addFormToggle" type="button" class="btn">
+<<<<<<< HEAD
+    <i style="color:#009edb" class="glyphicon glyphicon-plus" *ngIf="!addFormToggle"></i>
+    {{addFormToggle ? 'Applicatns' : 'Add applicant'}}
+    <a [routerLink]="['/add-applicant']">Add</a>
+=======
 
     <i style="color:#009edb" class="glyphicon glyphicon-plus" *ngIf="!addFormToggle"></i>
     {{addFormToggle ? 'Applicatns' : 'Add applicant'}}
     <a [routerLink]="['/add-applicant']"></a>
 
+>>>>>>> 063725a8fb0dcdbdb1c6c27b12b5e290962ae9f3
 </button>
 <br>
 <add-new-applicant *ngIf="addFormToggle"></add-new-applicant>
