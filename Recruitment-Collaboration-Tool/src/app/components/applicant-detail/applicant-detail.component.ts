@@ -37,6 +37,8 @@ export class ApplicantDetailComponent implements OnInit {
   LockUnlock: boolean = false;
   manger: string;
   arApplicantStatus: ApplicantStatus[] = [];
+  toggleEditIcon: boolean = true;;
+
   constructor(public jobService: JobsServiceService,
     public DataService: DataServiceService,
     public SkillsetService: SkillsetServiceService,
@@ -56,7 +58,7 @@ export class ApplicantDetailComponent implements OnInit {
   ngOnInit() {
     this.pageurl = this.domSanitizer.bypassSecurityTrustResourceUrl(this.passUrl);
     this.statusService.getApplicantStatus().subscribe(statusDocs => {
-      this.arApplicantStatus = statusDocs;      
+      this.arApplicantStatus = statusDocs;
     })
   }
 
@@ -86,5 +88,10 @@ export class ApplicantDetailComponent implements OnInit {
       }
     });
     return getId;
+  }
+
+  goToEditApplicant(applicant) {
+    this.DataService.applicantToEdit = applicant;
+    this.router.navigate(['./edit-applicant'])
   }
 }

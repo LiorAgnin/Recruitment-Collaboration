@@ -20,6 +20,8 @@ import { LoginComponent } from './components/login/login.component';
 import { AddNewJobComponent } from './components/add-new-job/add-new-job.component';
 import { EditJobComponent } from './components/edit-job/edit-job.component';
 import { SideNavbarComponent } from './components/side-navbar/side-navbar.component';
+import { JobDetailComponent } from "./components/job-detail/job-detail.component";
+import { EditApplicantComponent } from './components/edit-applicant/edit-applicant.component';
 
 //Services
 import { LoginServiceService } from "./services/login-service.service";
@@ -37,7 +39,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { ApplicantStatusService } from './services/applicant-status.service';
-import { JobDetailComponent } from "./components/job-detail/job-detail.component";
 
 
 
@@ -55,7 +56,8 @@ import { JobDetailComponent } from "./components/job-detail/job-detail.component
     SideNavbarComponent,
     FilterPipe,
     JobDetailComponent,
-    EditJobComponent
+    EditJobComponent,
+    EditApplicantComponent
   ],
   imports: [
     BrowserModule,
