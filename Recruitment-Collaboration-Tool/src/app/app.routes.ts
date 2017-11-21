@@ -2,7 +2,6 @@ import { Routes } from '@angular/router';
 import { JobsComponent } from './components/jobs/jobs.component';
 import { ApplicantComponent } from './components/applicant/applicant.component';
 import { HomeComponent } from './components/home/home.component';
-import { AddNewApplicantComponent } from './components/add-new-applicant/add-new-applicant.component';
 import { LoginComponent } from './components/login/login.component';
 import { AddNewJobComponent } from './components/add-new-job/add-new-job.component';
 import { ApplicantDetailComponent } from './components/applicant-detail/applicant-detail.component';
@@ -16,7 +15,6 @@ export const routes: Routes = [
     { path: 'jobs', component: JobsComponent, canActivate: [AuthGuard]  },
     { path: 'applicant-detail', component: ApplicantDetailComponent, canActivate: [AuthGuard]  },
     { path: 'applicant', component: ApplicantComponent, canActivate: [AuthGuard]  },
-    // { path: 'add-applicant', component: AddNewApplicantComponent, canActivate: [AuthGuard]  },
     { path: 'login', component: LoginComponent },
     { path: 'edit-job', component: EditJobComponent, canActivate: [AuthGuard]  },
     { path: 'job-detail', component: JobDetailComponent, canActivate: [AuthGuard]  },

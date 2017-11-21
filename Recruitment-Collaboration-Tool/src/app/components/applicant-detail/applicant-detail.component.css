@@ -1,3 +1,13 @@
 .container{
     width: 80%;
 }
+
+.emailIcon{
+position: absolute;
+left: 445px;
+color: gold;
+}
+
+.mailHvr:hover{
+color: rgb(19, 208, 241);
+}

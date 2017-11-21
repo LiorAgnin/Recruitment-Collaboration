@@ -6,7 +6,7 @@ import { ApplicantStatus } from '../model/Applicant-Status';
 import { ApplicantHistory } from '../model/Applicant-History';
 
 @Injectable()
-export class ApplicantServiceService {
+export class ApplicantService {
 
   applicantDocm: AngularFirestoreDocument<Applicant>;
   applicanCollection: AngularFirestoreCollection<Applicant>;

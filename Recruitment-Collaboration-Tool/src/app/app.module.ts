@@ -24,7 +24,7 @@ import { SideNavbarComponent } from './components/side-navbar/side-navbar.compon
 //Services
 import { LoginServiceService } from "./services/login-service.service";
 import { JobsServiceService } from "./services/jobs-service.service";
-import { ApplicantServiceService } from "./services/applicant-service.service";
+import { ApplicantService } from "./services/applicant-service.service";
 import { DataServiceService } from "./services/data-service.service";
 import { SkillsetServiceService } from "./services/skillset-service.service";
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
@@ -36,6 +36,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 // import {enableProdMode} from '@angular/core';
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
+import { ApplicantStatusService } from './services/applicant-status.service';
 import { JobDetailComponent } from "./components/job-detail/job-detail.component";
 
 
@@ -72,14 +73,15 @@ import { JobDetailComponent } from "./components/job-detail/job-detail.component
   providers: [
     LoginServiceService,
     JobsServiceService,
-    ApplicantServiceService,
+    ApplicantService,
     SkillsetServiceService,
     DataServiceService,
     AngularFireDatabase,
     AngularFireAuth,
     UploadFileService,
     AuthService,
-    AuthGuardService
+    AuthGuardService,
+    ApplicantStatusService
   ],
   
   bootstrap: [AppComponent]

@@ -1,8 +1,8 @@
 <div>
   <button type="button" *ngIf="authService.isUserAdmin()" (click)="addFormBooli = !addFormBooli" class="btn">
-    <i class="glyphicon glyphicon-plus"></i>
-    {{addFormBooli ? 'Jobs' : 'Add'}}
-  </button>
+        <i class="glyphicon glyphicon-plus" *ngIf="!addFormBooli"></i>
+        {{addFormBooli ? 'Jobs' : 'Add'}}
+      </button>
 </div>
 <div *ngIf="addFormBooli">
   <add-new-job (onClickAdd)="onClickAdddForm($event)"></add-new-job>
@@ -37,5 +37,11 @@
       <div class="clear"></div>
     </div>
   </div>
+<<<<<<< HEAD
   <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
+=======
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+</div>
+>>>>>>> 44dfe1886abf483bcd281f3663e4e8819b231df6

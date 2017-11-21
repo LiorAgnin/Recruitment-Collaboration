@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { JobsServiceService } from "../../services/jobs-service.service";
 import { Job } from "../../model/job";
 import { DataServiceService } from "../../services/data-service.service";
-import { Router, ActivatedRoute } from "@angular/router";
 import { AuthService } from '../../services/auth.service';
 import { Skillset } from '../../model/skillset';
 import { SkillsetServiceService } from '../../services/skillset-service.service';
@@ -27,8 +26,7 @@ export class EditJobComponent implements OnInit {
   constructor(public jobService: JobsServiceService,
     public DataService: DataServiceService,
     public SkillsetService: SkillsetServiceService,
-    private router: Router,
-    public authService: AuthService) {
+  public authService:AuthService) {
     this.editJob = DataService.jobToEdit;
   }
   ngOnInit() {
@@ -63,7 +61,6 @@ export class EditJobComponent implements OnInit {
       this.newArSkillSet[index].selected = true;
     }
   }
-  spinNow: boolean = false;
   onSubmitEditForm() {
     this.editJob.Skills = this.arSkillSetPicked;
     const editedJob = {

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { DataServiceService } from "../../services/data-service.service";
 import { Router, ActivatedRoute } from "@angular/router";
-import { LoginServiceService } from "../../services/login-service.service";
 import { AuthService } from "../../services/auth.service";
 @Component({
   selector: 'app-login',
@@ -16,7 +15,9 @@ export class LoginComponent implements OnInit {
   error: string;
 
   constructor(private auth: AngularFireAuth,
-    private LoginService: LoginServiceService, private authService: AuthService) { }
+    private authService: AuthService,
+    private route: ActivatedRoute) {
+  }
 
   ngOnInit() { }
 
@@ -25,7 +26,7 @@ export class LoginComponent implements OnInit {
       this.authService.login(this.email, this.password);
     }
   }
- 
+
   formValid(): boolean {
     if (this.email == null && this.password == null) {
       this.error = "One or more fields are empty";
