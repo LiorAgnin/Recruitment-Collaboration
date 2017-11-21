@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Job } from "../model/job";
+import { Applicant } from "../model/applicant";
+import { Skillset } from "../model/skillset";
 
 @Injectable()
 export class DataServiceService {
 
   public jobToEdit: Job;
   public MatchingJob: Job;
-
+  public applicantToEdit: Applicant;
+  
   public HR = [
     { Id: 1, Name: "Shani" },
     { Id: 2, Name: "Or" },

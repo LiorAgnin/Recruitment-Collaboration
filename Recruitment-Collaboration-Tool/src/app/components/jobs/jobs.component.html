@@ -1,8 +1,8 @@
 <div>
   <button type="button" *ngIf="authService.isUserAdmin()" (click)="addFormBooli = !addFormBooli" class="btn">
-    <i class="glyphicon glyphicon-plus" *ngIf="!addFormBooli"></i>
-    {{addFormBooli ? 'Jobs' : 'Add'}}
-  </button>
+        <i style="color:#009edb" class="glyphicon glyphicon-plus" *ngIf="!addFormBooli"></i>
+        {{addFormBooli ? 'Jobs' : 'Add Job'}}
+      </button>
 </div>
 <div *ngIf="addFormBooli">
   <add-new-job (onClickAdd)="onClickAdddForm($event)"></add-new-job>
