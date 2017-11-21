@@ -4,6 +4,9 @@
     <i class="fa fa-pencil-square-o" (click)="goToEditJob()" *ngIf="toggleEditIcon" aria-hidden="true"></i>
     <span style="color:red">{{ notpermissionMessage }}</span>
   </div>
+  <div >
+    <a [routerLink]="['/matching-applicants-to-job']">See which applicants are suitable for the job</a>
+  </div>
   <div class="card">
     <div class="card-block">
       <h4 class="card-title">Position: {{ pickedJob.Postion }}</h4>

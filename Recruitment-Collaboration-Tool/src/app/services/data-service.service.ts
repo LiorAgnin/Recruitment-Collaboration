@@ -7,7 +7,9 @@ import { Skillset } from "../model/skillset";
 export class DataServiceService {
 
   public jobToEdit: Job;
+  public MatchingJob: Job;
   public applicantToEdit: Applicant;
+  
   public HR = [
     { Id: 1, Name: "Shani" },
     { Id: 2, Name: "Or" },

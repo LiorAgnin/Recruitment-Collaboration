@@ -9,6 +9,7 @@ import { JobDetailComponent } from "./components/job-detail/job-detail.component
 import { EditJobComponent } from './components/edit-job/edit-job.component';
 import { EditApplicantComponent } from './components/edit-applicant/edit-applicant.component';
 import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
+import { MatchingApplicantsToJobComponent } from './components/matching-applicants-to-job/matching-applicants-to-job.component';
 
 export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -17,6 +18,8 @@ export const routes: Routes = [
     { path: 'applicant-detail', component: ApplicantDetailComponent, canActivate: [AuthGuard] },
     { path: 'applicant', component: ApplicantComponent, canActivate: [AuthGuard] },
     { path: 'login', component: LoginComponent },
+    { path: 'matching-applicants-to-job', component: MatchingApplicantsToJobComponent, canActivate: [AuthGuard]  },
+    // { path: 'edit-job', component: EditJobComponent, canActivate: [AuthGuard]  },
     { path: 'edit-job', component: EditJobComponent, canActivate: [AuthGuard] },
     { path: 'edit-applicant', component: EditApplicantComponent, canActivate: [AuthGuard] },
     { path: 'job-detail', component: JobDetailComponent, canActivate: [AuthGuard] },

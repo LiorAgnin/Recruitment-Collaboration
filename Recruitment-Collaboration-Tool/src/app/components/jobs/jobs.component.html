@@ -22,6 +22,7 @@
             </div>
           </div>
           <div (click)="archivedJob(Job)">
+<<<<<<< HEAD
               <i class="fa fa-archive" aria-hidden="true"></i>
               <!-- <a class="btn pull-right" ng-class="{true: 'btn-primary', false: 'btn-danger'}[!Job.IsArcheive]" ng-click="Job.IsArcheive = !Job.IsArcheive">{{!Job.IsArcheive && 'Archive' || 'Unarchive'}} Job</a> -->
           </div>
@@ -43,3 +44,24 @@
 
   </div>
 </div>
+=======
+            <i class="glyphicon glyphicon-remove"></i>
+          </div>
+        </div>
+        <div class="JobTitel">{{Job.Postion}}</div>
+      </div>
+      <br/>
+      <article>
+        <br/>
+        <br/>
+        <p>Rectuter : {{Job.RecruitingManager}}</p>
+        <p>MinimumReqYears - {{Job.MinimumReqYears}}</p>
+        <p class="Description">{{Job.Description}}</p>
+        <p class="Skills">{{Job.Skills}}</p>
+      </article>
+      <div class="clear"></div>
+    </div>
+  </div>
+  <pagination-controls (pageChange)="p = $event" *ngIf="arNotArchivedJobs?.length > 0"></pagination-controls>
+</div>
+>>>>>>> 063725a8fb0dcdbdb1c6c27b12b5e290962ae9f3

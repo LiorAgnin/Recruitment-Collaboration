@@ -37,6 +37,7 @@ export class JobDetailComponent implements OnInit {
   ngOnInit() {
   }
 
+
   goToEditJob() {
     if (this.authService.isUserAdmin()) {
       this.router.navigate(['./edit-job'])

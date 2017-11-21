@@ -22,6 +22,7 @@ import { EditJobComponent } from './components/edit-job/edit-job.component';
 import { SideNavbarComponent } from './components/side-navbar/side-navbar.component';
 import { JobDetailComponent } from "./components/job-detail/job-detail.component";
 import { EditApplicantComponent } from './components/edit-applicant/edit-applicant.component';
+import { MatchingApplicantsToJobComponent } from './components/matching-applicants-to-job/matching-applicants-to-job.component';
 
 //Services
 import { LoginServiceService } from "./services/login-service.service";
@@ -57,6 +58,7 @@ import { ApplicantStatusService } from './services/applicant-status.service';
     FilterPipe,
     JobDetailComponent,
     EditJobComponent,
+    MatchingApplicantsToJobComponent,
     EditApplicantComponent
   ],
   imports: [
