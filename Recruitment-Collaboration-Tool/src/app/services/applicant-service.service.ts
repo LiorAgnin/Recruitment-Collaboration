@@ -26,8 +26,6 @@ export class ApplicantService {
         return applicantData;
       })
     });
-
-
     this.applicantsStatus = this.fs.collection('ApplicantStatus').valueChanges();
     this.applicantsHistory = this.fs.collection('ApplicantHistory').valueChanges();
   }
@@ -41,7 +39,7 @@ export class ApplicantService {
   }
 
   updeteApplicants(updeteJob: Applicant) {
-    this.applicantDocm = this.fs.doc(`Applicants/${updeteJob.Id}`);
+ //   this.applicantDocm = this.fs.doc(`Applicants/${updeteJob.Id}`);
     this.applicantDocm.update(updeteJob);
   }
 
