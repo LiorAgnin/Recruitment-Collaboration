@@ -1,0 +1,22 @@
+<table class="table table-hover">
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Position</th>
+    <th>See detail</th>
+  </tr>
+  <tr *ngFor="let applicant of arrApplicantsMatching">
+    <td>{{applicant.FirstName}}</td>
+    <td>{{applicant.LastName}}</td>
+    <td>{{applicant.Position}}</td>
+    <td><i class="icon-search"></i></td>
+  </tr>
+</table> 
+ <!-- <div *ngFor="let applicant of arrApplicantsMatching">
+  <div class="card">
+    <div class="card-block">
+        {{applicant.FirstName}}
+    </div>
+  </div>
+</div> -->
+

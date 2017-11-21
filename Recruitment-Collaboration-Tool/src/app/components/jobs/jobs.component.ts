@@ -4,6 +4,7 @@ import { Job } from "../../model/job";
 import { DataServiceService } from "../../services/data-service.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { AuthService } from '../../services/auth.service';
+
 @Component({
   selector: 'jobs',
   templateUrl: './jobs.component.html',
@@ -26,20 +27,21 @@ export class JobsComponent implements OnInit {
     private route: ActivatedRoute,
     private authService: AuthService) { }
 
-  ngOnInit() {
-    console.log("JobsComponent");
-    this.jobService.getJobs().subscribe(jobs => {
-      this.arAllJobs = jobs;
-
-      this.arAllJobs.forEach(job => {
-        if (job.IsArcheive != true) {
-          this.arNotArchivedJobs.push(job);
-        }
+    ngOnInit() {
+      this.jobService.getJobs().subscribe(jobs => {
+        this.arAllJobs = jobs;
+  
+        this.arAllJobs.forEach(job => {
+          if (job.IsArcheive != true) {
+            this.arNotArchivedJobs.push(job);
+          }
+        });
       });
-    });
-  }
+    }
+
+  
   onClickAdddForm($event: Job) {
-    console.log($event);
+   // console.log($event);
     this.jobService.addNewJob($event);
     this.addFormBooli = false;
   }
@@ -49,6 +51,7 @@ export class JobsComponent implements OnInit {
 
   goToJobDetail(Job) {
     this.DataService.jobToEdit = Job;
+    this.DataService.MatchingJob=Job;
     this.router.navigate(['./job-detail'])
   }
 }
