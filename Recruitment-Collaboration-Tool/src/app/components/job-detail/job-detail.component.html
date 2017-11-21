@@ -4,9 +4,18 @@
     <i class="fa fa-pencil-square-o" (click)="goToEditJob()" *ngIf="toggleEditIcon" aria-hidden="true"></i>
     <span style="color:red">{{ notpermissionMessage }}</span>
   </div>
+  <div >
+    <a [routerLink]="['/matching-applicants-to-job']">See which applicants are suitable for the job</a>
+  </div>
   <div class="card">
     <div class="card-block">
       <h4 class="card-title">Position: {{ pickedJob.Postion }}</h4>
+    </div>
+  </div>
+  <br>
+  <div class="card">
+    <div class="card-block">
+      <h4 class="card-title">Recuter manager: {{ pickedJob.RecruitingManager }}</h4>
     </div>
   </div>
   <br>
@@ -27,11 +36,9 @@
       <div class="form-group">
         <h4>Skills: </h4>
         <br>
-        <div class="checkbox-inline" *ngFor="let skill of pickedJob.Skills">
-          <label>
-              <input type="checkbox" class="checkbox checkbox-primary" name="skill" checked> {{skill}}
-            </label>
-        </div>
+        <ul class="checkbox-inline" *ngFor="let skill of pickedJob.Skills">
+          <li>{{skill}}</li>
+        </ul>
       </div>
     </div>
   </div>

@@ -38,6 +38,7 @@ import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { ApplicantStatusService } from './services/applicant-status.service';
 import { JobDetailComponent } from "./components/job-detail/job-detail.component";
+import { MatchingApplicantsToJobComponent } from './components/matching-applicants-to-job/matching-applicants-to-job.component';
 
 
 
@@ -55,7 +56,8 @@ import { JobDetailComponent } from "./components/job-detail/job-detail.component
     SideNavbarComponent,
     FilterPipe,
     JobDetailComponent,
-    EditJobComponent
+    EditJobComponent,
+    MatchingApplicantsToJobComponent
   ],
   imports: [
     BrowserModule,
