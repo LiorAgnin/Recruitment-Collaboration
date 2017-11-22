@@ -59,12 +59,15 @@
       <div class="col-md-6">
 
         <div class="form-group">
-          <input type="text" class="form-control" pattern="[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)" name="email"
+          <input type="text" email class="form-control" pattern="[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)" name="email"
             placeholder="Your email" [(ngModel)]="newApplicant.Email" required #trvEmail="ngModel">
           <div *ngIf="trvEmail.errors && (trvEmail.dirty || trvEmail.touched)" class="errorMessage">
             <div [hidden]="!trvEmail.errors.required">
               Email is required
             </div>
+            <div [hidden]="!trvEmail.errors.email">
+                Email is not valid
+              </div>
           </div>
         </div>
 
