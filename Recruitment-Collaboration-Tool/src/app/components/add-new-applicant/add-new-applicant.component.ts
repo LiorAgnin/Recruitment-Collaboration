@@ -71,4 +71,7 @@ export class AddNewApplicantComponent implements OnInit {
     this.currentUpload.name = this.newApplicant.FirstName.toLocaleLowerCase() + ' ' + this.newApplicant.LastName.toLocaleLowerCase() + " CV".toLocaleLowerCase();
     this.upSvc.pushUpload(this.currentUpload);
   }
+  detectFiles(event) {
+    this.selectedFiles = event.target.files;
+  }
 }

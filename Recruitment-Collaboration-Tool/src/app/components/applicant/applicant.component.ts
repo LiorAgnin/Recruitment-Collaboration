@@ -24,6 +24,8 @@ export class ApplicantComponent implements OnInit {
   LockUnlock: boolean = false;
   addFormToggle: boolean = false;
   arStatus: ApplicantStatus[] = [];
+  subscriptionApplicants:any;
+  subscriptionStatus:any;
   constructor(public applicantService: ApplicantService,
     public dataService: DataServiceService,
     private auth: AngularFireAuth,
@@ -35,12 +37,12 @@ export class ApplicantComponent implements OnInit {
 
     console.log("ApplicantComponent");
 
-    this.applicantService.getApplicants().subscribe(applicant => {
+      this.subscriptionApplicants = this.applicantService.getApplicants().subscribe(applicant => {
       this.arAllApplicants = applicant;
       console.log(this.arAllApplicants);
     });
 
-    this.statusService.getApplicantStatus().subscribe(applicantStatus => {
+      this.subscriptionStatus = this.statusService.getApplicantStatus().subscribe(applicantStatus => {
       this.arStatus = applicantStatus;
       console.log(this.arStatus);
     });
@@ -49,6 +51,10 @@ export class ApplicantComponent implements OnInit {
     //   this.arApplicantStatus.forEach(applicantStatus => {
     //   });
     // });
+  }
+  ngOnDestroy(){
+    this.subscriptionApplicants.unsubscribe();
+    this.subscriptionStatus.unsubscribe();
   }
   goToApplicantDetail(applicant: Applicant) {
     this.dataService.jobToEdit = applicant;
