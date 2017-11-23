@@ -63,6 +63,7 @@ export class AddNewApplicantComponent implements OnInit {
       Skills: this.arSkillSetPicked,
     }
     this.uploadSingle();
+    debugger;
     this.ApplicantServiceService.addNewApplicant(newApplicant);
   }
   uploadSingle() {
