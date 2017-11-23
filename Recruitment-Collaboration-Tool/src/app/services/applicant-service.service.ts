@@ -37,8 +37,9 @@ export class ApplicantService {
   }
 
   addNewApplicant(newApplicant: Applicant) {
-   // this.applicanCollection.add(newApplicant);
-    this.DataService.UpdatingRecruiterRelevantApplicant();
+    this.applicanCollection.add(newApplicant);
+   window.alert("addNewApplicantService");
+    this.DataService.UpdatingRecruiterRelevantApplicant(newApplicant);
   }
 
   updeteApplicants(updeteJob: Applicant) {

@@ -25,41 +25,41 @@ export class DataServiceService {
     { Id: 4, Name: "Ronen Wolfson" },
   ]
 
-
-
   arAllJobs: Job[] = new Array();
   RelevantRecruite: any[] = [];
   RelevantJob: Job[] = [];
 
-  UpdatingRecruiterRelevantApplicant() {
-    const applicant = {
-      FirstName: "hagit",
-      LastName: "worke",
-      Experience: 3,
-      City: "Afula",
-      Email: " H@gmail.com",
-      PhoneNumber: "05054545",
-      Age: 20,
-      Gender: "female",
-      // CV:,
-      Position: 'dsfgdg',
-      Skills: ["CSS3", "HTML"]
-    };
-    let  ApplicantSkill:string;
-    //get 
-    applicant.Skills.forEach(skill => { ApplicantSkill += skill });
+
+  UpdatingRecruiterRelevantApplicant(applicant:Applicant) {
+    let ApplicantSkill: string;
     let SkillExsist: boolean;
+  // filter job by Applicant skills
     this.arAllJobs.forEach(job => {
-      SkillExsist = false;
-      SkillExsist = job.Skills.includes(ApplicantSkill);
-      if (SkillExsist) {this.RelevantJob.push(job)} });
+      SkillExsist = true;
+      let i;
+      for (i = 0; i < applicant.Skills.length; i++) {
+        if (!job.Skills.includes(applicant.Skills[i])) {
+          SkillExsist = false;
+          break;
+        }
+      }
+      if (SkillExsist) { this.RelevantJob.push(job) }
+    });
+ // filter Recruiting Manager by Relevant Job 
+ //   debugger;
+    console.log(this.RelevantJob);
+    let RecruiterRelevant: boolean;
+    this.RecuterManagers.forEach(Recuter => {
+      RecruiterRelevant = false;
+      this.RelevantJob.forEach(job => { if (job.RecruitingManager == Recuter.Name) { RecruiterRelevant = true;  } });
+      if (RecruiterRelevant) { this.RelevantRecruite.push(Recuter); }
+    });
+    debugger;
+    //  RelevantRecruite
+    window.alert(this.RelevantRecruite.map((itemInArray) => itemInArray.Name));
+    // send email to RelevantRecruite
+  }
 
-  // Updating Recruiter In a Relevant Applicant
-  window.alert(this.RelevantJob.map((itemInArray) => itemInArray.RecruitingManager));
-console.log(this.RelevantJob);
-}
-
-
-constructor(public jobService: JobsServiceService) { this.jobService.getJobs().subscribe(jobs => { this.arAllJobs = jobs }); }
+  constructor(public jobService: JobsServiceService) { this.jobService.getJobs().subscribe(jobs => { this.arAllJobs = jobs }); }
 
 }

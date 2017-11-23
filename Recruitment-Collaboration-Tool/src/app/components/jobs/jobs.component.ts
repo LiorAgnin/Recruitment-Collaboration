@@ -4,6 +4,7 @@ import { Job } from "../../model/job";
 import { DataServiceService } from "../../services/data-service.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { AuthService } from '../../services/auth.service';
+import { debug } from 'util';
 
 @Component({
   selector: 'jobs',
@@ -30,8 +31,10 @@ export class JobsComponent implements OnInit {
     private authService: AuthService) { }
 
     ngOnInit() {
+    
      this.subscriptionJob= this.jobService.getJobs().subscribe(jobs => {
         this.arAllJobs = jobs;
+   //   debugger;//
         this.arAllJobs.forEach(job => {
           if (job.IsArcheive != true) {
             this.arNotArchivedJobs.push(job);
