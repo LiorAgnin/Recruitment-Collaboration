@@ -22,6 +22,7 @@ export class JobsComponent implements OnInit {
   addFormBooli: boolean = false;
   arArchivedJobs:Job[]=new Array();
   jobIsArchived:boolean=false;
+  subscriptionJob:any;
   constructor(public jobService: JobsServiceService,
     public DataService: DataServiceService,
     private router: Router,
@@ -29,9 +30,8 @@ export class JobsComponent implements OnInit {
     private authService: AuthService) { }
 
     ngOnInit() {
-      this.jobService.getJobs().subscribe(jobs => {
+     this.subscriptionJob= this.jobService.getJobs().subscribe(jobs => {
         this.arAllJobs = jobs;
-  
         this.arAllJobs.forEach(job => {
           if (job.IsArcheive != true) {
             this.arNotArchivedJobs.push(job);
@@ -39,29 +39,31 @@ export class JobsComponent implements OnInit {
         });
       });
     }
-
+    ngOnDestroy(){
+      this.subscriptionJob.unsubscribe();
+    }
   
   onClickAdddForm($event: Job) {
    // console.log($event);
     this.jobService.addNewJob($event);
     this.addFormBooli = false;
   }
-  archivedJob(archivedJob: Job) {
+  archivedJob(archivedJob: Job,index:number) {
 
     if(archivedJob.IsArcheive==false)
     {
      archivedJob.IsArcheive=true;
      this.jobIsArchived=false;
-     this.arArchivedJobs.push(archivedJob);
+     this.arNotArchivedJobs.splice(index,1);
     }
     else
     {
       archivedJob.IsArcheive=false;
       this.jobIsArchived=true;
     }
-   
+    this.arAllJobs.push(archivedJob)
     console.log(archivedJob)
-    console.log("true",this.arArchivedJobs)
+    console.log("true", this.arAllJobs)
   }
 
   goToJobDetail(Job) {

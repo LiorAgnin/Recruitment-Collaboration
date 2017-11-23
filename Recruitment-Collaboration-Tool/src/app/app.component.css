@@ -25,6 +25,12 @@ ul{
     margin-top: 5%;
 }
 
+
+.iconsH[tabindex]:focus {
+    color:rgb(163, 153, 10);
+    outline: none;
+}
+
 button:hover{
     background-color: lightgray;
     height: 100%;
