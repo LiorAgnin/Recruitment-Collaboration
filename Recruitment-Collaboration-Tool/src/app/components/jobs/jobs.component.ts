@@ -4,7 +4,12 @@ import { Job } from "../../model/job";
 import { DataServiceService } from "../../services/data-service.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { AuthService } from '../../services/auth.service';
+<<<<<<< HEAD
+import { AngularFireAuth } from 'angularfire2/auth';
+=======
+import { debug } from 'util';
 
+>>>>>>> afd87e8c62d0061dc271534560928cea769255f3
 @Component({
   selector: 'jobs',
   templateUrl: './jobs.component.html',
@@ -27,11 +32,14 @@ export class JobsComponent implements OnInit {
     public DataService: DataServiceService,
     private router: Router,
     private route: ActivatedRoute,
+    private auth: AngularFireAuth,
     private authService: AuthService) { }
 
     ngOnInit() {
+    
      this.subscriptionJob= this.jobService.getJobs().subscribe(jobs => {
         this.arAllJobs = jobs;
+   //   debugger;//
         this.arAllJobs.forEach(job => {
           if (job.IsArcheive != true) {
             this.arNotArchivedJobs.push(job);
@@ -48,22 +56,14 @@ export class JobsComponent implements OnInit {
     this.jobService.addNewJob($event);
     this.addFormBooli = false;
   }
-  archivedJob(archivedJob: Job,index:number) {
-
-    if(archivedJob.IsArcheive==false)
-    {
-     archivedJob.IsArcheive=true;
-     this.jobIsArchived=false;
-     this.arNotArchivedJobs.splice(index,1);
-    }
-    else
-    {
-      archivedJob.IsArcheive=false;
-      this.jobIsArchived=true;
-    }
-    this.arAllJobs.push(archivedJob)
-    console.log(archivedJob)
-    console.log("true", this.arAllJobs)
+  archivedJob(archivedJob: Job) {  
+      this.arAllJobs.forEach(job => {
+        if (job.IsArcheive == false) {
+          archivedJob.IsArcheive= true
+        }
+      });
+      this.arAllJobs.push(archivedJob);
+      this.jobService.updeteJob(archivedJob)
   }
 
   goToJobDetail(Job) {
