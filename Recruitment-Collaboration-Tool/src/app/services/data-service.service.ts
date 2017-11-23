@@ -10,6 +10,10 @@ export class DataServiceService {
   public MatchingJob: Job;
   public applicantToEdit: Applicant;
   
+  constructor() { }
+
+  public arSkillset=["HTML5", "CSS3", "JavaScript", "Python", "Java", ".NET", "C#", "Angular2", "JQuery", "Json"]
+  
   public HR = [
     { Id: 1, Name: "Shani" },
     { Id: 2, Name: "Or" },
@@ -23,6 +27,6 @@ export class DataServiceService {
     { Id: 4, Name: "Ronen Wolfson" },
   ]
 
-  constructor() { }
+  
 
 }

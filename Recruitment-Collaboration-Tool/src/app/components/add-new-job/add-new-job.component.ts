@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { JobsServiceService } from "../../services/jobs-service.service";
 import { Job } from "../../model/job";
-import { SkillsetServiceService } from "../../services/skillset-service.service";
 import { Skillset } from '../../model/skillset';
 import { DataServiceService } from "../../services/data-service.service";
 
@@ -20,16 +19,13 @@ export class AddNewJobComponent implements OnInit {
   RecruitingManager:string;
 
   constructor(public jobService: JobsServiceService,
-    public SkillsetService: SkillsetServiceService,
-    public dataServiceService: DataServiceService) { }
+    public dataService: DataServiceService) { }
   ngOnInit() {
-
-    this.SkillsetService.getSkillsets().subscribe(skills => {
-      this.arSkillset = skills[0];
-      this.arSkillset.skillset.forEach(element => {
-        const skil = { name: element, selected: false };
-        this.newArSkillSet.push(skil);
-      });
+    debugger;
+    this.arSkillset = this.dataService.arSkillset;
+    this.arSkillset.forEach(element => {
+      const skil = { name: element, selected: false };
+      this.newArSkillSet.push(skil);
     });
   }
 

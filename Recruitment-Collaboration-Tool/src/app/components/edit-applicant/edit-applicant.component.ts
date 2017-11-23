@@ -5,7 +5,6 @@ import { Applicant } from "../../model/Applicant";
 import { UploadFileService } from '../../services/upload-file.service';
 import { Upload } from '../../model/upload';
 import { JobsServiceService } from "../../services/jobs-service.service";
-import { SkillsetServiceService } from "../../services/skillset-service.service";
 import { Skillset } from '../../model/skillset';
 
 @Component({
@@ -19,26 +18,23 @@ export class EditApplicantComponent implements OnInit {
   editSkils: Skillset;
   selectedFiles: FileList;
   currentUpload: Upload;
-  arSkillset: any;
-  newArSkillSet: any;
+  arSkillset: any=[];
+  newArSkillSet: any=[];  
   arSkillSetPicked: string[] = [];
 
-  constructor(public dataServiceService: DataServiceService,
+  constructor(public dataService: DataServiceService,
     public applicantService: ApplicantService,
     private upSvc: UploadFileService,
-    public jobService: JobsServiceService,
-    public SkillsetService: SkillsetServiceService, ) {
-    this.editApplicant = dataServiceService.applicantToEdit;
+    public jobService: JobsServiceService) {
+    this.editApplicant = dataService.applicantToEdit;
   }
 
   ngOnInit() {
-    this.SkillsetService.getSkillsets().subscribe(skills => {
-      this.arSkillset = skills[0];
-      this.arSkillset.skillset.forEach(element => {
+    this.arSkillset = this.dataService.arSkillset;
+    this.arSkillset.forEach(element => {
         const skil = { name: element, selected: false };
         this.newArSkillSet.push(skil);
       });
-    });
   }
 
   editApplicantHandler(formEditApplicant) {

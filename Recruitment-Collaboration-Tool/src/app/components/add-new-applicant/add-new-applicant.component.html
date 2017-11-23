@@ -72,7 +72,7 @@
         </div>
 
         <div class="form-group">
-          <input type="text" class="form-control" name="phoneNumber" placeholder="Phone Number" [(ngModel)]="newApplicant.PhoneNumber"
+          <input type="text" class="form-control" name="phoneNumber" placeholder="Phone Number" [(ngModel)]="newApplicant.Phone"
             required #trvPhoneNumber="ngModel">
           <div *ngIf="trvPhoneNumber.errors && (trvPhoneNumber.dirty || trvPhoneNumber.touched)" class="errorMessage">
             <div [hidden]="!trvPhoneNumber.errors.required">

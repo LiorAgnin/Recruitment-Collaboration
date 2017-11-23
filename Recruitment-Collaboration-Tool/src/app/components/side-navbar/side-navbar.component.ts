@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { SkillsetServiceService } from "../../services/skillset-service.service";
 import { Skillset } from '../../model/skillset';
 import { FilterPipe } from '../../filters-pipes/filter-jobs.pipe';
+import { DataServiceService } from '../../services/data-service.service';
 
 @Component({
   selector: 'side-navbar',
@@ -14,17 +15,18 @@ export class SideNavbarComponent implements OnInit {
   arSkillset: any;
   newArSkillSet: Skillset[] = [];
 
-  constructor(public SkillsetService: SkillsetServiceService) { }
+  constructor(public SkillsetService: SkillsetServiceService,
+    public dataService: DataServiceService) { }
 
   ngOnInit() {
-    this.SkillsetService.getSkillsets().subscribe(skills => {
-      this.arSkillset = skills[0];
-      this.arSkillset.skillset.forEach(element => {
-        const skil = { name: element, selected: false };
-        this.newArSkillSet.push(skil);
-      });
+    this.arSkillset = this.dataService.arSkillset;
+    this.arSkillset.forEach(element => {
+      const skil = { name: element, selected: false };
+      this.newArSkillSet.push(skil);
     });
+
   }
+
   skillSetArray(skill) {
     if (skill.selected) {
       this.arSkillSetPicked.push(skill.name)

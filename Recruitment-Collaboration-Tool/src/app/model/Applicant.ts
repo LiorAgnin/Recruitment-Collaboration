@@ -8,7 +8,7 @@ export interface Applicant {
     Phone?: string;
     Age?: number;
     Gender?: string;
-    CV?: any[];
+    CvId?: number;
     Position?: string;
     Skills?: string[];
     IsActive?:boolean;
