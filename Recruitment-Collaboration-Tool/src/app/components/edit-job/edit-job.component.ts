@@ -4,7 +4,6 @@ import { Job } from "../../model/job";
 import { DataServiceService } from "../../services/data-service.service";
 import { AuthService } from '../../services/auth.service';
 import { Skillset } from '../../model/skillset';
-import { SkillsetServiceService } from '../../services/skillset-service.service';
 
 
 @Component({
@@ -26,7 +25,6 @@ export class EditJobComponent implements OnInit {
 
   constructor(public jobService: JobsServiceService,
     public dataService: DataServiceService,
-    public SkillsetService: SkillsetServiceService,
     public authService: AuthService) {
     this.editJob = dataService.jobToEdit;
     this.recruitingManager = dataService.jobToEdit.RecruitingManager;
@@ -34,9 +32,8 @@ export class EditJobComponent implements OnInit {
 
   ngOnInit() {
     let skillsSelected;
-    this.SkillsetService.getSkillsets().subscribe(skills => {
-      this.arSkillset = skills[0];
-      this.arSkillset.skillset.forEach(element => {
+    this.arSkillset = this.dataService.arSkillset;
+    this.arSkillset.forEach(element => {
         skillsSelected = false;
         for (var index = 0; index < this.editJob.Skills.length; index++) {
           if (element == this.editJob.Skills[index]) {
@@ -48,7 +45,7 @@ export class EditJobComponent implements OnInit {
         this.skil = { name: element, selected: skillsSelected }
         this.newArSkillSet.push(this.skil);
       });
-    });
+   
   }
 
   skillSetArray(skill) {

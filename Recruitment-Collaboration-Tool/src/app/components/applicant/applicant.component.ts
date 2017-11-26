@@ -26,6 +26,7 @@ export class ApplicantComponent implements OnInit {
   arStatus: ApplicantStatus[] = [];
   subscriptionApplicants:any;
   subscriptionStatus:any;
+  
   constructor(public applicantService: ApplicantService,
     public dataService: DataServiceService,
     private auth: AngularFireAuth,
@@ -57,7 +58,7 @@ export class ApplicantComponent implements OnInit {
     this.subscriptionStatus.unsubscribe();
   }
   goToApplicantDetail(applicant: Applicant) {
-    this.dataService.jobToEdit = applicant;
+    this.dataService.applicantToEdit = applicant;
     this.router.navigate(['./applicant-detail']);
   }
   lock(applicant) {

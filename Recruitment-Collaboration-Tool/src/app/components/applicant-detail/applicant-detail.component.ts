@@ -4,7 +4,6 @@ import { Applicant } from '../../model/Applicant';
 import { Manger } from '../../model/manger';
 import { JobsServiceService } from "../../services/jobs-service.service";
 import { DataServiceService } from "../../services/data-service.service";
-import { SkillsetServiceService } from '../../services/skillset-service.service';
 import { Skillset } from '../../model/skillset';
 import { ApplicantStatus } from '../../model/applicant-status';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -41,7 +40,6 @@ export class ApplicantDetailComponent implements OnInit {
 
   constructor(public jobService: JobsServiceService,
     public DataService: DataServiceService,
-    public SkillsetService: SkillsetServiceService,
     private router: Router,
     private route: ActivatedRoute,
     private auth: AngularFireAuth,
@@ -50,8 +48,8 @@ export class ApplicantDetailComponent implements OnInit {
     public applicantService: ApplicantService,
     public statusService: ApplicantStatusService,
     private authService: AuthService) {
-    this.applicant = DataService.jobToEdit;
-    this.getCvOf = (this.applicant.FirstName + " " + this.applicant.LastName + ' CV').toLocaleLowerCase()
+    this.applicant = DataService.applicantToEdit;
+    this.getCvOf = this.applicant.CvId.toString();
     const storageRef = firebaseApp.storage().ref().child('/uploads/' + this.getCvOf);
     storageRef.getDownloadURL().then(url => this.viewWordFile = url);
   }

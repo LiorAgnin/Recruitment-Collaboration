@@ -11,6 +11,14 @@ export class DataServiceService {
   public jobToEdit: Job;
   public MatchingJob: Job;
   public applicantToEdit: Applicant;
+  
+   constructor(public jobService: JobsServiceService) {
+      // this.jobService.getJobs().subscribe(jobs => { this.arAllJobs = jobs });
+     }
+ 
+
+   public arSkillset=["HTML5", "CSS3", "JavaScript", "Python", "Java", ".NET", "C#", "Angular2", "JQuery", "Json"]
+  
 
   public HR = [
     { Id: 1, Name: "Shani" },
@@ -25,9 +33,10 @@ export class DataServiceService {
     { Id: 4, Name: "Ronen Wolfson" },
   ]
 
-  arAllJobs: Job[] = new Array();
-  RelevantRecruite: any[] = [];
-  RelevantJob: Job[] = [];
+  
+  // arAllJobs: Job[] = new Array();
+  // RelevantRecruite: any[] = [];
+  // RelevantJob: Job[] = [];
 
 
 //   UpdatingRecruiterRelevantApplicant(applicant:Applicant) {
@@ -60,6 +69,5 @@ export class DataServiceService {
 //     // send email to RelevantRecruite
 //   }
 // this.jobService.getJobs().subscribe(jobs => { this.arAllJobs = jobs }); 
-  constructor() { }
 
 }
