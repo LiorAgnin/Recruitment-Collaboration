@@ -30,36 +30,36 @@ export class DataServiceService {
   RelevantJob: Job[] = [];
 
 
-  UpdatingRecruiterRelevantApplicant(applicant:Applicant) {
-    let ApplicantSkill: string;
-    let SkillExsist: boolean;
-  // filter job by Applicant skills
-    this.arAllJobs.forEach(job => {
-      SkillExsist = true;
-      let i;
-      for (i = 0; i < applicant.Skills.length; i++) {
-        if (!job.Skills.includes(applicant.Skills[i])) {
-          SkillExsist = false;
-          break;
-        }
-      }
-      if (SkillExsist) { this.RelevantJob.push(job) }
-    });
- // filter Recruiting Manager by Relevant Job 
- //   debugger;
-    console.log(this.RelevantJob);
-    let RecruiterRelevant: boolean;
-    this.RecuterManagers.forEach(Recuter => {
-      RecruiterRelevant = false;
-      this.RelevantJob.forEach(job => { if (job.RecruitingManager == Recuter.Name) { RecruiterRelevant = true;  } });
-      if (RecruiterRelevant) { this.RelevantRecruite.push(Recuter); }
-    });
-    debugger;
-    //  RelevantRecruite
-    window.alert(this.RelevantRecruite.map((itemInArray) => itemInArray.Name));
-    // send email to RelevantRecruite
-  }
-
-  constructor(public jobService: JobsServiceService) { this.jobService.getJobs().subscribe(jobs => { this.arAllJobs = jobs }); }
+//   UpdatingRecruiterRelevantApplicant(applicant:Applicant) {
+//     let ApplicantSkill: string;
+//     let SkillExsist: boolean;
+//   // filter job by Applicant skills
+//     this.arAllJobs.forEach(job => {
+//       SkillExsist = true;
+//       let i;
+//       for (i = 0; i < applicant.Skills.length; i++) {
+//         if (!job.Skills.includes(applicant.Skills[i])) {
+//           SkillExsist = false;
+//           break;
+//         }
+//       }
+//       if (SkillExsist) { this.RelevantJob.push(job) }
+//     });
+//  // filter Recruiting Manager by Relevant Job 
+//  //   debugger;
+//     console.log(this.RelevantJob);
+//     let RecruiterRelevant: boolean;
+//     this.RecuterManagers.forEach(Recuter => {
+//       RecruiterRelevant = false;
+//       this.RelevantJob.forEach(job => { if (job.RecruitingManager == Recuter.Name) { RecruiterRelevant = true;  } });
+//       if (RecruiterRelevant) { this.RelevantRecruite.push(Recuter); }
+//     });
+//     debugger;
+//     //  RelevantRecruite
+//     window.alert(this.RelevantRecruite.map((itemInArray) => itemInArray.Name));
+//     // send email to RelevantRecruite
+//   }
+// this.jobService.getJobs().subscribe(jobs => { this.arAllJobs = jobs }); 
+  constructor() { }
 
 }
