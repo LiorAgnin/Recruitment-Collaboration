@@ -55,9 +55,6 @@ export class ApplicantDetailComponent implements OnInit {
   }
   ngOnInit() {
     this.pageurl = this.domSanitizer.bypassSecurityTrustResourceUrl(this.passUrl);
-    this.statusService.getApplicantStatus().subscribe(statusDocs => {
-      this.arApplicantStatus = statusDocs;
-    });
     if (this.authService.isUserAdmin()) {
       this.toggleEditIcon = true;
     }
