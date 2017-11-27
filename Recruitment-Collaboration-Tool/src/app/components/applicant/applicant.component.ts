@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter,OnDestroy } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter,OnChanges } from '@angular/core';
 import { ApplicantService } from "../../services/applicant-service.service";
 import { Applicant } from "../../model/Applicant";
 import { DataServiceService } from "../../services/data-service.service";
@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service'
 import { ApplicantStatusService } from '../../services/applicant-status.service'
 import { ApplicantStatus } from '../../model/Applicant-Status';
+import { FilterPipe } from '../../filters-pipes//filter-jobs.pipe';
 
 @Component({
   selector: 'app-applicant',
@@ -15,8 +16,8 @@ import { ApplicantStatus } from '../../model/Applicant-Status';
   styleUrls: ['./applicant.component.css'],
   providers: [AngularFireAuth]
 })
-export class ApplicantComponent implements OnInit {
-
+export class ApplicantComponent implements OnChanges {
+  SearchInput:string;
   arAllApplicants: Applicant[] = new Array();
   arApplicantStatus: Applicant[] = new Array();
   arUnlockApplicants: Applicant[] = new Array();
@@ -33,13 +34,17 @@ export class ApplicantComponent implements OnInit {
     private router: Router,
     public authService: AuthService,
     public statusService: ApplicantStatusService) { }
-
+ngOnChanges()
+{
+  console.log(this.dataService.arSkillSetPicked);
+}
   ngOnInit() {
-
+    this.dataService.SearchBy="Applicant Name";
     console.log("ApplicantComponent");
 
       this.subscriptionApplicants = this.applicantService.getApplicants().subscribe(applicant => {
       this.arAllApplicants = applicant;
+      console.log("arAllApplicants");
       console.log(this.arAllApplicants);
     });
 
@@ -60,6 +65,7 @@ export class ApplicantComponent implements OnInit {
   goToApplicantDetail(applicant: Applicant) {
     this.dataService.applicantToEdit = applicant;
     this.router.navigate(['./applicant-detail']);
+   
   }
   lock(applicant) {
     let isLockedByMe: boolean = false;

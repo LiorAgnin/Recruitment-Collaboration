@@ -42,8 +42,6 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { ApplicantStatusService } from './services/applicant-status.service';
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,

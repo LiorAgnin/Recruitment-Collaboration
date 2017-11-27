@@ -10,6 +10,10 @@ export class DataServiceService {
   public jobToEdit: Job;
   public MatchingJob: Job;
   public applicantToEdit: Applicant;
+  arSkillSetPicked: string[] = [];
+  SearchInput:string;
+  SearchBy:string="";
+  
 
   constructor() {
   }

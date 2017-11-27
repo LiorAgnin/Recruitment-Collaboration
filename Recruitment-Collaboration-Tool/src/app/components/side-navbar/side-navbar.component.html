@@ -1,5 +1,10 @@
-<!-- <div class="brand">
-  Skillset : </div>
+<div class="brand">
+ <h3>Search By {{dataService.SearchBy}}</h3>
+<input type="text" name="Search" [(ngModel)]="dataService.SearchInput" placeholder="Search" >
+<br>
+
+Search By Skillset : </div>
+
 <div class="menu-list">
   <ul id="menu-content">
     <li *ngFor="let skill of newArSkillSet | filter">
@@ -10,4 +15,4 @@
       </div>
     </li>
   </ul>
-</div> -->
+</div> 

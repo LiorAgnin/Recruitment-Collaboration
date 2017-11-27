@@ -13,7 +13,8 @@
   <br/>
   <div *ngIf="!addFormBooli">
     <div>
-      <div style="cursor:pointer" class="container" *ngFor="let Job of arNotArchivedJobs | paginate: { itemsPerPage: 6, currentPage: p }">
+      <div style="cursor:pointer" class="container" *ngFor="let Job of arNotArchivedJobs |  filter : DataService.SearchInput | filter : this.DataService.arSkillSetPicked| paginate: { itemsPerPage: 6, currentPage: p }">
+
 
         <div *ngIf="!Job.IsArcheive" class="JobCard">
           <div style="display: block;">
@@ -43,7 +44,8 @@
 
     </div>
   </div>
-</div>
+  </div>
+
 
  <!-- archive -->
 <h1 *ngIf="!jobIsArchived" class="jobstitel"><i>Jobs that arvhived!</i></h1>
