@@ -17,7 +17,7 @@ export class ApplicantService {
   applicantsHistory: Observable<Applicant[]>;
 
 
-  constructor(public fs: AngularFirestore,public DataService:DataServiceService) {
+  constructor(public fs: AngularFirestore, public DataService: DataServiceService) {
 
     this.applicanCollection = this.fs.collection('Applicants');
 
