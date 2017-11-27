@@ -4,19 +4,17 @@ import { Job } from "../../model/job";
 import { DataServiceService } from "../../services/data-service.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { AuthService } from '../../services/auth.service';
-<<<<<<< HEAD
 import { AngularFireAuth } from 'angularfire2/auth';
-=======
 import { debug } from 'util';
+import{FilterPipe}from '../../filters-pipes/filter-jobs.pipe';
 
->>>>>>> afd87e8c62d0061dc271534560928cea769255f3
 @Component({
   selector: 'jobs',
   templateUrl: './jobs.component.html',
   styleUrls: ['./jobs.component.css']
 })
 export class JobsComponent implements OnInit {
-
+  
   arAllJobs: Job[] = new Array();
   arNotArchivedJobs: Job[] = new Array();
   showAddJobFrom: boolean = false;
@@ -36,10 +34,9 @@ export class JobsComponent implements OnInit {
     private authService: AuthService) { }
 
     ngOnInit() {
-    
+      this.DataService.SearchBy="Applicant Postion";
      this.subscriptionJob= this.jobService.getJobs().subscribe(jobs => {
         this.arAllJobs = jobs;
-   //   debugger;//
         this.arAllJobs.forEach(job => {
           if (job.IsArcheive != true) {
             this.arNotArchivedJobs.push(job);

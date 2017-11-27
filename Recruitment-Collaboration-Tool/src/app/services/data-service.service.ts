@@ -11,9 +11,14 @@ export class DataServiceService {
   public jobToEdit: Job;
   public MatchingJob: Job;
   public applicantToEdit: Applicant;
+  arSkillSetPicked: string[] = [];
+  SearchInput:string;
+  SearchBy:string="";
   
    constructor(public jobService: JobsServiceService) {
-      this.jobService.getJobs().subscribe(jobs => { this.arAllJobs = jobs });
+      // this.jobService.getJobs().subscribe(jobs => { this.arAllJobs = jobs });
+      console.log("arSkillSetPicked");
+      console.log(this.arSkillSetPicked);
      }
  
 

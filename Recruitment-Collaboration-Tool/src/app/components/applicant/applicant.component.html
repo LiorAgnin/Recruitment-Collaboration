@@ -4,12 +4,13 @@
     <a [routerLink]="['/add-applicant']"></a>
 
 </button>
+
 <br>
 <add-new-applicant *ngIf="addFormToggle"></add-new-applicant>
 <br/>
 <br/>
 <div *ngIf="!addFormToggle">
-    <div style="cursor:pointer" class="container" *ngFor="let applicant of arAllApplicants | paginate: { itemsPerPage: 12, currentPage: p }">
+    <div style="cursor:pointer" class="container" *ngFor="let applicant of arAllApplicants | filter : dataService.SearchInput| filter : this.dataService.arSkillSetPicked| paginate: { itemsPerPage: 12, currentPage: p }">
         <div class="ApplicantbCard">
             <article>
                 <div>
