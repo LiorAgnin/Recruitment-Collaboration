@@ -1,12 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { JobsServiceService } from "../../services/jobs-service.service";
 import { Job } from "../../model/job";
 import { DataServiceService } from "../../services/data-service.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { AuthService } from '../../services/auth.service';
 import { AngularFireAuth } from 'angularfire2/auth';
+<<<<<<< HEAD
 import { debug } from 'util';
 
+=======
+>>>>>>> bcd5ee7a8f8ae81d22e141d3123096a81cb213c2
 @Component({
   selector: 'jobs',
   templateUrl: './jobs.component.html',
@@ -32,6 +35,7 @@ export class JobsComponent implements OnInit {
     private auth: AngularFireAuth,
     private authService: AuthService) { }
 
+<<<<<<< HEAD
   ngOnInit() {
     this.subscriptionJob = this.jobService.getJobs().subscribe(jobs => {
       this.arAllJobs = jobs;
@@ -41,6 +45,20 @@ export class JobsComponent implements OnInit {
         }
       });
     });
+=======
+
+  ngOnInit() {
+    console.log("jobsComponent");
+    this.subscriptionJob = this.jobService.getJobs().subscribe(jobs => {
+      console.log("jobs", jobs);
+
+      this.arNotArchivedJobs = jobs.filter(job => { return job.IsArcheive != true; });
+      this.arArchivedJobs = jobs.filter(job => { return job.IsArcheive != false; });
+      console.log("arNotArchivedJobs", this.arNotArchivedJobs);
+      console.log("arArchivedJobs", this.arArchivedJobs);
+    });
+    this.jobIsArchived = !this.jobIsArchived;
+>>>>>>> bcd5ee7a8f8ae81d22e141d3123096a81cb213c2
   }
 
   ngOnDestroy() {
@@ -52,6 +70,7 @@ export class JobsComponent implements OnInit {
     this.jobService.addNewJob($event);
     this.addFormBooli = false;
   }
+  
   archivedJob(archivedJob: Job) {
     this.arAllJobs.forEach(job => {
       if (job.IsArcheive == false) {
@@ -60,6 +79,19 @@ export class JobsComponent implements OnInit {
     });
     this.arAllJobs.push(archivedJob);
     this.jobService.updeteJob(archivedJob)
+    archivedJob.IsArcheive = true;
+    this.jobService.updeteJob(archivedJob)
+    this.jobIsArchived = true;
+  }
+
+  unArchivedJob(unArchivedJob: Job) {
+    unArchivedJob.IsArcheive = false;
+    this.jobService.updeteJob(unArchivedJob)
+    this.jobIsArchived = !this.jobIsArchived;
+  }
+
+  onClickArchived() {
+    this.jobIsArchived = !this.jobIsArchived;
   }
 
   goToJobDetail(Job) {

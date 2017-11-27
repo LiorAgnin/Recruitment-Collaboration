@@ -11,13 +11,11 @@ export class JobsServiceService {
   jobDocum: AngularFirestoreDocument<Job>;
   constructor(public job: AngularFirestore) {
     this.jobCollection = this.job.collection('Jobs');
-
     this.jobs = this.jobCollection.snapshotChanges().map(chages => {
       return chages.map(job => {
         const jobData = job.payload.doc.data() as Job;
         jobData.Id = job.payload.doc.id as any;
         return jobData;
-
       })
     });
   }

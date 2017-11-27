@@ -70,3 +70,10 @@ a{
     height: 0;
   }
 
+  .applicanttitel{
+    color:rgb(8, 214, 214);
+    text-align:center;
+    font-size: 30px;
+    padding: 0px;
+    margin: 0px;
+    }
