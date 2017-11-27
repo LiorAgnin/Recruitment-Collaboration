@@ -21,7 +21,6 @@ export class AddNewJobComponent implements OnInit {
   constructor(public jobService: JobsServiceService,
     public dataService: DataServiceService) { }
   ngOnInit() {
-    debugger;
     this.arSkillset = this.dataService.arSkillset;
     this.arSkillset.forEach(element => {
       const skil = { name: element, selected: false };

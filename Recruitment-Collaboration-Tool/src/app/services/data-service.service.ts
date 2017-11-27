@@ -2,7 +2,6 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { Job } from "../model/job";
 import { Applicant } from "../model/applicant";
 import { Skillset } from "../model/skillset";
-import { JobsServiceService } from './jobs-service.service';
 import { skipWhile } from 'rxjs/operator/skipWhile';
 
 @Injectable()
@@ -16,9 +15,8 @@ export class DataServiceService {
   
    constructor() {}
  
+  public arSkillset = ["HTML5", "CSS3", "JavaScript", "Python", "Java", ".NET", "C#", "Angular2", "JQuery", "Json"]
 
-   public arSkillset=["HTML5", "CSS3", "JavaScript", "Python", "Java", ".NET", "C#", "Angular2", "JQuery", "Json"]
-  
 
   public HR = [
     { Id: 1, Name: "Shani" },
