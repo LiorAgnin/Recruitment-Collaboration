@@ -22,13 +22,6 @@ http://www.bootstrapzen.com/item/135/simple-login-form-logo/
 	  box-sizing:border-box;
 	}
 
-body {
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-
 form[role=login] {
 	color: #5d5d5d;
 	background: #f2f2f2;
@@ -58,4 +51,38 @@ form[role=login] {
 }
 	.form-links a {
 		color: #fff;
+	}
+
+	.logo-Img{
+		-webkit-animation: spin1 5s infinite linear;
+		-moz-animation: spin1 5s infinite linear;
+		-o-animation: spin1 5s infinite linear;
+		-ms-animation: spin1 5s infinite linear;
+		animation: spin1 5s infinite linear;
+			-webkit-transform-origin: 50% 50%;
+			-moz-transform-origin: 50% 50%;
+			-o-transform-origin: 50% 50%;
+			transform-origin: 50% 50%;
+			width: 150px;
+			height: 150px;
+			border-radius:50%;
+		}
+		 
+		@-webkit-keyframes spin1 {
+		0% { -webkit-transform: rotate(0deg);}
+		100% { -webkit-transform: rotate(360deg);}
+		}
+		@-moz-keyframes spin1 {
+		0% { -moz-transform: rotate(0deg); }
+		100% { -moz-transform: rotate(360deg);}
+		}
+		@-o-keyframes spin1 {
+		0% { -o-transform: rotate(0deg);}
+		100% { -o-transform: rotate(360deg);}
+		}
+
+	h1{
+		color: black;
+		text-align: center;
+		font-weight: bold;
 	}

@@ -1,0 +1,13 @@
+.container{
+    overflow: auto;
+    width: 80%;
+    padding: 5%;
+    margin-top: -7%;
+    text-align: center;
+}
+
+.editJob{
+    background-color: white;
+    float: right;
+    border: 0 none white;
+}

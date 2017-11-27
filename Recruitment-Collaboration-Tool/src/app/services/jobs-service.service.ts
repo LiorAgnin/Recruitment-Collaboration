@@ -9,15 +9,14 @@ export class JobsServiceService {
   jobCollection: AngularFirestoreCollection<Job>;
   jobs: Observable<Job[]>;
   jobDocum: AngularFirestoreDocument<Job>;
-  constructor(public job: AngularFirestore, ) {
-    this.jobCollection = this.job.collection('Jobs');
-
+  constructor(public fs: AngularFirestore ) {
+    this.jobCollection = this.fs.collection('Jobs');
+   
     this.jobs = this.jobCollection.snapshotChanges().map(chages => {
       return chages.map(job => {
         const jobData = job.payload.doc.data() as Job;
         jobData.Id = job.payload.doc.id as any;
         return jobData;
-
       })
     });
   }
@@ -31,7 +30,7 @@ export class JobsServiceService {
   }
 
   updeteJob(jobEdit: Job) {
-    this.jobDocum = this.job.doc(`Jobs/${jobEdit.Id}`);
+    this.jobDocum = this.fs.doc(`Jobs/${jobEdit.Id}`);
     this.jobDocum.update(jobEdit);
   }
  

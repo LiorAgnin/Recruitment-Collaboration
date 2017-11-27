@@ -17,7 +17,7 @@ export class ApplicantService {
   applicantsHistory: Observable<Applicant[]>;
 
 
-  constructor(public fs: AngularFirestore,public DataService:DataServiceService) {
+  constructor(public fs: AngularFirestore, public DataService: DataServiceService) {
 
     this.applicanCollection = this.fs.collection('Applicants');
 
@@ -39,12 +39,11 @@ export class ApplicantService {
   addNewApplicant(newApplicant: Applicant) {
     this.applicanCollection.add(newApplicant);
    window.alert("addNewApplicantService");
-    this.DataService.UpdatingRecruiterRelevantApplicant(newApplicant);
+    // this.DataService.UpdatingRecruiterRelevantApplicant(newApplicant);
   }
 
   updeteApplicants(updeteJob: Applicant) {
-    debugger;
- //   this.applicantDocm = this.fs.doc(`Applicants/${updeteJob.Id}`);
+    this.applicantDocm = this.fs.doc(`Applicants/${updeteJob.Id}`);
     this.applicantDocm.update(updeteJob);
   }
 
