@@ -1,40 +1,31 @@
 <div class="container">
   <h2>Job details</h2>
   <div>
-    <i class="fa fa-pencil-square-o" (click)="goToEditJob()" *ngIf="toggleEditIcon" aria-hidden="true"></i>
+    <button class="fa fa-pencil-square-o editJob" title = "Click to edit this job" (click)="goToEditJob()" *ngIf="toggleEditIcon" aria-hidden="true"></button>
     <span style="color:red">{{ notpermissionMessage }}</span>
   </div>
-  <div >
-    <a [routerLink]="['/matching-applicants-to-job']">See which applicants are suitable for the job</a>
-  </div>
+
   <div class="card">
-    <div class="card-block">
-      <h4 class="card-title">Position: {{ pickedJob.Postion }}</h4>
-    </div>
+    <p class="card-title">Position: {{ pickedJob.Postion }}</p>
   </div>
   <br>
   <div class="card">
-    <div class="card-block">
-      <h4 class="card-title">Recuter manager: {{ pickedJob.RecruitingManager }}</h4>
-    </div>
+    <p class="card-title">Recuter manager: {{ pickedJob.RecruitingManager }}</p>
   </div>
   <br>
   <div class="card">
-    <div class="card-block">
-      <h4 class="card-title">Minimum Required Years: {{ pickedJob.MinimumReqYears }}</h4>
-    </div>
+    <p class="card-title">Minimum required years: {{ pickedJob.MinimumReqYears }}</p>
   </div>
   <br>
   <div class="card">
-    <div class="card-block">
-      <h4 class="card-title"> Description: {{ pickedJob.Description }}</h4>
-    </div>
+    <p class="card-block">Description:</p>
+    <p class="card-title"> {{ pickedJob.Description }}</p>
   </div>
   <br>
   <div class="card">
     <div class="card-block">
       <div class="form-group">
-        <h4>Skills: </h4>
+        <p>Skills: </p>
         <br>
         <ul class="checkbox-inline" *ngFor="let skill of pickedJob.Skills">
           <li>{{skill}}</li>
@@ -43,4 +34,7 @@
     </div>
   </div>
   <br>
+  <div>
+    <a [routerLink]="['/matching-applicants-to-job']">See which applicants are suitable for the job</a>
+  </div>
 </div>

@@ -4,7 +4,7 @@
     <div class="col-md-4">
       <section class="login-form">
         <form #trvForm="ngForm" (ngSubmit)="submitHandler(trvForm)" role="login">
-          <img src="http://localhost:4200/assets/at&t.jpg" class="img-responsive" alt="" />
+          <img src="../assets/BK.jpg" class="img-responsive logo-Img" alt="AT&T" /><h1>AT&T</h1>
           <div>
             <input type="email" name="email" id="idEmail" placeholder="Email" required email class="form-control input-lg" pattern="[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)"
               [(ngModel)]="email" #trvEmail="ngModel" />

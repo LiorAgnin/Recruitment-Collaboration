@@ -1,48 +1,41 @@
 <div>
-  <button type="button" *ngIf="authService.isUserAdmin()" (click)="addFormBooli = !addFormBooli" class="btn">
+  <div class="rightSide">
+    <button type="button" *ngIf="authService.isUserAdmin()" (click)="addFormBooli = !addFormBooli" class="btn">
     <i style="color:#009edb" class="glyphicon glyphicon-plus" *ngIf="!addFormBooli"></i>
     {{addFormBooli ? 'Jobs' : 'Add Job'}}
   </button>
+    <br>
+    <br>
+  </div>
 
   <div *ngIf="addFormBooli">
     <add-new-job (onClickAdd)="onClickAdddForm($event)"></add-new-job>
   </div>
-  <br/>
-  <br/>
-  <br/>
-  <div *ngIf="!addFormBooli">
-    <div>
-      <div style="cursor:pointer" class="container" *ngFor="let Job of arNotArchivedJobs | paginate: { itemsPerPage: 6, currentPage: p }">
 
-        <div *ngIf="Job.IsArcheive ==false" class="JobCard">
-          <div style="display: block;">
-            <div class="JobIcons">
-              <div (click)="goToJobDetail(Job)">
-                <i class="fa fa-info-circle" title="View job details" aria-hidden="true"></i>
+  <div *ngIf="!addFormBooli">
+    <div style="cursor:pointer" class="container" *ngFor="let Job of arNotArchivedJobs | paginate: { itemsPerPage: 6, currentPage: p }">
+      <div class="ApplicantbCard effect__hover" data-id="1">
+        <div class="card__front">
+          <div class="card card-01" style="border-style: none;">
+            <div class="card-body text-center">
+              <div *ngIf="Job.IsArcheive ==false" class="JobCard">
+                <div style="display: block;">
+                  <p class="card-title">{{Job.Postion}}</p>
+                  <p>Rectuter : {{Job.RecruitingManager}}</p>
+                  <p class="card-text">MinimumReqYears - {{Job.MinimumReqYears}}</p>
+                  <p class="card-text Description">{{Job.Description}}</p>
+                  <p class="Skills">{{Job.Skills}}</p>
+                  <a class="btn btn-primary text-uppercase" (click)="goToJobDetail(Job)">Explore</a>
+                </div>
               </div>
             </div>
-            <!-- <div (click)="archivedJob(Job)">
-          </div> -->
-          <div (click)="archivedJob(Job)">
-              <i class="fa fa-archive" aria-hidden="true"></i>
-              <!-- <a class="btn pull-right" ng-class="{true: 'btn-primary', false: 'btn-danger'}[!Job.IsArcheive]" ng-click="Job.IsArcheive = !Job.IsArcheive">{{!Job.IsArcheive && 'Archive' || 'Unarchive'}} Job</a> -->
-            </div>
-            <div class="JobTitel">{{Job.Postion}}</div>
-            <br/>
-            <article>
-              <br/>
-              <br/>
-              <p>Rectuter : {{Job.RecruitingManager}}</p>
-              <p>MinimumReqYears - {{Job.MinimumReqYears}}</p>
-              <p class="Description">{{Job.Description}}</p>
-              <p class="Skills">{{Job.Skills}}</p>
-            </article>
-            <div class="clear"></div>
           </div>
         </div>
       </div>
-      <pagination-controls (pageChange)="p = $event" *ngIf="arNotArchivedJobs?.length > 0"></pagination-controls>
-
     </div>
   </div>
-</div>
+  <pagination-controls class="rightSide" (pageChange)="p = $event" *ngIf="arNotArchivedJobs?.length > 0"></pagination-controls>
+  <div (click)="archivedJob(Job)">
+    <i class="fa fa-archive" aria-hidden="true"></i>
+    <a class="btn pull-right" ng-class="{true: 'btn-primary', false: 'btn-danger'}[!Job.IsArcheive]" ng-click="Job.IsArcheive = !Job.IsArcheive">{{!Job.IsArcheive && 'Archive' || 'Unarchive'}} Job</a>
+  </div>

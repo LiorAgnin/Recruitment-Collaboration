@@ -1,34 +1,30 @@
-div{
-    display: inline-block; 
-}
 a{
     text-decoration: none;
 }
 
+.rightSide{
+  float:right
+}
 .container{ 
     width: 235px;
     display: inline-block;
     padding: 2px 0 0 0;
     margin: 0 0 28px 29px;
-    border: solid 1px #d1cbbd;
-    border-radius: 6px ;
-    background: #ffffff;
+    border: solid 1px black;
+    border-radius: 4px ;
     text-align: center; 
   }
+
   div{
     display: inline-block;
     cursor:pointer
   }
-  .ApplicantIcons{
-    display: inline-block;
-    font-size: 12px;
-    float: right;
-  }
+
   .container:hover
   {
-    -moz-box-shadow: 0 0 10px #ccc;
-    -webkit-box-shadow: 0 0 10px #ccc;
-    box-shadow: 0 0 10px #ccc;
+    -moz-box-shadow: 0 0 30px #ccc;
+    -webkit-box-shadow: 0 0 30px #ccc;
+    box-shadow: 0 0 30px #ccc;
   height: auto;
   -webkit-transition: .3s ease-in-out;
   transition: .3s ease-in-out;
@@ -56,7 +52,7 @@ a{
   .ApplicantTitel{
       float: left;
      display: inline;
-     position: overflow;
+     /* position: overflow; */
      padding-right: 50px;
      left: 100%;
      font-size: 16px;
@@ -68,5 +64,9 @@ a{
     line-height: 1px;
     display: block;
     height: 0;
+  }
+
+  .paging{
+    /* float:right; */
   }
 

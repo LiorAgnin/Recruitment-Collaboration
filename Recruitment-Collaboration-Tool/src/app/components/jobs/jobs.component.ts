@@ -4,12 +4,9 @@ import { Job } from "../../model/job";
 import { DataServiceService } from "../../services/data-service.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { AuthService } from '../../services/auth.service';
-<<<<<<< HEAD
 import { AngularFireAuth } from 'angularfire2/auth';
-=======
 import { debug } from 'util';
 
->>>>>>> afd87e8c62d0061dc271534560928cea769255f3
 @Component({
   selector: 'jobs',
   templateUrl: './jobs.component.html',
