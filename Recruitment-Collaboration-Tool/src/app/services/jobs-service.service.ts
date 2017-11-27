@@ -9,7 +9,7 @@ export class JobsServiceService {
   jobCollection: AngularFirestoreCollection<Job>;
   jobs: Observable<Job[]>;
   jobDocum: AngularFirestoreDocument<Job>;
-  constructor(public job: AngularFirestore, ) {
+  constructor(public job: AngularFirestore) {
     this.jobCollection = this.job.collection('Jobs');
 
     this.jobs = this.jobCollection.snapshotChanges().map(chages => {
