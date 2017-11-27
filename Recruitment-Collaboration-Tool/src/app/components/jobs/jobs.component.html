@@ -1,41 +1,63 @@
-<div>
+<div *ngIf="jobIsArchived">
+
+  <h1 *ngIf="!addFormBooli" class="jobstitel"><i>Jobs</i></h1>
   <div class="rightSide">
     <button type="button" *ngIf="authService.isUserAdmin()" (click)="addFormBooli = !addFormBooli" class="btn">
-    <i style="color:#009edb" class="glyphicon glyphicon-plus" *ngIf="!addFormBooli"></i>
-    {{addFormBooli ? 'Jobs' : 'Add Job'}}
-  </button>
+      <i style="color:#009edb" class="glyphicon glyphicon-plus" *ngIf="!addFormBooli"></i>
+      {{addFormBooli ? 'Jobs' : 'Add Job'}}
+    </button>
     <br>
     <br>
   </div>
+</div>
 
-  <div *ngIf="addFormBooli">
-    <add-new-job (onClickAdd)="onClickAdddForm($event)"></add-new-job>
-  </div>
+<div *ngIf="addFormBooli">
+  <add-new-job (onClickAdd)="onClickAdddForm($event)"></add-new-job>
+</div>
 
-  <div *ngIf="!addFormBooli">
+<div *ngIf="!addFormBooli">
+  <div>
     <div style="cursor:pointer" class="container" *ngFor="let Job of arNotArchivedJobs | paginate: { itemsPerPage: 6, currentPage: p }">
-      <div class="ApplicantbCard effect__hover" data-id="1">
-        <div class="card__front">
-          <div class="card card-01" style="border-style: none;">
-            <div class="card-body text-center">
-              <div *ngIf="Job.IsArcheive ==false" class="JobCard">
-                <div style="display: block;">
-                  <p class="card-title">{{Job.Postion}}</p>
-                  <p>Rectuter : {{Job.RecruitingManager}}</p>
-                  <p class="card-text">MinimumReqYears - {{Job.MinimumReqYears}}</p>
-                  <p class="card-text Description">{{Job.Description}}</p>
-                  <p class="Skills">{{Job.Skills}}</p>
-                  <a class="btn btn-primary text-uppercase" (click)="goToJobDetail(Job)">Explore</a>
-                </div>
+      <div *ngIf="!Job.IsArcheive" class="JobCard">
+        <div class="ApplicantbCard effect__hover" data-id="1">
+          <div class="card__front">
+            <div class="card card-01" style="border-style: none;">
+              <div (click)="archivedJob(Job)">
+                <i class="fa fa-archive" aria-hidden="true"></i>
+              </div>
+              <div class="JobTitel">{{Job.Postion}}</div>
+              <div class="card-body text-center">
+                <p class="card-text"> {{Job.RecruitingManager}}</p>
+                <p class="card-text Description">{{Job.Description}}</p>
+                <p class="card-text Skills">{{Job.Skills}}</p>
+                <a class="btn btn-primary text-uppercase" title="View job details" (click)="goToJobDetail(Job)">Explore</a>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <pagination-controls (pageChange)="p = $event" *ngIf="arNotArchivedJobs?.length > 0"></pagination-controls>
+  </div>
+</div>
+
+<!-- archive -->
+<h1 *ngIf="!jobIsArchived" class="jobstitel"><i>Jobs that arvhived!</i></h1>
+<br>
+<div *ngIf="!jobIsArchived">
+  <div style="cursor:pointer" class="container" *ngFor="let Job of arArchivedJobs | paginate: { itemsPerPage: 6, currentPage: p }">
+    <div *ngIf="Job.IsArcheive == true" class="JobCard">
+      <div style="display: block;">
+        <div (click)="unArchivedJob(Job)">
+          <i class="fa fa-archive" title="Unarchive job" aria-hidden="true"></i>
+        </div>
+        <div class="JobTitel">{{Job.Postion}}</div>
+        <p class="card-text"> {{Job.RecruitingManager}}</p>
+        <p class="card-text">{{Job.Description}}</p>
+        <p class="card-text">{{Job.Skills}}</p>
+        <a class="btn btn-primary text-uppercase" title="View job details" (click)="goToJobDetail(Job)">Explore</a>
+      </div>
+    </div>
   </div>
   <pagination-controls class="rightSide" (pageChange)="p = $event" *ngIf="arNotArchivedJobs?.length > 0"></pagination-controls>
-  <div (click)="archivedJob(Job)">
-    <i class="fa fa-archive" aria-hidden="true"></i>
-    <a class="btn pull-right" ng-class="{true: 'btn-primary', false: 'btn-danger'}[!Job.IsArcheive]" ng-click="Job.IsArcheive = !Job.IsArcheive">{{!Job.IsArcheive && 'Archive' || 'Unarchive'}} Job</a>
-  </div>
+</div>

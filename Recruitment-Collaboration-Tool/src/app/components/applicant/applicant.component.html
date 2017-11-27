@@ -1,12 +1,11 @@
-<div class="rightSide">
-    <button *ngIf="authService.isUserAdmin()" (click)="addFormToggle = !addFormToggle" type="button" class="btn">
-        <i style="color:#009edb" class="fa fa-user-plus" *ngIf="!addFormToggle"></i>
-        {{addFormToggle ? 'Applicatns' : 'Add applicant'}}
-        <a [routerLink]="['/add-applicant']"></a>
-    
-    </button>
-    <br>
-</div>
+<h1 *ngIf="!addFormToggle" class="applicanttitel"><i>Applicants</i></h1>
+<button *ngIf="authService.isUserAdmin()" (click)="addFormToggle = !addFormToggle" type="button" class="btn">
+    <i style="color:#009edb" class="glyphicon glyphicon-plus" *ngIf="!addFormToggle"></i>
+    {{addFormToggle ? 'Applicatns' : 'Add applicant'}}
+    <a [routerLink]="['/add-applicant']"></a>
+
+</button>
+<br>
 <add-new-applicant *ngIf="addFormToggle"></add-new-applicant>
 <div *ngIf="!addFormToggle">
     <div style="cursor:pointer" class="container" *ngFor="let applicant of arAllApplicants | paginate: { itemsPerPage: 6, currentPage: p }">
