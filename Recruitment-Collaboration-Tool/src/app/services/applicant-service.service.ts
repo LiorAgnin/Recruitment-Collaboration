@@ -38,13 +38,11 @@ export class ApplicantService {
 
   addNewApplicant(newApplicant: Applicant) {
     this.applicanCollection.add(newApplicant);
-   window.alert("addNewApplicantService");
-    this.DataService.UpdatingRecruiterRelevantApplicant(newApplicant);
+    //this.DataService.UpdatingRecruiterRelevantApplicant(newApplicant);
   }
 
   updeteApplicants(updeteJob: Applicant) {
-    debugger;
- //   this.applicantDocm = this.fs.doc(`Applicants/${updeteJob.Id}`);
+    this.applicantDocm = this.fs.doc(`Applicants/${updeteJob.Id}`);
     this.applicantDocm.update(updeteJob);
   }
 

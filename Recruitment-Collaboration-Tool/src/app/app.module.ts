@@ -40,6 +40,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { ApplicantStatusService } from './services/applicant-status.service';
+import { MatchingJobsToApplicantComponent } from './components/matching-jobs-to-applicant/matching-jobs-to-applicant.component';
 
 
 
@@ -59,7 +60,8 @@ import { ApplicantStatusService } from './services/applicant-status.service';
     JobDetailComponent,
     EditJobComponent,
     MatchingApplicantsToJobComponent,
-    EditApplicantComponent
+    EditApplicantComponent,
+    MatchingJobsToApplicantComponent
   ],
   imports: [
     BrowserModule,

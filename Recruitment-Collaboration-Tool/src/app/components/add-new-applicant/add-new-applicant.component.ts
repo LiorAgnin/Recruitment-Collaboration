@@ -8,6 +8,7 @@ import { Upload } from '../../model/upload';
 import * as _ from "lodash";
 import * as firebase from 'firebase';
 import { DataServiceService } from '../../services/data-service.service';
+import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'add-new-applicant',
   templateUrl: './add-new-applicant.component.html',
@@ -29,7 +30,9 @@ export class AddNewApplicantComponent implements OnInit {
     public applicantService: ApplicantService,
     public jobService: JobsServiceService,
     public dataService: DataServiceService,
-    private upSvc: UploadFileService) {
+    private upSvc: UploadFileService,
+    private router: Router,
+    private route: ActivatedRoute,) {
 
   }
   ngOnInit() {
@@ -38,7 +41,6 @@ export class AddNewApplicantComponent implements OnInit {
       const skil = { name: element, selected: false };
       this.newArSkillSet.push(skil);
     });
-    console.log(this.newArSkillSet);
   }
 
   ngOnDestroy() {
@@ -50,11 +52,9 @@ export class AddNewApplicantComponent implements OnInit {
       this.arSkillSetPicked.push(skill.name)
     }
     if (!skill.selected) {
-      console.log(skill)
       let aa = this.arSkillSetPicked.indexOf(skill.name);
       this.arSkillSetPicked.splice(aa, 1)
     }
-    console.log(this.arSkillSetPicked)
   }
   addApplicant(formAddApplicant) {
     this.uploadSingle();
@@ -71,8 +71,10 @@ export class AddNewApplicantComponent implements OnInit {
       Position: this.newApplicant.Position,
       Skills: this.arSkillSetPicked,
     }
-    console.log(newApplicant);;
+    console.log(newApplicant);
     this.applicantService.addNewApplicant(newApplicant);
+    this.dataService.MatchingApplicant=newApplicant;
+    this.router.navigate(['./app-matching-jobs-to-applicant']);
   }
 
   uploadSingle() {

@@ -4,12 +4,9 @@ import { Job } from "../../model/job";
 import { DataServiceService } from "../../services/data-service.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { AuthService } from '../../services/auth.service';
-<<<<<<< HEAD
 import { AngularFireAuth } from 'angularfire2/auth';
-=======
 import { debug } from 'util';
 
->>>>>>> afd87e8c62d0061dc271534560928cea769255f3
 @Component({
   selector: 'jobs',
   templateUrl: './jobs.component.html',
@@ -25,9 +22,9 @@ export class JobsComponent implements OnInit {
   jobForEdit: Job;
   editFormBooli: boolean = false;
   addFormBooli: boolean = false;
-  arArchivedJobs:Job[]=new Array();
-  jobIsArchived:boolean=false;
-  subscriptionJob:any;
+  arArchivedJobs: Job[] = new Array();
+  jobIsArchived: boolean = false;
+  subscriptionJob: any;
   constructor(public jobService: JobsServiceService,
     public DataService: DataServiceService,
     private router: Router,
@@ -35,40 +32,39 @@ export class JobsComponent implements OnInit {
     private auth: AngularFireAuth,
     private authService: AuthService) { }
 
-    ngOnInit() {
-    
-     this.subscriptionJob= this.jobService.getJobs().subscribe(jobs => {
-        this.arAllJobs = jobs;
-   //   debugger;//
-        this.arAllJobs.forEach(job => {
-          if (job.IsArcheive != true) {
-            this.arNotArchivedJobs.push(job);
-          }
-        });
+  ngOnInit() {
+    this.subscriptionJob = this.jobService.getJobs().subscribe(jobs => {
+      this.arAllJobs = jobs;
+      this.arAllJobs.forEach(job => {
+        if (job.IsArcheive != true) {
+          this.arNotArchivedJobs.push(job);
+        }
       });
-    }
-    ngOnDestroy(){
-      this.subscriptionJob.unsubscribe();
-    }
-  
+    });
+  }
+
+  ngOnDestroy() {
+    this.subscriptionJob.unsubscribe();
+  }
+
   onClickAdddForm($event: Job) {
-   // console.log($event);
+    // console.log($event);
     this.jobService.addNewJob($event);
     this.addFormBooli = false;
   }
-  archivedJob(archivedJob: Job) {  
-      this.arAllJobs.forEach(job => {
-        if (job.IsArcheive == false) {
-          archivedJob.IsArcheive= true
-        }
-      });
-      this.arAllJobs.push(archivedJob);
-      this.jobService.updeteJob(archivedJob)
+  archivedJob(archivedJob: Job) {
+    this.arAllJobs.forEach(job => {
+      if (job.IsArcheive == false) {
+        archivedJob.IsArcheive = true
+      }
+    });
+    this.arAllJobs.push(archivedJob);
+    this.jobService.updeteJob(archivedJob)
   }
 
   goToJobDetail(Job) {
     this.DataService.jobToEdit = Job;
-    this.DataService.MatchingJob=Job;
+    this.DataService.MatchingJob = Job;
     this.router.navigate(['./job-detail'])
   }
 }
