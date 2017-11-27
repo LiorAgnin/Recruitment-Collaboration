@@ -36,16 +36,16 @@ export class ApplicantComponent implements OnInit {
 
   ngOnInit() {
 
-    console.log("ApplicantComponent");
+    //console.log("ApplicantComponent");
 
       this.subscriptionApplicants = this.applicantService.getApplicants().subscribe(applicant => {
       this.arAllApplicants = applicant;
-      console.log(this.arAllApplicants);
+      //console.log(this.arAllApplicants);
     });
 
       this.subscriptionStatus = this.statusService.getApplicantStatus().subscribe(applicantStatus => {
       this.arStatus = applicantStatus;
-      console.log(this.arStatus);
+     // console.log(this.arStatus);
     });
 
     // this.arAllApplicants.forEach(applicant => {
