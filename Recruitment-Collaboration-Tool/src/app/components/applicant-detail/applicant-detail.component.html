@@ -1,47 +1,39 @@
 <div class="container">
-  <div class="card">
-    <div class="card-block">
-      <h4 class="card-title">Name : {{applicant.FirstName +" "+applicant.LastName}}</h4>
-      <i class="fa fa-pencil-square-o" (click)="goToEditApplicant(applicant)" *ngIf="toggleEditIcon" aria-hidden="true"></i>
-      <h6 class="card-subtitle mb-2 text-muted">Title : {{applicant.Position}}</h6>
-      <button type="button" class="btn btn-xs" (click)="lockToggle()">
-          <i title="{{manger}}" class="fa {{ applicant.IsActive ? 'fa-lock' : 'fa-unlock' }}" aria-hidden="true"></i>
-        </button>
-      <span class="emailIcon"><a class="mailto" href="mailto:{{applicant.Email}}"><i class="fa fa-envelope" title="Send mail to {{applicant.FirstName}}" aria-hidden="true"></i></a></span>
-    </div>
-  </div>
-  <br>
-  <div class="card">
-    <div class="card-block">
-      <div class="form-group">
-        <label for="IdSkills">Skills : </label>
-        <br>
-        <ul class="checkbox-inline" *ngFor="let skill of applicant.Skills">
-          <li>{{skill}}</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <br>
-  <div class="card">
-    <div class="card-block">
-      <h4 class="card-title">CV :</h4>
-      <div class="card-content">
 
-        <button class="fa fa-cloud-download" class="btn" (click)="downloadCV()" style="float:right">
-          Download CV
-        </button>
+  <div class="rightIcons">
+    <button class="btn btn-xs" *ngIf="toggleEditIcon">
+            <i class="fa fa-pencil-square-o Isize" title="Click to edit" (click)="goToEditApplicant(applicant)" aria-hidden="true"></i>
+            </button>
+    <button type="button" class="btn btn-xs" (click)="lockToggle()">
+              <i title="{{manger}}" class=" Isize fa {{ applicant.IsActive ? 'fa-lock' : 'fa-unlock' }}"  aria-hidden="true"></i>
+            </button>
+    <button class="btn btn-xs" (click)="downloadCV()">
+                <i class="fa fa-download Isize" aria-hidden="true" title="Download CV"></i>
+                </button>
+  </div>
 
-      </div>
+  <h2 class="name">{{applicant.FirstName +" "+ applicant.LastName}}</h2>
+  <hr>
+
+  <div class="allDetails">
+    <div class="details">
+      <i class="fa fa-briefcase detailsIcons" title="Position" aria-hidden="true"> {{applicant.Position}}</i>
+      <i class="fa fa-envelope detailsIcons" title="Email" aria-hidden="true"> {{applicant.Email}}</i>
+      <i class="fa fa-phone detailsIcons" title="Phone" aria-hidden="true"> {{applicant.PhoneNumber}}</i>
+    </div>
+    <div *ngFor="let skill of applicant.Skills" class="skills">
+      <button type="button" class="btn btn-primary">{{skill}} <span class="badge">
+          <i class="fa fa-check" aria-hidden="true"></i>
+        </span>
+      </button>
     </div>
   </div>
-</div>
-<br>
-<div class="card">
-  <div class="card-block">
-    <h4 class="card-title">Interview Summary :</h4>
+
+  <div class="card jumbotron">
+    <h2 class="card-title">Interview Summary</h2>
     <div class="card-content">
       Interview Summary
     </div>
   </div>
+
 </div>

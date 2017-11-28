@@ -20,8 +20,8 @@ export class JobDetailComponent implements OnInit {
   arSkillSetPicked: string[] = [];
   skil;
   toggleAfterUpdate: boolean = true;
-  notpermissionMessage: string;
   toggleEditIcon: boolean = false;
+  arSkils: any;
 
   constructor(public jobService: JobsServiceService,
     public DataService: DataServiceService,
@@ -36,7 +36,6 @@ export class JobDetailComponent implements OnInit {
 
   ngOnInit() {
   }
-
 
   goToEditJob() {
     if (this.authService.isUserAdmin()) {

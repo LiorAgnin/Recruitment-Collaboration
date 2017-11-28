@@ -1,40 +1,29 @@
 <div class="container">
-  <h2>Job details</h2>
-  <div>
-    <button class="fa fa-pencil-square-o editJob" title = "Click to edit this job" (click)="goToEditJob()" *ngIf="toggleEditIcon" aria-hidden="true"></button>
-    <span style="color:red">{{ notpermissionMessage }}</span>
+
+  <div class="rightIcons">
+    <button style="background-color:white" title="Click to edit this job" (click)="goToEditJob()" *ngIf="toggleEditIcon" aria-hidden="true">
+      <i class="fa fa-pencil-square-o Isize btn-xs"></i>
+    </button>
   </div>
 
-  <div class="card">
-    <p class="card-title">Position: {{ pickedJob.Postion }}</p>
-  </div>
-  <br>
-  <div class="card">
-    <p class="card-title">Recuter manager: {{ pickedJob.RecruitingManager }}</p>
-  </div>
-  <br>
-  <div class="card">
-    <p class="card-title">Minimum required years: {{ pickedJob.MinimumReqYears }}</p>
-  </div>
-  <br>
-  <div class="card">
-    <p class="card-block">Description:</p>
-    <p class="card-title"> {{ pickedJob.Description }}</p>
-  </div>
-  <br>
-  <div class="card">
-    <div class="card-block">
-      <div class="form-group">
-        <p>Skills: </p>
-        <br>
-        <ul class="checkbox-inline" *ngFor="let skill of pickedJob.Skills">
-          <li>{{skill}}</li>
-        </ul>
-      </div>
+  <h2 class="name">{{ pickedJob.Postion }}</h2>
+  <hr>
+
+  <div class="allDetails">
+    <div class="details">
+
+      <p>Recuter manager: {{ pickedJob.RecruitingManager }}</p>
+
+      <p>Minimum required years: {{ pickedJob.MinimumReqYears }}</p>
+
+      <p>Description: <br> {{ pickedJob.Description }} </p>
+
+    </div>
+    <div *ngFor="let skill of pickedJob.Skills" class="skills">
+      <button type="button" class="btn btn-primary">{{skill}} <span class="badge"><i class="fa fa-check" aria-hidden="true"></i></span></button>
     </div>
   </div>
-  <br>
-  <div>
-    <a [routerLink]="['/matching-applicants-to-job']">See which applicants are suitable for the job</a>
+  <div class="link" >
+    <a [routerLink]="['/app-matching-applicants-to-job']">Click to see applicants that suitable for this job</a>
   </div>
 </div>

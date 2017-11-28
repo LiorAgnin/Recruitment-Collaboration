@@ -64,7 +64,7 @@ export class AddNewApplicantComponent implements OnInit {
       Experience: this.newApplicant.Experience,
       City: this.newApplicant.City,
       Email: this.newApplicant.Email,
-      PhoneNumber: this.newApplicant.Phone,
+      PhoneNumber: this.newApplicant.PhoneNumber,
       Age: this.newApplicant.Age,
       Gender: this.newApplicant.Gender,
       CvId:this.applicantCvId,

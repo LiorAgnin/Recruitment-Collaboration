@@ -45,7 +45,7 @@ export class EditApplicantComponent implements OnInit {
       Experience: this.editApplicant.Experience,
       City: this.editApplicant.City,
       Email: this.editApplicant.Email,
-      PhoneNumber: this.editApplicant.Phone,
+      PhoneNumber: this.editApplicant.PhoneNumber,
       Age: this.editApplicant.Age,
       Gender: this.editApplicant.Gender,
       // CV:,

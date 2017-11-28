@@ -1,79 +1,73 @@
-<div class="row">
+<div *ngIf="auth.isAuthenticated()">
+  <div id="navbar-wrapper">
+    <header>
+      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 
-  <div class="side-menu">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+          </div>
 
-    <nav class="navbar navbar-default" role="navigation">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <div class="brand-wrapper">
-          <!-- Hamburger -->
-          <button type="button" class="navbar-toggle">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-          </button>
-
-          <div>
-            <img class="logo-Img img-responsive" [routerLink]="['/home']" src="../assets/at&t.jpg" alt="AT&T">
+          <div id="navbar-collapse" class="collapse navbar-collapse">
+            <form class="navbar-form navbar-left" role="search">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search">
+                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                </span>
+              </div>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a id="user-profile" class="dropdown-toggle" data-toggle="dropdown">  Hello {{auth.user}} </a>
+                <ul class="dropdown-menu dropdown-block" role="menu">
+                  <!-- <li *ngIf="!auth.isAuthenticated()" [routerLink]="['/login']"><a>Login</a></li> -->
+                  <li (click)="auth.logout()"><a>Logout</a></li>
+                </ul>
+              </li>
+            </ul>
           </div>
 
         </div>
-      </div>
-
-      <div class="side-menu-container">
-        <div class="nav navbar-nav">
-
-          <side-navbar></side-navbar>
-
-        </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
   </div>
-
-
-  <!-- Main Content -->
-  <div class="container-fluid navbar">
-    <div class="side-body">
-
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-left">
+  <div id="wrapper">
+    <div id="sidebar-wrapper">
+      <aside id="sidebar">
+        <ul id="sidemenu" class="sidebar-nav">
           <li>
-            <button class="navbar-brand button" title="Home" [routerLink]="['/home']">
-                    <i class="fa fa-home homeIcon" aria-hidden="true"></i>
-                  </button>
+            <a [routerLink]="['/home']">
+                            <span class="sidebar-icon"><i class="fa fa-home"></i></span>
+                            <span class="sidebar-title">Home</span>
+                        </a>
           </li>
           <li>
-            <button class="button" title="Jobs" *ngIf="auth.isAuthenticated()" [routerLink]="['/jobs']">
-                    <i class="fa fa-briefcase iconsH icons" tabindex="1" aria-hidden="true"></i>
-                  </button>
+            <a class="accordion-toggle collapsed toggle-switch" [routerLink]="['/applicant']">
+                              <span class="sidebar-icon"><i class="fa fa-user"></i></span>
+                              <span class="sidebar-title">Applicant</span>
+                          </a>
           </li>
           <li>
-            <button *ngIf="auth.isAuthenticated()" class="button" title="Applicants" [routerLink]="['/applicant']">
-                    <i class="fa fa-user iconsH icons" tabindex="1" aria-hidden="true"></i>
-                  </button>
-          </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <a *ngIf="auth.isAuthenticated()">Hello {{auth.user}}</a>
-          </li>
-          <li>
-            <button class="active button" title="login" *ngIf="!auth.isAuthenticated()" [routerLink]="['/login']">
-                    <i class="fa fa-sign-in icons" aria-hidden="true"></i>
-                  </button>
-          </li>
-          <li>
-            <button class="active button" title="Logout" *ngIf="auth.isAuthenticated()" (click)="auth.logout()">
-                    <i class="fa fa-sign-out icons" aria-hidden="true"></i>
-                  </button>
+            <a class="accordion-toggle collapsed toggle-switch" [routerLink]="['/jobs']">
+                            <span class="sidebar-icon"><i class="fa fa-briefcase"></i></span>
+                            <span class="sidebar-title">Jobs</span>
+                        </a>
           </li>
         </ul>
-      </div>
-      <hr>
-      <div class="container" style="height:715px">
-        <router-outlet></router-outlet>
-      </div>
+      </aside>
     </div>
+    <main id="page-content-wrapper" role="main">
+      <router-outlet></router-outlet>
+    </main>
   </div>
+</div>
+
+<div *ngIf="!auth.isAuthenticated()">
+  <app-login></app-login>
 </div>

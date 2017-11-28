@@ -1,12 +1,16 @@
 .container{ 
+  position: relative;
   width: 235px;
   display: inline-block;
-  padding: 2px 0 0 0;
+  padding: 3px 0 0 0;
   margin: 0 0 28px 29px;
   border: solid 1px black;
-  border-radius: 6px ;
+  border-radius: 0px ;
   background: #ffffff;
   text-align: center; 
+  -moz-box-shadow: 0 0 10px #ccc;
+  -webkit-box-shadow: 0 0 10px #ccc;
+  box-shadow: 0 0 10px #ccc;
 }
 div{
   display: inline-block;
@@ -18,9 +22,9 @@ div{
 }
 .container:hover
 {
-  -moz-box-shadow: 0 0 30px #ccc;
-  -webkit-box-shadow: 0 0 30px #ccc;
-  box-shadow: 0 0 30px #ccc;
+  -moz-box-shadow: 0 0 50px #ccc;
+  -webkit-box-shadow: 0 0 50px #ccc;
+  box-shadow: 0 0 50px #ccc;
 height: auto;
 -webkit-transition: .3s ease-in-out;
 transition: .3s ease-in-out;
@@ -101,4 +105,22 @@ float: right;
 
 .rightSide{
   float: right;
+}
+
+.paging{
+  position: absolute;
+  bottom: 3%;
+  right: 5%;
+}
+
+.btn1{
+  border-radius: 50%;
+  margin-right: 10%;
+}
+.cardBord{
+  border-style: none;
+}
+
+.internalCrd{
+  padding:3%
 }

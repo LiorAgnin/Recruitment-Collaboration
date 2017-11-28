@@ -1,8 +1,5 @@
-body{
-    background-color: #525252;
-}
 .centered-form{
-	margin-top: 2%;
+	margin-top: 7%;
 }
 
 .centered-form .panel{
@@ -14,3 +11,6 @@ body{
     margin: 3%;
 }
 
+.container{
+	width: 80%;
+}

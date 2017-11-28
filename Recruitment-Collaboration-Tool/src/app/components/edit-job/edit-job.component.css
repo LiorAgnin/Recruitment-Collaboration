@@ -52,5 +52,39 @@ input{
 .darktext{
     color: #2196f3;
 }
+button{
+    text-decoration: none;
+}
+
+.details li {
+    list-style: none;
+  }
+  li {
+      margin-bottom:10px;
+  }
+
+  .card-content{
+overflow: auto;
+/* width: 100%; */
+  }
+
+  .rightIcons{
+float: right;
+  }
+
+  .Isize{
+    font-size: 250%;
+  }
+
+  .container{
+    margin-top: 2%;
+    width: 100%;
+    margin-left: 15%;
+  }
+
+  .btn-block{
+      margin: 3%; 
+  }
+
 
 

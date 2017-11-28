@@ -1,27 +1,25 @@
-<div *ngIf="jobIsArchived">
+<div style="display:block">
 
-  <h1 *ngIf="!addFormBooli" class="jobstitel"><i>Jobs</i></h1>
-  <div class="rightSide">
-    <button type="button" *ngIf="authService.isUserAdmin()" (click)="addFormBooli = !addFormBooli" class="btn">
-      <i style="color:#009edb" class="glyphicon glyphicon-plus" *ngIf="!addFormBooli"></i>
-      {{addFormBooli ? 'Jobs' : 'Add Job'}}
-    </button>
-    <br>
-    <br>
+  <div *ngIf="jobIsArchived">
   </div>
-</div>
+  <div class="rightSide">
+    <button type="button" *ngIf="authService.isUserAdmin()" (click)="addFormBooli = !addFormBooli" class="btn1">
+      <i style="color:#009edb" title="Add job" class="glyphicon glyphicon-plus" *ngIf="!addFormBooli"></i>
+      {{addFormBooli ? 'Jobs' : ''}}
+    </button>
+  </div>
 
-<div *ngIf="addFormBooli">
-  <add-new-job (onClickAdd)="onClickAdddForm($event)"></add-new-job>
-</div>
+  <div *ngIf="addFormBooli">
+    <add-new-job (onClickAdd)="onClickAdddForm($event)"></add-new-job>
+  </div>
 
-<div *ngIf="!addFormBooli">
-  <div>
+  <div *ngIf="!addFormBooli">
     <div style="cursor:pointer" class="container" *ngFor="let Job of arNotArchivedJobs | paginate: { itemsPerPage: 6, currentPage: p }">
-      <div *ngIf="!Job.IsArcheive" class="JobCard">
+      <div *ngIf="!Job.IsArcheive" class="internalCrd">
         <div class="ApplicantbCard effect__hover" data-id="1">
           <div class="card__front">
-            <div class="card card-01" style="border-style: none;">
+            <div class="card card-01" class="cardBord">
+
               <div (click)="archivedJob(Job)">
                 <i class="fa fa-archive" aria-hidden="true"></i>
               </div>
@@ -37,27 +35,31 @@
         </div>
       </div>
     </div>
-    <pagination-controls class="rightSide" (pageChange)="p = $event" *ngIf="arNotArchivedJobs?.length > 0"></pagination-controls>
+    <pagination-controls class="rightSide paging" (pageChange)="p = $event" *ngIf="arNotArchivedJobs?.length > 0"></pagination-controls>
   </div>
-</div>
 
-<!-- archive -->
-<h1 *ngIf="!jobIsArchived" class="jobstitel"><i>Jobs that arvhived!</i></h1>
-<br>
-<div *ngIf="!jobIsArchived">
-  <div style="cursor:pointer" class="container" *ngFor="let Job of arArchivedJobs | paginate: { itemsPerPage: 6, currentPage: p }">
-    <div *ngIf="Job.IsArcheive == true" class="JobCard">
-      <div style="display: block;">
-        <div (click)="unArchivedJob(Job)">
-          <i class="fa fa-archive" title="Unarchive job" aria-hidden="true"></i>
+  <!-- archive -->
+  <h1 *ngIf="!jobIsArchived" class="jobstitel"><i>Jobs that archived!</i></h1>
+  <br>
+  <div *ngIf="!jobIsArchived">
+    <div style="cursor:pointer" class="container" *ngFor="let Job of arArchivedJobs | paginate: { itemsPerPage: 6, currentPage: p }">
+      <div *ngIf="Job.IsArcheive == true" class="internalCrd">
+        <div class="ApplicantbCard effect__hover" data-id="1">
+          <div class="card__front">
+            <div class="card card-01" class="cardBord">
+              <div (click)="unArchivedJob(Job)">
+                <i class="fa fa-archive" title="Unarchive job" aria-hidden="true"></i>
+              </div>
+              <div class="JobTitel">{{Job.Postion}}</div>
+              <p class="card-text"> {{Job.RecruitingManager}}</p>
+              <p class="card-text">{{Job.Description}}</p>
+              <p class="card-text">{{Job.Skills}}</p>
+              <a class="btn btn-primary text-uppercase" title="View job details" (click)="goToJobDetail(Job)">Explore</a>
+            </div>
+          </div>
         </div>
-        <div class="JobTitel">{{Job.Postion}}</div>
-        <p class="card-text"> {{Job.RecruitingManager}}</p>
-        <p class="card-text">{{Job.Description}}</p>
-        <p class="card-text">{{Job.Skills}}</p>
-        <a class="btn btn-primary text-uppercase" title="View job details" (click)="goToJobDetail(Job)">Explore</a>
       </div>
     </div>
   </div>
-  <pagination-controls class="rightSide" (pageChange)="p = $event" *ngIf="arNotArchivedJobs?.length > 0"></pagination-controls>
 </div>
+<pagination-controls class="rightSide paging" (pageChange)="p = $event" *ngIf="arNotArchivedJobs?.length > 0"></pagination-controls>

@@ -1,10 +1,12 @@
-<h1 *ngIf="!addFormToggle" class="applicanttitel"><i>Applicants</i></h1>
-<button *ngIf="authService.isUserAdmin()" (click)="addFormToggle = !addFormToggle" type="button" class="btn">
-    <i style="color:#009edb" class="glyphicon glyphicon-plus" *ngIf="!addFormToggle"></i>
-    {{addFormToggle ? 'Applicatns' : 'Add applicant'}}
+<div class="rightSide">
+    <button *ngIf="authService.isUserAdmin()" (click)="addFormToggle = !addFormToggle" type="button" class="btn1">
+    <i style="color:#009edb" title="Add applicant" class="glyphicon glyphicon-plus" *ngIf="!addFormToggle"></i>
+    {{addFormToggle ? 'Applicatns' : ''}}
     <a [routerLink]="['/add-applicant']"></a>
-
 </button>
+<br>
+<br>
+</div>
 <br>
 <add-new-applicant *ngIf="addFormToggle"></add-new-applicant>
 <div *ngIf="!addFormToggle">
@@ -29,5 +31,5 @@
             </div>
         </div>
     </div>
-    <pagination-controls class="rightSide" (pageChange)="p = $event" *ngIf="arAllApplicants?.length > 0"></pagination-controls>
+    <pagination-controls class="rightSide paging" (pageChange)="p = $event" *ngIf="arAllApplicants?.length > 0"></pagination-controls>
 </div>

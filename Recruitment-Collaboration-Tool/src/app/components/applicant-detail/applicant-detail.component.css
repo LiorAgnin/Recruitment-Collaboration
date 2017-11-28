@@ -1,29 +1,57 @@
-.container{
-    width: 80%;
-}
 
-.emailIcon{
-position: absolute;
-left: 445px;
-color: gold;
-}
-
-.mailHvr:hover{
-color: rgb(19, 208, 241);
-}
-a{
+button{
     text-decoration: none;
 }
 
- /* .details li {
-    list-style: none;
-    margin-left: 20%;
-  }
   li {
-      margin-bottom:10px;    
-      margin-left: 20%;
+      margin-bottom:10px;
+      list-style: none;
+  }
+
+  .card-content{
+overflow: auto;
+/* width: 100%; */
+  }
+
+  .rightIcons{
+float: right;
+  }
+
+  .Isize{
+    font-size: 250%;
   }
 
   .container{
-      width: 100%;
-    }  */
+    margin-top: 3%;
+    width: 70%;
+  }
+
+  .block-title{color: #48453d; margin-bottom:0px; font-size:18px; margin-top: 0px; font-weight:700; text-transform:uppercase;}
+  .item-content-block{padding:20px; border-top:2px solid #f6f6f2; background-color:#FFF; display:block;}
+  .tags a{background-color:#756f5d; padding:10px; color:#fff; display:inline-block; font-size:11px; text-transform:uppercase; line-height:11px; border-radius:2px; margin-bottom:5px; margin-right:2px; text-decoration:none;}
+  .tags a:hover{background-color:#a38018;}
+
+  .allDetails .skills {
+    float: left;
+    display: block;
+    margin: 2%;
+  }
+
+  .card{
+    width: 100%;
+    margin: 2%;
+  }
+
+  .name{
+    display: inline;
+  }
+
+  .card-title{
+    text-align:center;
+     margin-top: -5%;
+  }
+
+  .detailsIcons{
+    margin: 2%;
+    font-size: 150%;
+  }
