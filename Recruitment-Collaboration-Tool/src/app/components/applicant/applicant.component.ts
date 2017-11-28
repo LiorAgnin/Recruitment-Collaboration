@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, OnChanges } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter,OnDestroy,OnChanges } from '@angular/core';
 import { ApplicantService } from "../../services/applicant-service.service";
 import { Applicant } from "../../model/Applicant";
 import { DataServiceService } from "../../services/data-service.service";

@@ -1,3 +1,7 @@
+.iconsH[tabindex]:focus {
+  color:rgb(163, 153, 10);
+  outline: none;
+}
 .navbar{
   overflow: hidden;
 }

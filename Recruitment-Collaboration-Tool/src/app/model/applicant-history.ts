@@ -1,7 +1,7 @@
 export interface ApplicantHistory {
     Id?: number;
-    ApplicantId?: number;
-    MangerId?: number;
+    ApplicantId?: string;
+    MangerId?: string;
     ManagerReview?: string;
     ReviewDate?: string;
 }

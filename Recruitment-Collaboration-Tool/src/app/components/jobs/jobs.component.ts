@@ -30,10 +30,13 @@ export class JobsComponent implements OnInit {
     public DataService: DataServiceService,
     private router: Router,
     private route: ActivatedRoute,
-    private auth: AngularFireAuth,
-    private authService: AuthService) { }
+    private auth: AngularFireAuth, 
+    public authService: AuthService) { }
 
+
+ 
   ngOnInit() {
+    this.DataService.SearchBy="Applicant Postion";
     this.subscriptionJob = this.jobService.getJobs().subscribe(jobs => {
       this.arNotArchivedJobs = jobs.filter(job => { return job.IsArcheive != true; });
       this.arArchivedJobs = jobs.filter(job => { return job.IsArcheive != false; });;

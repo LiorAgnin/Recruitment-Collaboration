@@ -12,6 +12,8 @@ import { DataServiceService } from '../../services/data-service.service';
 })
 export class SideNavbarComponent implements OnInit {
   newArSkillSet: Skillset[] = [];
+ arSkillSetPicked: string[] = [];
+  // arSkillset: any;
 
   constructor(public SkillsetService: SkillsetServiceService,
     public dataService: DataServiceService) { }

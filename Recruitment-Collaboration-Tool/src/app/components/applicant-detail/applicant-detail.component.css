@@ -3,17 +3,17 @@
 }
 
 .emailIcon{
-position: absolute;
-left: 445px;
 color: gold;
+font-size:35px; 
 }
 
 .mailHvr:hover{
 color: rgb(19, 208, 241);
 }
-a{
+
+/* a{
     text-decoration: none;
-}
+} */
 
  /* .details li {
     list-style: none;

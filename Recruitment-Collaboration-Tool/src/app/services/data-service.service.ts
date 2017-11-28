@@ -3,6 +3,7 @@ import { Job } from "../model/job";
 import { Applicant } from "../model/applicant";
 import { Skillset } from "../model/skillset";
 import { skipWhile } from 'rxjs/operator/skipWhile';
+import { JobsServiceService } from './jobs-service.service';
 
 @Injectable()
 export class DataServiceService {
@@ -35,5 +36,6 @@ export class DataServiceService {
     { Id: 3, Name: "Eran Leiser",Email:"Eran_603@gmail.com" },//Password : Eran_603
     { Id: 4, Name: "Ronen Wolfson",Email:"Ronen_w83@gmail.com" },//Password : Ronen_w83
   ]
+ 
 
 }

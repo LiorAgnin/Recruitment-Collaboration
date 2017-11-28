@@ -35,7 +35,7 @@ export class FilterPipe implements PipeTransform {
             if (!ArrTypeApplicant) {
                 return Arr.filter(function (Input: any) { return Input.FirstName.toLowerCase().includes(term.toLowerCase()); })
             }
-            else { // //filter by applicant Postion
+            else { //filter by applicant Postion
                 return Arr.filter(function (Input: any) { return Input.Postion.toLowerCase().includes(term.toLowerCase()); })
             }
 

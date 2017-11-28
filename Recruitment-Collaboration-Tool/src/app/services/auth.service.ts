@@ -10,6 +10,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 @Injectable()
 export class AuthService {
   public user;
+  UserId:number; // RecuterManagers
   public error: string = "";
   userOb: Observable<firebase.User>;
   public UserLoggedIn: any = "";
