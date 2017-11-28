@@ -9,24 +9,15 @@
     <br>
     <br>
   </div>
-<<<<<<< HEAD
-  <br/>
-  <br/>
-  <br/>
-  <div *ngIf="!addFormBooli">
-    <div>
-      <div style="cursor:pointer" class="container" *ngFor="let Job of arNotArchivedJobs |  filter : DataService.SearchInput | filter : this.DataService.arSkillSetPicked| paginate: { itemsPerPage: 6, currentPage: p }">
-=======
 </div>
 
 <div *ngIf="addFormBooli">
   <add-new-job (onClickAdd)="onClickAdddForm($event)"></add-new-job>
 </div>
->>>>>>> 05ef6cd5ec3cc956c726b17bc97b66531456e2ee
 
 <div *ngIf="!addFormBooli">
   <div>
-    <div style="cursor:pointer" class="container" *ngFor="let Job of arNotArchivedJobs | paginate: { itemsPerPage: 6, currentPage: p }">
+    <div style="cursor:pointer" class="container" *ngFor="let Job of arNotArchivedJobs | filter : DataService.SearchInput | filter : this.DataService.arSkillSetPicked| paginate: { itemsPerPage: 6, currentPage: p }">
       <div *ngIf="!Job.IsArcheive" class="JobCard">
         <div class="ApplicantbCard effect__hover" data-id="1">
           <div class="card__front">

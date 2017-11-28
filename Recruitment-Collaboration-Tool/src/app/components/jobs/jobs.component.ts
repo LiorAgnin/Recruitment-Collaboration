@@ -5,12 +5,6 @@ import { DataServiceService } from "../../services/data-service.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { AuthService } from '../../services/auth.service';
 import { AngularFireAuth } from 'angularfire2/auth';
-<<<<<<< HEAD
-import { debug } from 'util';
-import{FilterPipe}from '../../filters-pipes/filter-jobs.pipe';
-
-=======
->>>>>>> 05ef6cd5ec3cc956c726b17bc97b66531456e2ee
 @Component({
   selector: 'jobs',
   templateUrl: './jobs.component.html',
@@ -36,25 +30,9 @@ export class JobsComponent implements OnInit {
     private auth: AngularFireAuth,
     private authService: AuthService) { }
 
-<<<<<<< HEAD
-    ngOnInit() {
-      this.DataService.SearchBy="Applicant Postion";
-     this.subscriptionJob= this.jobService.getJobs().subscribe(jobs => {
-        this.arAllJobs = jobs;
-        this.arAllJobs.forEach(job => {
-          if (job.IsArcheive != true) {
-            this.arNotArchivedJobs.push(job);
-          }
-        });
-      });
-    }
-    ngOnDestroy(){
-      this.subscriptionJob.unsubscribe();
-    }
-  
-=======
 
   ngOnInit() {
+    this.DataService.SearchBy="Applicant Postion";
     console.log("jobsComponent");
     this.subscriptionJob = this.jobService.getJobs().subscribe(jobs => {
       console.log("jobs", jobs);
@@ -71,7 +49,6 @@ export class JobsComponent implements OnInit {
     this.subscriptionJob.unsubscribe();
   }
 
->>>>>>> 05ef6cd5ec3cc956c726b17bc97b66531456e2ee
   onClickAdddForm($event: Job) {
     this.jobService.addNewJob($event);
     this.addFormBooli = false;

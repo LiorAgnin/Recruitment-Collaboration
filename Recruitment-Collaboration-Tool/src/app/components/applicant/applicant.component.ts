@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { Component, OnInit, Output, EventEmitter,OnChanges } from '@angular/core';
-=======
-import { Component, OnInit, Output, EventEmitter,OnDestroy } from '@angular/core';
->>>>>>> 05ef6cd5ec3cc956c726b17bc97b66531456e2ee
+import { Component, OnInit, Output, EventEmitter,OnDestroy,OnChanges } from '@angular/core';
 import { ApplicantService } from "../../services/applicant-service.service";
 import { Applicant } from "../../model/Applicant";
 import { DataServiceService } from "../../services/data-service.service";

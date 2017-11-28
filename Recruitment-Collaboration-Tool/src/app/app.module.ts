@@ -40,7 +40,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { ApplicantStatusService } from './services/applicant-status.service';
-
+import { ApplicantHistoryService } from './services/applicant-history.service';
 
 @NgModule({
   declarations: [
@@ -73,6 +73,7 @@ import { ApplicantStatusService } from './services/applicant-status.service';
     PdfViewerModule
   ],
   providers: [
+    ApplicantHistoryService,
     LoginServiceService,
     JobsServiceService,
     ApplicantService,
