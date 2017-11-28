@@ -89,7 +89,7 @@
       <div class="form-group">
         <div class="checkbox-inline" *ngFor="let skill of newArSkillSet; let i =index">
           <label>
-            <input type="checkbox" name="skill" [(ngModel)]="skill.selected" placeholder="skills" (change)="changeSkillSet(skill)"> {{skill.name}}
+            <input type="checkbox" name="skill" placeholder="skills" [checked]="skill.selected" (change)="changeSkillSet(skill)"> {{skill.name}}
           </label>
         </div>
       </div>

@@ -8,6 +8,7 @@ import { JobsServiceService } from "../../services/jobs-service.service";
 import { Skillset } from '../../model/skillset';
 import { FirebaseApp } from 'angularfire2';
 import { BrowserModule, DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-applicant',
@@ -31,30 +32,32 @@ export class EditApplicantComponent implements OnInit {
     public upSvc: UploadFileService,
     private firebaseApp: FirebaseApp,
     public jobService: JobsServiceService,
-    private domSanitizer: DomSanitizer
+    private domSanitizer: DomSanitizer,   private router: Router,
   ) { }
 
   ngOnInit() {
     this.editApplicant = this.dataService.applicantToEdit;
-    this.arSkillset = this.dataService.arSkillset;
-    this.arSkillset.forEach(element => {
-      const skil = { name: element, selected: false };
+    this.dataService.arSkillset.forEach(element => {
+      debugger;
+      let IsSelected:boolean;
+      IsSelected = this.editApplicant.Skills.includes(element);
+      const skil = { name: element, selected: IsSelected };
+      if(skil.selected){this.arSkillSetPicked.push(skil.name)}
       this.newArSkillSet.push(skil);
     });
-    console.log(this.editApplicant)
+  console.log(this.newArSkillSet)
 
     this.getCvOf = this.editApplicant.CvId;
     const storageRef = this.firebaseApp.storage().ref().child('/uploads/' + this.getCvOf);
     storageRef.getDownloadURL().then(url => { this.viewWordFile = url });
     this.pageurl = this.domSanitizer.bypassSecurityTrustResourceUrl(this.viewWordFile);
-    
+
   }
   downloadCV() {
     var url = this.viewWordFile;
     open(url);
   }
   editApplicantHandler(formEditApplicant) {
-    console.log(formEditApplicant)
     const editedApplicant = {
       Id:this.editApplicant.Id,
       FirstName: this.editApplicant.FirstName,
@@ -69,34 +72,36 @@ export class EditApplicantComponent implements OnInit {
       Position: this.editApplicant.Position,
       Skills: this.arSkillSetPicked,
     }
-    this.uploadSingle();
+    this.uploadSingle();//baggggggggg
     this.applicantService.updeteApplicants(editedApplicant);
-    console.log(editedApplicant);
+    this.router.navigate(['./applicant-detail']);
   }
 
   changeSkillSet(skill) {
+    debugger;
+    skill.selected=!skill.selected;
     if (skill.selected) {
       this.arSkillSetPicked.push(skill.name)
     }
     if (!skill.selected) {
       console.log(skill)
-      let aa = this.arSkillSetPicked.indexOf(skill.name);
+      let aa =   this.arSkillSetPicked.indexOf(skill.name);
       this.arSkillSetPicked.splice(aa, 1)
     }
-    console.log(this.arSkillSetPicked)
+    console.log(this.arSkillSetPicked);
   }
 
 
-    detectFiles(event) {
+  detectFiles(event) {
     this.selectedFiles = event.target.files;
-    if(this.selectedFiles!=undefined)
+    if(this.selectedFiles!=undefined) 
     {
       this.upSvc.deleteFileStorage(this.editApplicant.CvId.toString())
     }
   }
 
   uploadSingle() {
-   let file = this.selectedFiles.item(0);
+    let file = this.selectedFiles.item(0);
     this.currentUpload = new Upload(file);
     this.currentUpload.name = this.editApplicant.CvId.toString();
     this.upSvc.pushUpload(this.currentUpload);
