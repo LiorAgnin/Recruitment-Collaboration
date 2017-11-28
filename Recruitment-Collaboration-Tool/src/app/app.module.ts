@@ -43,8 +43,6 @@ import { ApplicantStatusService } from './services/applicant-status.service';
 import { MatchingJobsToApplicantComponent } from './components/matching-jobs-to-applicant/matching-jobs-to-applicant.component';
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,

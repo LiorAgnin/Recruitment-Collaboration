@@ -6,6 +6,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { AuthService } from '../../services/auth.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { debug } from 'util';
+import{FilterPipe}from '../../filters-pipes/filter-jobs.pipe';
 
 @Component({
   selector: 'jobs',
@@ -13,7 +14,7 @@ import { debug } from 'util';
   styleUrls: ['./jobs.component.css']
 })
 export class JobsComponent implements OnInit {
-
+  
   arAllJobs: Job[] = new Array();
   arNotArchivedJobs: Job[] = new Array();
   showAddJobFrom: boolean = false;
