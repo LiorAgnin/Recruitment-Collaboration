@@ -99,11 +99,13 @@
           <progress class="progress is-success" min=1 max=100 value="{{ currentUpload?.progress }}"></progress>
           Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete
         </div>
-        <label>
+        <!-- <label>
           <input type="file" class="button" (change)="detectFiles($event)">
-        </label>
+        </label> -->
+        <label for="uploadBtn" title="Upload new CV" class="uploadbtnlabel">Upload CV</label>
+        <input type="file" name="Upload" id="uploadBtn" (change)="detectFiles($event)">
       </div>
-      <button class="editbtn" *ngIf="!applicantCvIdIsdelete" title="Download or view CV" (click)="downloadCV()">View</button>
+      <!-- <button class="editbtn" *ngIf="!applicantCvIdIsdelete" title="Download or view CV" (click)="downloadCV()">View</button> -->
       <button type="submit" title="Please fill all required fields!" [disabled]="!formEditApplicant.valid" class="signbuttons btn btn-primary">Save</button>
 
     </form>
