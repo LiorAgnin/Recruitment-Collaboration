@@ -1,6 +1,6 @@
 <div *ngIf="jobIsArchived">
     <h1 *ngIf="!addFormBooli" class="jobstitel"><i>Jobs</i></h1>
-  <button type="button" *ngIf="authService.isUserAdmin()" (click)="addFormBooli = !addFormBooli" class="btn">
+  <button type="button"  (click)="addFormBooli = !addFormBooli" class="btn">
     <i style="color:#009edb" class="glyphicon glyphicon-plus" *ngIf="!addFormBooli"></i>
     {{addFormBooli ? 'Jobs' : 'Add Job'}}
   </button>
