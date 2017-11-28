@@ -44,6 +44,7 @@ export class AuthService {
   public logout() {
     this.auth.auth.signOut();
     this.IsUserAuthenticated = false;
+    this.user="";
     this.router.navigate(['/home']);
   }
 
@@ -52,7 +53,7 @@ export class AuthService {
   }
 
   public isUserAdmin(): boolean {
-    if (this.user == "weretawt5@gmail.com" || this.user == "batchen12498@gmail.com") {
+    if (this.user == "shani25@gmail.com" || this.user == "or_44@gmail.com") {
       return true;
     }
     else {

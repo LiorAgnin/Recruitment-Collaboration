@@ -41,6 +41,8 @@ import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { ApplicantStatusService } from './services/applicant-status.service';
 import { ApplicantHistoryService } from './services/applicant-history.service';
+import { MatchingJobsToApplicantComponent } from './components/matching-jobs-to-applicant/matching-jobs-to-applicant.component';
+
 
 @NgModule({
   declarations: [
@@ -57,7 +59,8 @@ import { ApplicantHistoryService } from './services/applicant-history.service';
     JobDetailComponent,
     EditJobComponent,
     MatchingApplicantsToJobComponent,
-    EditApplicantComponent
+    EditApplicantComponent,
+    MatchingJobsToApplicantComponent
   ],
   imports: [
     BrowserModule,

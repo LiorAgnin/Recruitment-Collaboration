@@ -46,11 +46,11 @@
       <div class="form-group">
         <div class="form-check form-check-inline">
           <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="female" value="Female" [(ngModel)]="editApplicant.Gender"> Female
-              </label>
+            <input class="form-check-input" type="radio" name="female" value="Female" [(ngModel)]="editApplicant.Gender"> Female
+          </label>
           <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="male" value="male" [(ngModel)]="editApplicant.Gender"> Male
-              </label>
+            <input class="form-check-input" type="radio" name="male" value="male" [(ngModel)]="editApplicant.Gender"> Male
+          </label>
         </div>
       </div>
 
@@ -78,10 +78,10 @@
       </div>
 
       <div class="form-group">
-        <input type="number" class="form-control" min="0" name="age" placeholder = "Your age" [(ngModel)]="editApplicant.Age" #trvAge="ngModel">
+        <input type="number" class="form-control" min="0" name="age" placeholder="Your age" [(ngModel)]="editApplicant.Age" #trvAge="ngModel">
         <div *ngIf="trvAge.errors && (trvAge.dirty || trvAge.touched)" class="errorMessage">
           <div [hidden]="!trvAge.errors.required">
-              Age is required
+            Age is required
           </div>
         </div>
       </div>
@@ -89,25 +89,24 @@
       <div class="form-group">
         <div class="checkbox-inline" *ngFor="let skill of newArSkillSet">
           <label>
-              <input type="checkbox" name="skill" [(ngModel)]="skill.selected" placeholder="skills" (change)="changeSkillSet(skill)"> {{skill.name}}
-            </label>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div class="form-group">
-          <div *ngIf="currentUpload">
-            <progress class="progress is-success" min=1 max=100 value="{{ currentUpload?.progress }}"></progress>
-            Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete
-          </div>
-          <label>
-            <input type="file" class="button" (change)="detectFiles($event)">
+            <input type="checkbox" name="skill" [(ngModel)]="skill.selected" placeholder="skills" (change)="changeSkillSet(skill)"> {{skill.name}}
           </label>
         </div>
       </div>
 
-      <button type="submit" title = "Please fill all required fields!" [disabled]="!formEditApplicant.valid" class="signbuttons btn btn-primary">Edit</button>
+      <div class="form-group">
+        <div *ngIf="currentUpload">
+          <progress class="progress is-success" min=1 max=100 value="{{ currentUpload?.progress }}"></progress>
+          Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete
+        </div>
+        <label>
+          <input type="file" class="button" (change)="detectFiles($event)">
+        </label>
+      </div>
+      <button class="editbtn" *ngIf="!applicantCvIdIsdelete" title="Download or view CV" (click)="downloadCV()">View</button>
+      <button type="submit" title="Please fill all required fields!" [disabled]="!formEditApplicant.valid" class="signbuttons btn btn-primary">Save</button>
 
     </form>
   </div>
 </div>
+

@@ -8,6 +8,7 @@ import { Applicant } from "../model/Applicant";
 export class FilterPipe implements PipeTransform {
 
     transform(Arr: any[], term: any): any {
+        
         let SkillExsist: boolean;
         let ArrJobs: any[] = [];
 
@@ -25,11 +26,11 @@ export class FilterPipe implements PipeTransform {
                 }
                 if (SkillExsist) { ArrJobs.push(Job) }
             });
-         
+            
             return ArrJobs;
         }
         else if (typeof term === "string") {
-          //filter by job name
+             //filter by job name
             let ArrTypeApplicant: boolean = Arr[0].FirstName === undefined;
             if (!ArrTypeApplicant) {
                 return Arr.filter(function (Input: any) { return Input.FirstName.toLowerCase().includes(term.toLowerCase()); })
