@@ -30,8 +30,8 @@ export class JobsComponent implements OnInit {
     public DataService: DataServiceService,
     private router: Router,
     private route: ActivatedRoute,
-    private auth: AngularFireAuth,
-    private authService: AuthService) { }
+    private auth: AngularFireAuth, 
+    public authService: AuthService) { }
 
 
  

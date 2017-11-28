@@ -65,20 +65,22 @@ export class ApplicantComponent implements OnChanges {
     this.subscriptionStatus.unsubscribe();
   }
   goToApplicantDetail(applicant: Applicant) {
-    this.dataService.applicantToEdit = applicant;
-    this.router.navigate(['./applicant-detail']);
-
+    if (!applicant.IsActive) {
+      this.dataService.jobToEdit = applicant;
+      this.router.navigate(['./applicant-detail']);
+    } else if (this.lock(applicant)) {
+      this.dataService.jobToEdit = applicant;
+      this.router.navigate(['./applicant-detail']);
+    }
   }
-
   lock(applicant) {
     let isLockedByMe: boolean = false;
     let currentManagerId = this.auth.auth.currentUser.uid;
     this.arStatus.forEach(appli => {
       if ((appli.ApplicantId == applicant.Id) && (appli.MangerId == currentManagerId)) {
-        isLockedByMe = true;
+       return isLockedByMe = true;
       }
     })
-    console.log(isLockedByMe)
     return isLockedByMe;
   }
 }
