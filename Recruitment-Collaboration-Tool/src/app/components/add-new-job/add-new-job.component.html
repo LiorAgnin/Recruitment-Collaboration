@@ -17,7 +17,7 @@
       <div class="form-group">
         <select class="form-control" id="idRecuterManager" name="recruitingManager" aria-placeholder="Recuter Manager" [(ngModel)]="RecruitingManager"
           #trvRecruitingManager="ngModel" required>
-            <option *ngFor="let recutManager of dataServiceService.RecuterManagers" [value]="recutManager.Name">{{ recutManager.Name }}</option>
+            <option *ngFor="let recutManager of dataService.RecuterManagers" [value]="recutManager.Name">{{ recutManager.Name }}</option>
           </select>
         <div *ngIf="trvRecruitingManager.errors && (trvRecruitingManager.dirty || trvRecruitingManager.touched)" class="errorMessage">
           <div [hidden]="!trvRecruitingManager.errors.required">

@@ -41,7 +41,7 @@ export class ApplicantService {
   }
 
   updeteApplicants(updeteApplicant: Applicant) {
-  //  this.applicantDocm = this.fs.doc(`Applicants/${updeteApplicant.Id}`);
+   this.applicantDocm = this.fs.doc(`Applicants/${updeteApplicant.Id}`);
     this.applicantDocm.update(updeteApplicant);
   }
 

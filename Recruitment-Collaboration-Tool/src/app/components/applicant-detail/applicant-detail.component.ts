@@ -48,6 +48,7 @@ export class ApplicantDetailComponent implements OnInit {
     public applicantService: ApplicantService,
     public statusService: ApplicantStatusService,
     private authService: AuthService) {
+      debugger
     this.applicant = DataService.applicantToEdit;
     this.getCvOf = this.applicant.CvId.toString();
     const storageRef = firebaseApp.storage().ref().child('/uploads/' + this.getCvOf);
@@ -68,7 +69,7 @@ export class ApplicantDetailComponent implements OnInit {
     if (!this.applicant.IsActive) {
       this.applicant.IsActive = !this.applicant.IsActive;
       this.applicantService.updeteApplicants(this.applicant);
-      this.manger = 'weretawt5@gmail.com';
+      this.manger = 'shani25@gmail.com';
       let newApplicantStatus: ApplicantStatus = { ApplicantId: this.applicant.Id, MangerId: this.auth.auth.currentUser.uid };
       this.statusService.lockApplicant(newApplicantStatus);
     }

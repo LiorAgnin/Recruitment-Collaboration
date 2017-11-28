@@ -39,13 +39,9 @@ export class ApplicantComponent implements OnChanges {
   }
   ngOnInit() {
 
-    //console.log("ApplicantComponent");
-
     this.subscriptionApplicants = this.applicantService.getApplicants().subscribe(applicant => {
       this.arAllApplicants = applicant;
-      //console.log(this.arAllApplicants);
       this.dataService.SearchBy = "Applicant Name";
-      console.log("ApplicantComponent");
     });
 
     this.subscriptionStatus = this.statusService.getApplicantStatus().subscribe(applicantStatus => {
@@ -59,26 +55,28 @@ export class ApplicantComponent implements OnChanges {
 
   }
 
-
   ngOnDestroy() {
     this.subscriptionApplicants.unsubscribe();
     this.subscriptionStatus.unsubscribe();
   }
   goToApplicantDetail(applicant: Applicant) {
-    this.dataService.applicantToEdit = applicant;
-    this.router.navigate(['./applicant-detail']);
-
+    if (!applicant.IsActive) {
+      this.dataService.applicantToEdit = applicant;
+      this.router.navigate(['./applicant-detail']);
+    } else if (this.lock(applicant)) {
+      this.dataService.applicantToEdit = applicant;
+      this.router.navigate(['./applicant-detail']);
+    }
   }
-
   lock(applicant) {
     let isLockedByMe: boolean = false;
     let currentManagerId = this.auth.auth.currentUser.uid;
     this.arStatus.forEach(appli => {
+      debugger
       if ((appli.ApplicantId == applicant.Id) && (appli.MangerId == currentManagerId)) {
-        isLockedByMe = true;
+       return isLockedByMe = true;
       }
     })
-    console.log(isLockedByMe)
     return isLockedByMe;
   }
 }

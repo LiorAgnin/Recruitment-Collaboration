@@ -36,7 +36,6 @@ export class EditApplicantComponent implements OnInit {
 
   ngOnInit() {
     this.editApplicant = this.dataService.applicantToEdit;
-
     this.arSkillset = this.dataService.arSkillset;
     this.arSkillset.forEach(element => {
       const skil = { name: element, selected: false };

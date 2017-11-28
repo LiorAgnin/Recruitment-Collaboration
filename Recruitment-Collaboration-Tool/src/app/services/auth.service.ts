@@ -52,7 +52,7 @@ export class AuthService {
   }
 
   public isUserAdmin(): boolean {
-    if (this.user == "weretawt5@gmail.com" || this.user == "batchen12498@gmail.com") {
+    if (this.user == "shani25@gmail.com" || this.user == "mor_10@gmail.com") {
       return true;
     }
     else {
