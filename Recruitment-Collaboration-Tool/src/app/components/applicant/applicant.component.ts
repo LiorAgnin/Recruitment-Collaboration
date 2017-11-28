@@ -66,10 +66,10 @@ export class ApplicantComponent implements OnChanges {
   }
   goToApplicantDetail(applicant: Applicant) {
     if (!applicant.IsActive) {
-      this.dataService.jobToEdit = applicant;
+      this.dataService.applicantToEdit = applicant;
       this.router.navigate(['./applicant-detail']);
     } else if (this.lock(applicant)) {
-      this.dataService.jobToEdit = applicant;
+      this.dataService.applicantToEdit = applicant;
       this.router.navigate(['./applicant-detail']);
     }
   }

@@ -4,7 +4,8 @@
 
 .emailIcon{
 color: gold;
-font-size:35px; 
+font-size:32px; 
+float: right;
 }
 
 .mailHvr:hover{
