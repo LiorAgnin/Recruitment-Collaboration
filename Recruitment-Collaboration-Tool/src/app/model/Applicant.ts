@@ -5,7 +5,7 @@ export interface Applicant {
     Experience?: number;
     City?: string;
     Email?: string;
-    Phone?: string;
+    PhoneNumber?: string;
     Age?: number;
     Gender?: string;
     CvId?: number;

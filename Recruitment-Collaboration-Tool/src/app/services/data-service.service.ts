@@ -14,9 +14,7 @@ export class DataServiceService {
   constructor() {
   }
 
-
   public arSkillset = ["HTML5", "CSS3", "JavaScript", "Python", "Java", ".NET", "C#", "Angular2", "JQuery", "Json"]
-
 
   public HR = [
     { Id: 1, Name: "Shani" },
