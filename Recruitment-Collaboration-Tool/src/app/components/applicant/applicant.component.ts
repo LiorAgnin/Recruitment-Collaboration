@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter,OnChanges } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, OnChanges } from '@angular/core';
 import { ApplicantService } from "../../services/applicant-service.service";
 import { Applicant } from "../../model/Applicant";
 import { DataServiceService } from "../../services/data-service.service";
@@ -17,7 +17,7 @@ import { FilterPipe } from '../../filters-pipes//filter-jobs.pipe';
   providers: [AngularFireAuth]
 })
 export class ApplicantComponent implements OnChanges {
-  SearchInput:string;
+  SearchInput: string;
   arAllApplicants: Applicant[] = new Array();
   arApplicantStatus: Applicant[] = new Array();
   arUnlockApplicants: Applicant[] = new Array();
@@ -25,57 +25,62 @@ export class ApplicantComponent implements OnChanges {
   LockUnlock: boolean = false;
   addFormToggle: boolean = false;
   arStatus: ApplicantStatus[] = [];
-  subscriptionApplicants:any;
-  subscriptionStatus:any;
-  
+  subscriptionApplicants: any;
+  subscriptionStatus: any;
+
   constructor(public applicantService: ApplicantService,
     public dataService: DataServiceService,
     private auth: AngularFireAuth,
     private router: Router,
     public authService: AuthService,
     public statusService: ApplicantStatusService) { }
-ngOnChanges()
-{
-  console.log(this.dataService.arSkillSetPicked);
-}
+  ngOnChanges() {
+    console.log(this.dataService.arSkillSetPicked);
+  }
   ngOnInit() {
-    this.dataService.SearchBy="Applicant Name";
-    console.log("ApplicantComponent");
 
-      this.subscriptionApplicants = this.applicantService.getApplicants().subscribe(applicant => {
+    //console.log("ApplicantComponent");
+
+    this.subscriptionApplicants = this.applicantService.getApplicants().subscribe(applicant => {
       this.arAllApplicants = applicant;
-      console.log("arAllApplicants");
-      console.log(this.arAllApplicants);
+      //console.log(this.arAllApplicants);
+      this.dataService.SearchBy = "Applicant Name";
+      console.log("ApplicantComponent");
     });
 
-      this.subscriptionStatus = this.statusService.getApplicantStatus().subscribe(applicantStatus => {
+    this.subscriptionStatus = this.statusService.getApplicantStatus().subscribe(applicantStatus => {
       this.arStatus = applicantStatus;
-      console.log(this.arStatus);
     });
 
     // this.arAllApplicants.forEach(applicant => {
     //   this.arApplicantStatus.forEach(applicantStatus => {
     //   });
     // });
+
   }
-  ngOnDestroy(){
+
+
+  ngOnDestroy() {
     this.subscriptionApplicants.unsubscribe();
     this.subscriptionStatus.unsubscribe();
   }
   goToApplicantDetail(applicant: Applicant) {
-    this.dataService.applicantToEdit = applicant;
-    this.router.navigate(['./applicant-detail']);
-   
+    if (!applicant.IsActive) {
+      this.dataService.jobToEdit = applicant;
+      this.router.navigate(['./applicant-detail']);
+    } else if (this.lock(applicant)) {
+      this.dataService.jobToEdit = applicant;
+      this.router.navigate(['./applicant-detail']);
+    }
   }
   lock(applicant) {
     let isLockedByMe: boolean = false;
     let currentManagerId = this.auth.auth.currentUser.uid;
     this.arStatus.forEach(appli => {
       if ((appli.ApplicantId == applicant.Id) && (appli.MangerId == currentManagerId)) {
-        isLockedByMe = true;
+       return isLockedByMe = true;
       }
     })
-    console.log(isLockedByMe)
     return isLockedByMe;
   }
 }

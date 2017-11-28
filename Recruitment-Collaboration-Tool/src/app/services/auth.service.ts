@@ -43,6 +43,7 @@ export class AuthService {
   public logout() {
     this.auth.auth.signOut();
     this.IsUserAuthenticated = false;
+    this.user="";
     this.router.navigate(['/home']);
   }
 
