@@ -39,13 +39,9 @@ export class ApplicantComponent implements OnChanges {
   }
   ngOnInit() {
 
-    //console.log("ApplicantComponent");
-
     this.subscriptionApplicants = this.applicantService.getApplicants().subscribe(applicant => {
       this.arAllApplicants = applicant;
-      //console.log(this.arAllApplicants);
       this.dataService.SearchBy = "Applicant Name";
-      console.log("ApplicantComponent");
     });
 
     this.subscriptionStatus = this.statusService.getApplicantStatus().subscribe(applicantStatus => {
@@ -58,7 +54,6 @@ export class ApplicantComponent implements OnChanges {
     // });
 
   }
-
 
   ngOnDestroy() {
     this.subscriptionApplicants.unsubscribe();
@@ -77,6 +72,7 @@ export class ApplicantComponent implements OnChanges {
     let isLockedByMe: boolean = false;
     let currentManagerId = this.auth.auth.currentUser.uid;
     this.arStatus.forEach(appli => {
+      debugger
       if ((appli.ApplicantId == applicant.Id) && (appli.MangerId == currentManagerId)) {
        return isLockedByMe = true;
       }

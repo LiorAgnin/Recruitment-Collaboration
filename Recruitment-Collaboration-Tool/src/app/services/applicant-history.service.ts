@@ -27,7 +27,6 @@ export class ApplicantHistoryService {
   }
 
   addNewApplicantHistory(newApplicant: ApplicantHistory) {
-    debugger;
     this.applicanCollection.add(newApplicant);
   }
 

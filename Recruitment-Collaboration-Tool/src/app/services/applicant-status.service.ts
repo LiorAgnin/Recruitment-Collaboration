@@ -28,7 +28,7 @@ export class ApplicantStatusService {
 
   updeteApplicantsStatus(applicantStatusUpdate: ApplicantStatus) {
     this.applicantDocm = this.fs.doc(`ApplicantStatus/${applicantStatusUpdate.Id}`);
-    this.applicantDocm.update(applicantStatusUpdate);
+   // this.applicantDocm.update(applicantStatusUpdate);
   }
   getApplicantStatus() {
     return this.applicantsStatus;

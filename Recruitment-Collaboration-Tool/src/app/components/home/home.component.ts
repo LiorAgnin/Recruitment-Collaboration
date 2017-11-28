@@ -15,7 +15,6 @@ import { StringIterator } from 'lodash';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  //  providers: [AngularFireAuth]
 })
 export class HomeComponent implements OnInit {
   ArrLockApplicantId: any[] = [];
@@ -38,7 +37,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    debugger;
    this.subscribtionApplicantStatus =this.ApplicantStatus.getApplicantStatus().subscribe(res => {
       res.forEach(Status => {
         if (Status.MangerId == this.FireAuth.auth.currentUser.uid) {
@@ -62,19 +60,16 @@ export class HomeComponent implements OnInit {
     this.subscribtionArrLockAplicant.unsubscribe();
   }
   goToInterviewSummary(applicant: Applicant) {
-
     this.Applicant = applicant;
     this.FormInterviewSummary = false;
   }
   AddInterviewSummary() {
     debugger;
     let date = new Date().toISOString().slice(0,10);
-    console.log(date);
     this.ApplicantHistory={ApplicantId:this.Applicant.Id,
       MangerId:this.FireAuth.auth.currentUser.uid,
       ReviewDate : date,ManagerReview:this.InterviewSummary}
     this.ApplicantsHistory.addNewApplicantHistory(this.ApplicantHistory);
-    console.log("UpDate");
     this.FormInterviewSummary = true;
   }
 }
