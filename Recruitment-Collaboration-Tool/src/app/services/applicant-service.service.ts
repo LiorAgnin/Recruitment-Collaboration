@@ -38,13 +38,11 @@ export class ApplicantService {
 
   addNewApplicant(newApplicant: Applicant) {
     this.applicanCollection.add(newApplicant);
-   window.alert("addNewApplicantService");
-    // this.DataService.UpdatingRecruiterRelevantApplicant(newApplicant);
   }
 
-  updeteApplicants(updeteJob: Applicant) {
-    this.applicantDocm = this.fs.doc(`Applicants/${updeteJob.Id}`);
-    this.applicantDocm.update(updeteJob);
+  updeteApplicants(updeteApplicant: Applicant) {
+   this.applicantDocm = this.fs.doc(`Applicants/${updeteApplicant.Id}`);
+    this.applicantDocm.update(updeteApplicant);
   }
 
   getApplicantsStatus() {

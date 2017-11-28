@@ -1,5 +1,5 @@
 export interface ApplicantStatus {
     Id?: string;
-    ApplicantId?: number;
+    ApplicantId?: string;
     MangerId?: string;
 }

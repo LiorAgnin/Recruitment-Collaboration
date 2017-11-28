@@ -1,5 +1,5 @@
 export interface Applicant {
-    Id?: number;
+    Id?: string;
     FirstName?: string;
     LastName?: string;
     Experience?: number;

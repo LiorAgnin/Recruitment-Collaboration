@@ -11,16 +11,14 @@ import { DataServiceService } from '../../services/data-service.service';
   encapsulation: ViewEncapsulation.None
 })
 export class SideNavbarComponent implements OnInit {
-  arSkillSetPicked: string[] = [];
-  arSkillset: any;
   newArSkillSet: Skillset[] = [];
+ arSkillSetPicked: string[] = [];
 
   constructor(public SkillsetService: SkillsetServiceService,
     public dataService: DataServiceService) { }
 
   ngOnInit() {
-    this.arSkillset = this.dataService.arSkillset;
-    this.arSkillset.forEach(element => {
+    this.dataService.arSkillset.forEach(element => {
       const skil = { name: element, selected: false };
       this.newArSkillSet.push(skil);
     });
@@ -29,13 +27,14 @@ export class SideNavbarComponent implements OnInit {
 
   skillSetArray(skill) {
     if (skill.selected) {
-      this.arSkillSetPicked.push(skill.name)
+      this.dataService.arSkillSetPicked.push(skill.name)
     }
     if (!skill.selected) {
-      console.log(skill)
-      let aa = this.arSkillSetPicked.indexOf(skill.name);
-      this.arSkillSetPicked.splice(aa, 1)
+      //   console.log(skill)
+      let aa = this.dataService.arSkillSetPicked.indexOf(skill.name);
+      this.dataService.arSkillSetPicked.splice(aa, 1)
     }
-    console.log(this.arSkillSetPicked)
+    console.log(this.dataService.arSkillSetPicked)
+
   }
 }

@@ -1,7 +1,23 @@
 
 button{
-    text-decoration: none;
+  }
+.container{
+    width: 80%;
 }
+
+.emailIcon{
+color: gold;
+font-size:32px; 
+float: right;
+}
+
+.mailHvr:hover{
+color: rgb(19, 208, 241);
+}
+
+/* a{
+    text-decoration: none;
+} */
 
   li {
       margin-bottom:10px;

@@ -15,20 +15,20 @@
 
           <div id="navbar-collapse" class="collapse navbar-collapse">
             <form class="navbar-form navbar-left" role="search">
+
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search">
+                <input type="text" style="margin-left:-3%" name="Search" title="Search By {{DataService.SearchBy}}" [(ngModel)]="DataService.SearchInput" class="form-control"
+                  placeholder="Search">
                 <span class="input-group-btn">
                                     <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
                 </span>
               </div>
             </form>
+
             <ul class="nav navbar-nav navbar-right">
-              <li class="dropdown">
-                <a id="user-profile" class="dropdown-toggle" data-toggle="dropdown">  Hello {{auth.user}} </a>
-                <ul class="dropdown-menu dropdown-block" role="menu">
-                  <!-- <li *ngIf="!auth.isAuthenticated()" [routerLink]="['/login']"><a>Login</a></li> -->
-                  <li (click)="auth.logout()"><a>Logout</a></li>
-                </ul>
+              <li>
+                <a>  Hello {{auth.user}} </a>
+                <!-- <a  (click)="auth.logout()">Logout</a> -->
               </li>
             </ul>
           </div>
@@ -59,6 +59,7 @@
                             <span class="sidebar-title">Jobs</span>
                         </a>
           </li>
+          <side-navbar style="margin-right: 3%"></side-navbar>
         </ul>
       </aside>
     </div>
