@@ -23,7 +23,7 @@
                 <i class="fa fa-info-circle" title="View job details" aria-hidden="true"></i>
               </div>
             </div>
-           <div (click)="archivedJob(Job)">
+           <div *ngIf="authService.isUserAdmin()" (click)="archivedJob(Job)">
               <i class="fa fa-archive" aria-hidden="true"></i>
             </div>
             <div class="JobTitel">{{Job.Postion}}</div>
@@ -59,7 +59,7 @@
               <i class="fa fa-info-circle" title="View job details" aria-hidden="true"></i>
             </div>
           </div>
-         <div (click)="unArchivedJob(Job)">
+         <div *ngIf="authService.isUserAdmin()" (click)="unArchivedJob(Job)">
             <i class="fa fa-archive" title="Unarchive job" aria-hidden="true"></i>
           </div>
           <div class="JobTitel">{{Job.Postion}}</div>
