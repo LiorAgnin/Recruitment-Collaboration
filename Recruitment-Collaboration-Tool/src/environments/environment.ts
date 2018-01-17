@@ -6,11 +6,11 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyCd29YeaTCi9rB54ltcAHrDYuI1xvxp4o8",
-    authDomain: "recruitment-collaboration.firebaseapp.com",
-    databaseURL: "https://recruitment-collaboration.firebaseio.com",
-    projectId: "recruitment-collaboration",
-    storageBucket: "recruitment-collaboration.appspot.com",
-    messagingSenderId: "292230634028"
+    apiKey: <*********************>,
+    authDomain: <*********************>,
+    databaseURL: <*********************>,
+    projectId: <*********************>,
+    storageBucket: <*********************>,
+    messagingSenderId: <*********************>
   }
 };
